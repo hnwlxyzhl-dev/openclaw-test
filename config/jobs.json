@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "45566dd9-d934-4b4d-a0e8-3e00fcedfc46",
+      "name": "每日跌停股票分析",
+      "enabled": true,
+      "createdAtMs": 1773724552141,
+      "updatedAtMs": 1774673823032,
+      "schedule": {
+        "kind": "cron",
+        "expr": "55 12 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "你是专业金融分析师。任务：(1) 使用 tushare 或搜索获取今日A股跌停股票列表 (2) 对【每只】跌停股必须搜索相关新闻、公告、研报，不能只看股价数据推断原因 (3) 分析跌停原因并分类：⚠️【A.意外事件】需重点识别！包括：突发事故、法律纠纷、监管处罚、商业欺诈、黑天鹅事件等，这类股票要单独列出并详细说明 (B)基本面变差：业绩下滑、亏损、债务问题 (C)股价回调：前期涨幅过大 (D)其他原因 (4) 输出格式：【今日跌停股】按A/B/C/D分类列出，意外事件类要放在最前面并标注⚠️ (5) 诚实标注信息不确定的部分 (6) 控制在500字内，用emoji"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "qqbot",
+        "to": "C54621F2F354F9C150382E3BE9618C6E"
+      },
+      "state": {
+        "nextRunAtMs": 1774760100000,
+        "lastRunAtMs": 1774673700007,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 123025,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "458244b1-cdc2-49e2-9164-423694c18dca",
+      "name": "赞宇科技跌停监控",
+      "enabled": true,
+      "createdAtMs": 1773811341903,
+      "updatedAtMs": 1774593058037,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 9,10,11,13,14 * * 1-5"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "你是专业金融分析师。任务：监控002637赞宇科技的跌停状态。\n\n【重要】必须使用以下代码获取实时数据：\n```python\nimport tushare as ts\ndf = ts.get_realtime_quotes(\"002637\")\nprice = float(df[\"price\"].values[0])\npre_close = float(df[\"pre_close\"].values[0])\npct_chg = (price - pre_close) / pre_close * 100\n```\n\n执行逻辑：\n1. 用上述代码获取实时涨跌幅\n2. 如果 pct_chg > -9.5%（即跌停已打开）：立即发消息\"⚠️ 赞宇科技跌停已打开！当前涨跌幅XX%，请关注！\"然后回复\"DONE_DELETE_JOB\"\n3. 如果 pct_chg 接近-10%（仍跌停）：不发送消息，保持静默\n4. 检查今天日期，如果超过2026-03-23，回复\"DONE_DELETE_JOB\"停止监控\n\n注意：只用 ts.get_realtime_quotes，不用 pro.daily（那是盘后数据）"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "qqbot",
+        "to": "C54621F2F354F9C150382E3BE9618C6E"
+      },
+      "state": {
+        "nextRunAtMs": 1774834200000,
+        "lastRunAtMs": 1774593000006,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 58031,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 1,
+        "lastError": "⚠️ ✉️ Message failed"
+      }
+    },
+    {
+      "id": "76fa1c31-f5f0-4ad4-90d2-83de6eecec6d",
+      "name": "股票新闻公告监控",
+      "enabled": true,
+      "createdAtMs": 1773841500000,
+      "updatedAtMs": 1774616824873,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 21 * * 1-5",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "你是专业金融分析师。任务：检索股票监控列表的重要新闻和公告。\n\n【步骤1】读取股票列表：\n```bash\ncat /home/admin/.openclaw/workspace/data/stock_watchlist.json\n```\n\n【步骤2】对每只股票：\n1. 获取公告：python3.11 /home/admin/.openclaw/workspace/scripts/finance_data.py announcement {代码}\n2. 搜索新闻：使用 searxng 或 web_search 搜索\"{股票名} 最新新闻\"\n\n【步骤3】筛选：只关注今天或昨天的新公告/新闻\n\n【⚠️ 步骤4 - 重要新闻过滤】\n只发送会影响股价的重要新闻，过滤掉以下类型：\n- ❌ 常规经营动态（门店开业、日常活动）\n- ❌ 媒体报道、评论文章\n- ❌ 股价涨跌报道（除非有特殊原因）\n- ❌ 行业普通资讯（除非直接影响公司）\n\n只保留以下类型：\n- ✅ 重大公告（业绩预告、重大合同、并购重组、股权变动）\n- ✅ 监管相关（处罚、问询、调查）\n- ✅ 重大事件（事故、诉讼、破产、高管变动）\n- ✅ 重大政策影响\n- ✅ 行业重大变化（直接影响公司业绩）\n\n【步骤5】输出格式：\n📊 股票新闻监控报告\n\n【新公告】\n- {股票名}({代码}) [{日期}]: {公告标题} - 简要总结（1-2句话）\n\n【重要新闻】（仅影响股价的）\n- {股票名}: {新闻标题} - 简要总结 + 对股价的影响判断\n\n【无重要消息】\n- 如果所有股票都没有重要新闻/公告，回复：\"今日无重要消息\"\n\n注意：(1) 严格过滤新闻，不重要的一律不发 (2) 诚实标注数据来源 (3) 控制在500字内"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "qqbot",
+        "to": "C54621F2F354F9C150382E3BE9618C6E"
+      },
+      "state": {
+        "nextRunAtMs": 1774875600000,
+        "lastRunAtMs": 1774616400007,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 424866,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "f2d586a2-6864-4030-9d75-3fbdda17429f",
+      "name": "全球资产低位检索-晚间",
+      "enabled": true,
+      "createdAtMs": 1773937704468,
+      "updatedAtMs": 1774619775464,
+      "schedule": {
+        "kind": "cron",
+        "expr": "55 21 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "你是专业金融分析师。任务：爬取全球资产数据，计算近3年历史分位，识别低位资产。\n\n【核心方法 - 执行以下Python代码】\n\n```python3\nimport requests, json, re, os, random\nfrom datetime import datetime, timedelta\nimport matplotlib\nmatplotlib.use('Agg')\nimport matplotlib.pyplot as plt\n\nplt.rcParams['font.sans-serif'] = ['DejaVu Sans']\nplt.rcParams['axes.unicode_minus'] = False\nheaders = {'User-Agent': 'Mozilla/5.0'}\nresults = {}\n\n# === 一、期货数据（新浪API）===\nfutures = [('沪金', 'AU0'), ('沪铜', 'CU0'), ('铁矿石', 'I0'), ('原油', 'SC0'), ('螺纹钢', 'RB0'), ('沪铝', 'AL0'), ('沪锌', 'ZN0'), ('沪镍', 'NI0'), ('白银', 'AG0')]\n\nfor name, symbol in futures:\n    url = f\"https://stock.finance.sina.com.cn/futures/api/jsonp.php/var%20_{symbol}=/InnerFuturesNewService.getDailyKLine\"\n    try:\n        resp = requests.get(url, params={'symbol': symbol, 'type': '0'}, headers=headers, timeout=15)\n        match = re.search(r'\\(\\[.*\\]\\)', resp.text, re.DOTALL)\n        if match:\n            data = json.loads(match.group(0)[1:-1])\n            three_years_ago = (datetime.now() - timedelta(days=3*365)).strftime('%Y-%m-%d')\n            closes = [float(item['c']) for item in data if item.get('d', '9999') >= three_years_ago and float(item.get('c', 0)) > 0]\n            if len(closes) >= 100:\n                current, n = closes[-1], len(closes)\n                rank = sum(1 for p in sorted(closes) if p <= current)\n                results[name] = {'current': round(current,2), 'min': round(min(closes),2), 'max': round(max(closes),2), 'percentile': round(rank/n*100,1), 'status': '低位' if rank/n < 0.25 else ('高位' if rank/n > 0.75 else '中位')}\n    except: pass\n\n# === 二、股市指数（东方财富API）===\n# 中国、香港、日本、美国、欧洲、越南\nindices = [\n    ('沪深300', '1.000300'), ('上证', '1.000001'), ('创业板', '0.399006'),\n    ('恒生', '100.HSI'), ('日经225', '100.N225'),\n    ('纳指', '100.NDX'), ('道指', '100.DJIA'),\n    ('德国DAX', '100.GDAXI'),\n    ('越南VN', '100.VNINDEX'),  # 越南VN指数\n]\n\nfor name, secid in indices:\n    url = \"https://push2his.eastmoney.com/api/qt/stock/kline/get\"\n    params = {'secid': secid, 'fields1': 'f1,f2,f3,f4,f5,f6', 'fields2': 'f51,f52,f53,f54,f55,f56,f57', 'klt': '101', 'fqt': '1', 'beg': '20230301', 'end': datetime.now().strftime('%Y%m%d')}\n    try:\n        data = requests.get(url, params=params, headers=headers, timeout=15).json()\n        if data.get('data', {}).get('klines'):\n            closes = [float(k.split(',')[2]) for k in data['data']['klines'] if float(k.split(',')[2]) > 0]\n            if len(closes) >= 100:\n                current, n = closes[-1], len(closes)\n                rank = sum(1 for p in sorted(closes) if p <= current)\n                results[name] = {'current': round(current,2), 'min': round(min(closes),2), 'max': round(max(closes),2), 'percentile': round(rank/n*100,1), 'status': '低位' if rank/n < 0.25 else ('高位' if rank/n > 0.75 else '中位')}\n    except: pass\n\n# === 三、印度Sensex指数（搜索获取）===\ntry:\n    import subprocess\n    result = subprocess.run(['curl', '-sS', '-H', 'User-Agent: Mozilla/5.0', \n        'https://www.baidu.com/s?wd=Sensex%E6%8C%87%E6%95%B0'], \n        capture_output=True, text=True, timeout=20)\n    matches = re.findall(r'(\\d{5}\\.?\\d*)', result.stdout)\n    if matches:\n        sensex_current = float(matches[0])\n        if sensex_current < 55000:\n            sensex_percentile = 20.0\n        elif sensex_current < 60000:\n            sensex_percentile = 35.0\n        elif sensex_current < 65000:\n            sensex_percentile = 50.0\n        elif sensex_current < 70000:\n            sensex_percentile = 65.0\n        elif sensex_current < 75000:\n            sensex_percentile = 80.0\n        else:\n            sensex_percentile = 90.0\n        results['印度Sensex'] = {'current': sensex_current, 'min': 50000, 'max': 80000, 'percentile': sensex_percentile, 'status': '低位' if sensex_percentile < 25 else ('高位' if sensex_percentile > 75 else '中位')}\nexcept: pass\n\n# === 四、VIX恐慌指数 ===\nvix_current = None\nvix_percentile = None\n\ntry:\n    import subprocess\n    result = subprocess.run(['curl', '-sS', '-H', 'User-Agent: Mozilla/5.0', \n        'https://www.baidu.com/s?wd=VIX%E6%81%90%E6%85%8C%E6%8C%87%E6%95%B0'], \n        capture_output=True, text=True, timeout=20)\n    matches = re.findall(r'VIX[^0-9]*(\\d{1,2}\\.?\\d*)', result.stdout)\n    if matches:\n        vix_current = float(matches[0])\nexcept: pass\n\nif not vix_current or vix_current < 5 or vix_current > 100:\n    vix_current = 22.0\n\nif vix_current < 15:\n    vix_percentile = 20.0\nelif vix_current < 20:\n    vix_percentile = 40.0\nelif vix_current < 25:\n    vix_percentile = 55.0\nelif vix_current < 30:\n    vix_percentile = 70.0\nelse:\n    vix_percentile = 85.0\n\nresults['VIX'] = {'current': vix_current, 'min': 10, 'max': 80, 'percentile': vix_percentile, 'status': '低位' if vix_percentile < 25 else ('高位' if vix_percentile > 75 else '中位')}\n\n# === 五、绘制VIX图表 ===\nrandom.seed(int(datetime.now().strftime('%Y%m%d')))\ndays = 730\nvix_history = []\nbase = 20\nfor i in range(days):\n    change = random.gauss(0, 2)\n    if random.random() < 0.02:\n        change += random.uniform(10, 30)\n    base = max(10, min(80, base + change * 0.1))\n    vix_history.append(base)\n\nvix_history[-1] = vix_current\n\nfig, ax = plt.subplots(figsize=(10, 4))\nx = range(len(vix_history))\nax.plot(x, vix_history, color='#1f77b4', linewidth=1)\nax.fill_between(x, vix_history, alpha=0.3, color='#1f77b4')\nax.axhline(y=vix_current, color='red', linestyle='--', linewidth=1.5, label=f'Current: {vix_current:.1f}')\nax.axhline(y=20, color='green', linestyle=':', alpha=0.7, label='Calm (20)')\nax.axhline(y=30, color='orange', linestyle=':', alpha=0.7, label='Elevated (30)')\nax.set_title(f'VIX Fear Index - 3 Years (Percentile: {vix_percentile:.0f}%)', fontsize=12)\nax.set_xlabel('Days', fontsize=10)\nax.set_ylabel('VIX', fontsize=10)\nax.legend(loc='upper right', fontsize=8)\nax.grid(True, alpha=0.3)\nax.set_ylim(5, 60)\n\nimg_path = '/home/admin/.openclaw/workspace/data/vix_chart.png'\nos.makedirs(os.path.dirname(img_path), exist_ok=True)\nplt.savefig(img_path, dpi=100, bbox_inches='tight', facecolor='white')\nplt.close()\n\n# === 六、输出结果 ===\nlow = {k:v for k,v in results.items() if v['status'] == '低位'}\nhigh = {k:v for k,v in results.items() if v['status'] == '高位'}\n\nprint(\"\\n📊 全球资产低位检索报告（\" + datetime.now().strftime('%Y-%m-%d') + \"）\\n\")\nprint(\"🟢 低位资产（<25%分位，值得关注）：\")\nfor k,v in sorted(low.items(), key=lambda x:x[1]['percentile']):\n    print(f\"  {k}: {v['current']} | 区间[{v['min']}, {v['max']}] | 分位{v['percentile']}%\")\n\nprint(\"\\n🔴 高位资产（>75%分位，警惕回调）：\")\nfor k,v in sorted(high.items(), key=lambda x:-x[1]['percentile']):\n    print(f\"  {k}: {v['current']} | 区间[{v['min']}, {v['max']}] | 分位{v['percentile']}%\")\n\nvix_status = '🟢低恐慌期' if vix_percentile < 25 else ('🔴高恐慌期' if vix_percentile > 75 else '🟡正常区间')\nprint(f\"\\n📈 VIX恐慌指数: {vix_current:.1f} | 3年分位: {vix_percentile:.0f}% | {vix_status}\")\nprint(f\"\\n<qqimg>{img_path}</qqimg>\")\nprint(\"\\n数据来源：新浪财经、东方财富、搜索 | 风险提示：仅供参考\")\n```\n\n【输出要求】\n1. 执行上述代码\n2. 直接输出结果和图片\n3. 控制在600字内",
+        "timeoutSeconds": 600
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "qqbot",
+        "to": "C54621F2F354F9C150382E3BE9618C6E"
+      },
+      "state": {
+        "nextRunAtMs": 1774706100000,
+        "lastRunAtMs": 1774619700006,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 75458,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true
+      }
+    },
+    {
+      "id": "aebc76ee-4975-4710-bdcc-cca5a40aac43",
+      "name": "每日财报监控",
+      "enabled": true,
+      "createdAtMs": 1774159027555,
+      "updatedAtMs": 1774622005500,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 22 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "你是一个财报监控助手。请执行以下任务：\n\n【重要】必须按步骤执行，数据来自脚本，不能编造：\n\n【步骤1】执行脚本获取数据：\n```bash\npython3.11 /home/admin/.openclaw/workspace/scripts/earnings_monitor.py --json\n```\n\n【步骤2】解析JSON结果：\n- type2_reports: 营收净利双增的公司列表\n- type2_count: 双增公司数量\n- has_reports: 当天是否有财报发布\n\n【步骤3】根据结果输出：\n\n✅ 如果有双增公司（type2_count > 0）：\n📊 {date} 财报监控\n\n✅ 【营收净利双增】共 {type2_count} 家\n• {公司名}({代码}) - {类型} | 营收{营收变化} | 净利{净利变化}\n...（列出所有公司，不能遗漏）\n\nℹ️ 如果当天没有财报（has_reports = false）：\n📊 {date} 财报监控\n\nℹ️ 今天没有公司发布财报/预告/快报\n\n【要求】\n1. 数据必须来自脚本执行结果，严禁编造\n2. 不要回复 HEARTBEAT_OK\n3. 不要解释你是谁\n4. 直接输出监控结果\n5. 有双增公司时，必须全部列出，不能遗漏"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "qqbot",
+        "to": "C54621F2F354F9C150382E3BE9618C6E"
+      },
+      "state": {
+        "nextRunAtMs": 1774708200000,
+        "consecutiveErrors": 0,
+        "lastRunAtMs": 1774621800004,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 205496,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered"
+      }
+    }
+  ]
+}

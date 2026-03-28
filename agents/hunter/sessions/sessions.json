@@ -1,7 +1,7 @@
 {
   "agent:hunter:feishu:hunter:direct:ou_4c8499b94572ae1598169c894bca1f83": {
     "sessionId": "0cd27363-ddde-4e45-9bf0-8c43d972cc72",
-    "updatedAt": 1774660797245,
+    "updatedAt": 1774709773267,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -296,7 +296,7 @@
     "model": "glm-5",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774660780826,
+      "generatedAt": 1774709722860,
       "sessionId": "0cd27363-ddde-4e45-9bf0-8c43d972cc72",
       "sessionKey": "agent:hunter:feishu:hunter:direct:ou_4c8499b94572ae1598169c894bca1f83",
       "provider": "openai",
@@ -316,9 +316,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 33706,
+        "chars": 33790,
         "projectContextChars": 13643,
-        "nonProjectContextChars": 20063
+        "nonProjectContextChars": 20147
       },
       "injectedWorkspaceFiles": [
         {
@@ -698,17 +698,17 @@
         ]
       }
     },
-    "cacheRead": 19712,
+    "cacheRead": 36352,
     "cacheWrite": 0,
     "totalTokensFresh": true,
     "contextTokens": 128000,
-    "inputTokens": 5423,
-    "outputTokens": 374,
-    "totalTokens": 20389
+    "inputTokens": 13231,
+    "outputTokens": 710,
+    "totalTokens": 37551
   },
   "agent:hunter:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e": {
     "sessionId": "f783cf4d-43aa-4c45-bfbb-8952eccebe84",
-    "updatedAt": 1774665658454,
+    "updatedAt": 1774692524377,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_05dc4903b4b1b4c5d7e730356ccef21e",
@@ -1007,7 +1007,7 @@
     "model": "glm-5",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774665652248,
+      "generatedAt": 1774692518484,
       "sessionId": "f783cf4d-43aa-4c45-bfbb-8952eccebe84",
       "sessionKey": "agent:hunter:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e",
       "provider": "openai",
@@ -1027,9 +1027,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 33913,
+        "chars": 33997,
         "projectContextChars": 13643,
-        "nonProjectContextChars": 20270
+        "nonProjectContextChars": 20354
       },
       "injectedWorkspaceFiles": [
         {
@@ -1409,12 +1409,12 @@
         ]
       }
     },
-    "cacheRead": 14976,
+    "cacheRead": 28864,
     "cacheWrite": 0,
     "totalTokensFresh": true,
     "contextTokens": 128000,
-    "inputTokens": 7516,
-    "outputTokens": 95,
-    "totalTokens": 22492
+    "inputTokens": 1025,
+    "outputTokens": 125,
+    "totalTokens": 29889
   }
 }

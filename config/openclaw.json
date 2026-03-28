@@ -1,12 +1,12 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.3",
-    "lastTouchedAt": "2026-03-28T06:44:12.659Z"
+    "lastTouchedAt": "2026-03-28T08:46:30.962Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-05T03:25:27.694Z",
+    "lastRunAt": "2026-03-28T08:46:30.930Z",
     "lastRunVersion": "2026.3.3",
-    "lastRunCommand": "onboard",
+    "lastRunCommand": "doctor",
     "lastRunMode": "local"
   },
   "update": {
@@ -278,64 +278,204 @@
     "list": [
       {
         "id": "eden",
+        "default": true,
         "name": "Eden（伊甸）",
-        "default": true
+        "subagents": {
+          "allowAgents": [
+            "*"
+          ]
+        }
       },
       {
         "id": "weaver",
         "name": "Weaver（编织者）",
-        "workspace": "/home/admin/.openclaw/workspace-weaver"
+        "workspace": "/home/admin/.openclaw/workspace-weaver",
+        "subagents": {
+          "allowAgents": [
+            "*"
+          ]
+        }
       },
       {
         "id": "coordinate",
         "name": "Coordinate（统筹者）",
-        "workspace": "/home/admin/.openclaw/workspace-coordinate"
+        "workspace": "/home/admin/.openclaw/workspace-coordinate",
+        "subagents": {
+          "allowAgents": [
+            "*"
+          ]
+        }
       },
       {
         "id": "visionary",
         "name": "Visionary（远见者）",
-        "workspace": "/home/admin/.openclaw/workspace-visionary"
+        "workspace": "/home/admin/.openclaw/workspace-visionary",
+        "subagents": {
+          "allowAgents": [
+            "*"
+          ]
+        }
       },
       {
         "id": "forger",
         "name": "Forger（锻造者）",
-        "workspace": "/home/admin/.openclaw/workspace-forger"
+        "workspace": "/home/admin/.openclaw/workspace-forger",
+        "subagents": {
+          "allowAgents": [
+            "*"
+          ]
+        }
       },
       {
         "id": "sentinel",
         "name": "Sentinel（守望者）",
-        "workspace": "/home/admin/.openclaw/workspace-sentinel"
+        "workspace": "/home/admin/.openclaw/workspace-sentinel",
+        "subagents": {
+          "allowAgents": [
+            "*"
+          ]
+        }
       },
       {
         "id": "evolver",
         "name": "Evolver（进化者）",
-        "workspace": "/home/admin/.openclaw/workspace-evolver"
+        "workspace": "/home/admin/.openclaw/workspace-evolver",
+        "subagents": {
+          "allowAgents": [
+            "*"
+          ]
+        }
       },
       {
         "id": "companion",
         "name": "Companion（伴行者）",
-        "workspace": "/home/admin/.openclaw/workspace-companion"
+        "workspace": "/home/admin/.openclaw/workspace-companion",
+        "subagents": {
+          "allowAgents": [
+            "*"
+          ]
+        }
       },
       {
         "id": "guardian",
         "name": "Guardian（守卫者）",
-        "workspace": "/home/admin/.openclaw/workspace-guardian"
+        "workspace": "/home/admin/.openclaw/workspace-guardian",
+        "subagents": {
+          "allowAgents": [
+            "*"
+          ]
+        }
       },
       {
         "id": "hunter",
         "name": "Hunter（捕猎者）",
-        "workspace": "/home/admin/.openclaw/workspace-hunter"
+        "workspace": "/home/admin/.openclaw/workspace-hunter",
+        "subagents": {
+          "allowAgents": [
+            "*"
+          ]
+        }
       },
       {
         "id": "dictator",
         "name": "Dictator（独裁者）",
-        "workspace": "/home/admin/.openclaw/workspace-dictator"
+        "workspace": "/home/admin/.openclaw/workspace-dictator",
+        "subagents": {
+          "allowAgents": [
+            "*"
+          ]
+        }
       }
     ]
   },
   "tools": {
-    "profile": "full"
+    "profile": "full",
+    "sessions": {
+      "visibility": "all"
+    },
+    "agentToAgent": {
+      "enabled": true
+    }
   },
+  "bindings": [
+    {
+      "agentId": "eden",
+      "match": {
+        "channel": "feishu",
+        "accountId": "eden"
+      }
+    },
+    {
+      "agentId": "weaver",
+      "match": {
+        "channel": "feishu",
+        "accountId": "weaver"
+      }
+    },
+    {
+      "agentId": "coordinate",
+      "match": {
+        "channel": "feishu",
+        "accountId": "coordinate"
+      }
+    },
+    {
+      "agentId": "visionary",
+      "match": {
+        "channel": "feishu",
+        "accountId": "visionary"
+      }
+    },
+    {
+      "agentId": "forger",
+      "match": {
+        "channel": "feishu",
+        "accountId": "forger"
+      }
+    },
+    {
+      "agentId": "sentinel",
+      "match": {
+        "channel": "feishu",
+        "accountId": "sentinel"
+      }
+    },
+    {
+      "agentId": "evolver",
+      "match": {
+        "channel": "feishu",
+        "accountId": "evolver"
+      }
+    },
+    {
+      "agentId": "companion",
+      "match": {
+        "channel": "feishu",
+        "accountId": "companion"
+      }
+    },
+    {
+      "agentId": "guardian",
+      "match": {
+        "channel": "feishu",
+        "accountId": "guardian"
+      }
+    },
+    {
+      "agentId": "hunter",
+      "match": {
+        "channel": "feishu",
+        "accountId": "hunter"
+      }
+    },
+    {
+      "agentId": "dictator",
+      "match": {
+        "channel": "feishu",
+        "accountId": "dictator"
+      }
+    }
+  ],
   "messages": {
     "ackReactionScope": "group-mentions"
   },
@@ -414,6 +554,11 @@
         "dictator": {
           "appId": "cli_a94ce9e6e2b81cd1",
           "appSecret": "jVqi3QuizQWt8c7GIOZUNg31PJhrntBa"
+        },
+        "default": {
+          "allowFrom": [
+            "*"
+          ]
         }
       },
       "groups": {
@@ -421,9 +566,7 @@
           "requireMention": false
         }
       },
-      "allowFrom": [
-        "*"
-      ]
+      "dmPolicy": "open"
     },
     "qqbot": {
       "enabled": true,
@@ -570,84 +713,5 @@
         "installedAt": "2026-03-26T08:13:12.735Z"
       }
     }
-  },
-  "bindings": [
-    {
-      "agentId": "eden",
-      "match": {
-        "channel": "feishu",
-        "accountId": "eden"
-      }
-    },
-    {
-      "agentId": "weaver",
-      "match": {
-        "channel": "feishu",
-        "accountId": "weaver"
-      }
-    },
-    {
-      "agentId": "coordinate",
-      "match": {
-        "channel": "feishu",
-        "accountId": "coordinate"
-      }
-    },
-    {
-      "agentId": "visionary",
-      "match": {
-        "channel": "feishu",
-        "accountId": "visionary"
-      }
-    },
-    {
-      "agentId": "forger",
-      "match": {
-        "channel": "feishu",
-        "accountId": "forger"
-      }
-    },
-    {
-      "agentId": "sentinel",
-      "match": {
-        "channel": "feishu",
-        "accountId": "sentinel"
-      }
-    },
-    {
-      "agentId": "evolver",
-      "match": {
-        "channel": "feishu",
-        "accountId": "evolver"
-      }
-    },
-    {
-      "agentId": "companion",
-      "match": {
-        "channel": "feishu",
-        "accountId": "companion"
-      }
-    },
-    {
-      "agentId": "guardian",
-      "match": {
-        "channel": "feishu",
-        "accountId": "guardian"
-      }
-    },
-    {
-      "agentId": "hunter",
-      "match": {
-        "channel": "feishu",
-        "accountId": "hunter"
-      }
-    },
-    {
-      "agentId": "dictator",
-      "match": {
-        "channel": "feishu",
-        "accountId": "dictator"
-      }
-    }
-  ]
+  }
 }

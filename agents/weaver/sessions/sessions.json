@@ -1,7 +1,7 @@
 {
   "agent:weaver:feishu:weaver:direct:ou_2284c54677aea8317f4420269fc13639": {
     "sessionId": "92cb2428-6e79-4166-83e2-a3ce9b7d3eeb",
-    "updatedAt": 1774680590221,
+    "updatedAt": 1774709959887,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -407,12 +407,12 @@
     "model": "glm-5",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774680577776,
+      "generatedAt": 1774709941522,
       "sessionId": "92cb2428-6e79-4166-83e2-a3ce9b7d3eeb",
       "sessionKey": "agent:weaver:feishu:weaver:direct:ou_2284c54677aea8317f4420269fc13639",
       "provider": "openai",
       "model": "glm-5",
-      "workspaceDir": "/home/admin/.openclaw/workspace",
+      "workspaceDir": "/home/admin/.openclaw/workspace-weaver",
       "bootstrapMaxChars": 20000,
       "bootstrapTotalMaxChars": 150000,
       "bootstrapTruncation": {
@@ -427,46 +427,46 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 38937,
-        "projectContextChars": 15005,
-        "nonProjectContextChars": 23932
+        "chars": 37431,
+        "projectContextChars": 13643,
+        "nonProjectContextChars": 23788
       },
       "injectedWorkspaceFiles": [
         {
           "name": "AGENTS.md",
-          "path": "/home/admin/.openclaw/workspace/AGENTS.md",
+          "path": "/home/admin/.openclaw/workspace-weaver/AGENTS.md",
           "missing": false,
-          "rawChars": 15,
-          "injectedChars": 15,
+          "rawChars": 7809,
+          "injectedChars": 7809,
           "truncated": false
         },
         {
           "name": "SOUL.md",
-          "path": "/home/admin/.openclaw/workspace/SOUL.md",
+          "path": "/home/admin/.openclaw/workspace-weaver/SOUL.md",
           "missing": false,
-          "rawChars": 2711,
-          "injectedChars": 2711,
+          "rawChars": 1664,
+          "injectedChars": 1664,
           "truncated": false
         },
         {
           "name": "TOOLS.md",
-          "path": "/home/admin/.openclaw/workspace/TOOLS.md",
+          "path": "/home/admin/.openclaw/workspace-weaver/TOOLS.md",
           "missing": false,
-          "rawChars": 2408,
-          "injectedChars": 2408,
+          "rawChars": 850,
+          "injectedChars": 850,
           "truncated": false
         },
         {
           "name": "IDENTITY.md",
-          "path": "/home/admin/.openclaw/workspace/IDENTITY.md",
+          "path": "/home/admin/.openclaw/workspace-weaver/IDENTITY.md",
           "missing": false,
-          "rawChars": 212,
-          "injectedChars": 212,
+          "rawChars": 633,
+          "injectedChars": 633,
           "truncated": false
         },
         {
           "name": "USER.md",
-          "path": "/home/admin/.openclaw/workspace/USER.md",
+          "path": "/home/admin/.openclaw/workspace-weaver/USER.md",
           "missing": false,
           "rawChars": 474,
           "injectedChars": 474,
@@ -474,7 +474,7 @@
         },
         {
           "name": "HEARTBEAT.md",
-          "path": "/home/admin/.openclaw/workspace/HEARTBEAT.md",
+          "path": "/home/admin/.openclaw/workspace-weaver/HEARTBEAT.md",
           "missing": false,
           "rawChars": 167,
           "injectedChars": 167,
@@ -482,18 +482,10 @@
         },
         {
           "name": "BOOTSTRAP.md",
-          "path": "/home/admin/.openclaw/workspace/BOOTSTRAP.md",
+          "path": "/home/admin/.openclaw/workspace-weaver/BOOTSTRAP.md",
           "missing": false,
           "rawChars": 1449,
           "injectedChars": 1449,
-          "truncated": false
-        },
-        {
-          "name": "MEMORY.md",
-          "path": "/home/admin/.openclaw/workspace/MEMORY.md",
-          "missing": false,
-          "rawChars": 6975,
-          "injectedChars": 6975,
           "truncated": false
         }
       ],
@@ -857,40 +849,40 @@
         ]
       }
     },
-    "cacheRead": 16640,
+    "cacheRead": 21248,
     "cacheWrite": 0,
     "totalTokensFresh": true,
     "contextTokens": 128000,
-    "inputTokens": 6370,
-    "outputTokens": 172,
-    "totalTokens": 23010
+    "inputTokens": 5548,
+    "outputTokens": 230,
+    "totalTokens": 21483
   },
   "agent:weaver:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e": {
     "sessionId": "2b13fe9b-9c24-4b77-b481-ecb85d1ce5d0",
-    "updatedAt": 1774680648261,
+    "updatedAt": 1774692514304,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_05dc4903b4b1b4c5d7e730356ccef21e",
     "chatType": "group",
     "channel": "feishu",
-    "groupId": "ou_4fd1ab9a7f4ae0041cbd1cc87216f28d",
+    "groupId": "ou_2284c54677aea8317f4420269fc13639",
     "subject": "oc_05dc4903b4b1b4c5d7e730356ccef21e",
     "deliveryContext": {
       "channel": "feishu",
       "to": "chat:oc_05dc4903b4b1b4c5d7e730356ccef21e",
-      "accountId": "dictator"
+      "accountId": "weaver"
     },
     "lastChannel": "feishu",
     "lastTo": "chat:oc_05dc4903b4b1b4c5d7e730356ccef21e",
-    "lastAccountId": "dictator",
+    "lastAccountId": "weaver",
     "origin": {
       "label": "oc_05dc4903b4b1b4c5d7e730356ccef21e",
       "provider": "feishu",
       "surface": "feishu",
       "chatType": "group",
-      "from": "feishu:ou_4fd1ab9a7f4ae0041cbd1cc87216f28d",
+      "from": "feishu:ou_2284c54677aea8317f4420269fc13639",
       "to": "chat:oc_05dc4903b4b1b4c5d7e730356ccef21e",
-      "accountId": "dictator"
+      "accountId": "weaver"
     },
     "sessionFile": "/home/admin/.openclaw/agents/weaver/sessions/2b13fe9b-9c24-4b77-b481-ecb85d1ce5d0.jsonl",
     "compactionCount": 0,
@@ -1166,12 +1158,12 @@
     "model": "glm-5",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774680642051,
+      "generatedAt": 1774692361721,
       "sessionId": "2b13fe9b-9c24-4b77-b481-ecb85d1ce5d0",
       "sessionKey": "agent:weaver:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e",
       "provider": "openai",
       "model": "glm-5",
-      "workspaceDir": "/home/admin/.openclaw/workspace",
+      "workspaceDir": "/home/admin/.openclaw/workspace-weaver",
       "bootstrapMaxChars": 20000,
       "bootstrapTotalMaxChars": 150000,
       "bootstrapTruncation": {
@@ -1186,46 +1178,46 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 35505,
-        "projectContextChars": 15005,
-        "nonProjectContextChars": 20500
+        "chars": 33997,
+        "projectContextChars": 13643,
+        "nonProjectContextChars": 20354
       },
       "injectedWorkspaceFiles": [
         {
           "name": "AGENTS.md",
-          "path": "/home/admin/.openclaw/workspace/AGENTS.md",
+          "path": "/home/admin/.openclaw/workspace-weaver/AGENTS.md",
           "missing": false,
-          "rawChars": 15,
-          "injectedChars": 15,
+          "rawChars": 7809,
+          "injectedChars": 7809,
           "truncated": false
         },
         {
           "name": "SOUL.md",
-          "path": "/home/admin/.openclaw/workspace/SOUL.md",
+          "path": "/home/admin/.openclaw/workspace-weaver/SOUL.md",
           "missing": false,
-          "rawChars": 2711,
-          "injectedChars": 2711,
+          "rawChars": 1664,
+          "injectedChars": 1664,
           "truncated": false
         },
         {
           "name": "TOOLS.md",
-          "path": "/home/admin/.openclaw/workspace/TOOLS.md",
+          "path": "/home/admin/.openclaw/workspace-weaver/TOOLS.md",
           "missing": false,
-          "rawChars": 2408,
-          "injectedChars": 2408,
+          "rawChars": 850,
+          "injectedChars": 850,
           "truncated": false
         },
         {
           "name": "IDENTITY.md",
-          "path": "/home/admin/.openclaw/workspace/IDENTITY.md",
+          "path": "/home/admin/.openclaw/workspace-weaver/IDENTITY.md",
           "missing": false,
-          "rawChars": 212,
-          "injectedChars": 212,
+          "rawChars": 633,
+          "injectedChars": 633,
           "truncated": false
         },
         {
           "name": "USER.md",
-          "path": "/home/admin/.openclaw/workspace/USER.md",
+          "path": "/home/admin/.openclaw/workspace-weaver/USER.md",
           "missing": false,
           "rawChars": 474,
           "injectedChars": 474,
@@ -1233,7 +1225,7 @@
         },
         {
           "name": "HEARTBEAT.md",
-          "path": "/home/admin/.openclaw/workspace/HEARTBEAT.md",
+          "path": "/home/admin/.openclaw/workspace-weaver/HEARTBEAT.md",
           "missing": false,
           "rawChars": 167,
           "injectedChars": 167,
@@ -1241,18 +1233,10 @@
         },
         {
           "name": "BOOTSTRAP.md",
-          "path": "/home/admin/.openclaw/workspace/BOOTSTRAP.md",
+          "path": "/home/admin/.openclaw/workspace-weaver/BOOTSTRAP.md",
           "missing": false,
           "rawChars": 1449,
           "injectedChars": 1449,
-          "truncated": false
-        },
-        {
-          "name": "MEMORY.md",
-          "path": "/home/admin/.openclaw/workspace/MEMORY.md",
-          "missing": false,
-          "rawChars": 6975,
-          "injectedChars": 6975,
           "truncated": false
         }
       ],
@@ -1576,13 +1560,13 @@
         ]
       }
     },
-    "cacheRead": 43456,
+    "cacheRead": 55808,
     "cacheWrite": 0,
     "totalTokensFresh": true,
     "contextTokens": 128000,
-    "inputTokens": 5595,
-    "outputTokens": 28,
-    "totalTokens": 49051
+    "inputTokens": 518,
+    "outputTokens": 149,
+    "totalTokens": 56326
   },
   "agent:weaver:feishu:dictator:direct:ou_4fd1ab9a7f4ae0041cbd1cc87216f28d": {
     "sessionId": "11a5671a-d0df-40f7-a84c-fcb0f003a4b7",

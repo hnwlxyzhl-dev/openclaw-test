@@ -1,7 +1,7 @@
 {
   "agent:coordinate:feishu:coordinate:direct:ou_d36e36305cc9976ed9b96363e7e06d69": {
     "sessionId": "b6d9a031-49ae-4ad7-9892-c27c964800b0",
-    "updatedAt": 1774682432797,
+    "updatedAt": 1774687832360,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -296,7 +296,7 @@
     "model": "glm-5",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774682429347,
+      "generatedAt": 1774687822917,
       "sessionId": "b6d9a031-49ae-4ad7-9892-c27c964800b0",
       "sessionKey": "agent:coordinate:feishu:coordinate:direct:ou_d36e36305cc9976ed9b96363e7e06d69",
       "provider": "openai",
@@ -702,13 +702,13 @@
     "cacheWrite": 0,
     "totalTokensFresh": true,
     "contextTokens": 128000,
-    "inputTokens": 4965,
-    "outputTokens": 52,
-    "totalTokens": 19749
+    "inputTokens": 5262,
+    "outputTokens": 40,
+    "totalTokens": 20046
   },
   "agent:coordinate:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e": {
     "sessionId": "6f17f861-0e0f-4842-801f-6a6ca2e4fae9",
-    "updatedAt": 1774665643802,
+    "updatedAt": 1774692514333,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_05dc4903b4b1b4c5d7e730356ccef21e",
@@ -1007,7 +1007,7 @@
     "model": "glm-5",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774665635088,
+      "generatedAt": 1774692351705,
       "sessionId": "6f17f861-0e0f-4842-801f-6a6ca2e4fae9",
       "sessionKey": "agent:coordinate:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e",
       "provider": "openai",
@@ -1027,9 +1027,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 33957,
+        "chars": 34041,
         "projectContextChars": 13671,
-        "nonProjectContextChars": 20286
+        "nonProjectContextChars": 20370
       },
       "injectedWorkspaceFiles": [
         {
@@ -1409,12 +1409,26 @@
         ]
       }
     },
-    "cacheRead": 14976,
+    "cacheRead": 43968,
     "cacheWrite": 0,
     "totalTokensFresh": true,
     "contextTokens": 128000,
-    "inputTokens": 7677,
-    "outputTokens": 101,
-    "totalTokens": 22653
+    "inputTokens": 3178,
+    "outputTokens": 1042,
+    "totalTokens": 44597
+  },
+  "agent:coordinate:feishu:coordinate:direct:oc_05dc4903b4b1b4c5d7e730356ccef21e": {
+    "origin": {
+      "label": "feishu:oc_05dc4903b4b1b4c5d7e730356ccef21e",
+      "provider": "feishu",
+      "surface": "feishu",
+      "chatType": "direct",
+      "from": "feishu:oc_05dc4903b4b1b4c5d7e730356ccef21e",
+      "to": "oc_05dc4903b4b1b4c5d7e730356ccef21e",
+      "accountId": "coordinate"
+    },
+    "sessionId": "372434bc-6ccf-444f-ae6a-7ad8fe70d703",
+    "updatedAt": 1774692265008,
+    "sessionFile": "/home/admin/.openclaw/agents/coordinate/sessions/372434bc-6ccf-444f-ae6a-7ad8fe70d703.jsonl"
   }
 }

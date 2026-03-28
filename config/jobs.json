@@ -105,7 +105,7 @@
       "name": "全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1773937704468,
-      "updatedAtMs": 1774619775464,
+      "updatedAtMs": 1774706181278,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -124,11 +124,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1774706100000,
-        "lastRunAtMs": 1774619700006,
+        "nextRunAtMs": 1774792500000,
+        "lastRunAtMs": 1774706100013,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 75458,
+        "lastDurationMs": 81265,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -139,7 +139,7 @@
       "name": "每日财报监控",
       "enabled": true,
       "createdAtMs": 1774159027555,
-      "updatedAtMs": 1774622005500,
+      "updatedAtMs": 1774708675898,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -157,14 +157,64 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1774708200000,
+        "nextRunAtMs": 1774794600000,
         "consecutiveErrors": 0,
-        "lastRunAtMs": 1774621800004,
+        "lastRunAtMs": 1774708200006,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 205496,
+        "lastDurationMs": 475892,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
+      }
+    },
+    {
+      "id": "042d871e-2314-49c6-b627-004e6bf5c721",
+      "name": "GitHub配置备份",
+      "enabled": true,
+      "createdAtMs": 1774683770925,
+      "updatedAtMs": 1774683770925,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行OpenClaw配置备份到GitHub。运行脚本：/home/admin/.openclaw/scripts/backup_to_github.sh"
+      },
+      "state": {
+        "nextRunAtMs": 1774710000000,
+        "runningAtMs": 1774710000007
+      },
+      "delivery": {
+        "mode": "announce"
+      }
+    },
+    {
+      "id": "f8e2c4a1-7890-4bcd-ef12-3456789abcde",
+      "name": "本地配置备份",
+      "enabled": true,
+      "createdAtMs": 1774710240000,
+      "updatedAtMs": 1774710240000,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行openclaw.json本地备份。运行脚本：/home/admin/.openclaw/scripts/backup_local.sh"
+      },
+      "state": {
+        "nextRunAtMs": 1774710000000,
+        "runningAtMs": 1774710000007
+      },
+      "delivery": {
+        "mode": "announce"
       }
     }
   ]

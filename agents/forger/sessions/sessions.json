@@ -708,7 +708,7 @@
   },
   "agent:forger:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e": {
     "sessionId": "5a28720b-2043-4251-8e5c-1c0504f2ebaa",
-    "updatedAt": 1774665643804,
+    "updatedAt": 1774692542537,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_05dc4903b4b1b4c5d7e730356ccef21e",
@@ -1007,7 +1007,7 @@
     "model": "glm-5",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774665635094,
+      "generatedAt": 1774692534754,
       "sessionId": "5a28720b-2043-4251-8e5c-1c0504f2ebaa",
       "sessionKey": "agent:forger:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e",
       "provider": "openai",
@@ -1027,9 +1027,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 33913,
+        "chars": 33997,
         "projectContextChars": 13643,
-        "nonProjectContextChars": 20270
+        "nonProjectContextChars": 20354
       },
       "injectedWorkspaceFiles": [
         {
@@ -1409,12 +1409,12 @@
         ]
       }
     },
-    "cacheRead": 3392,
+    "cacheRead": 14976,
     "cacheWrite": 0,
     "totalTokensFresh": true,
     "contextTokens": 128000,
-    "inputTokens": 19684,
-    "outputTokens": 82,
-    "totalTokens": 23076
+    "inputTokens": 15801,
+    "outputTokens": 101,
+    "totalTokens": 30777
   }
 }

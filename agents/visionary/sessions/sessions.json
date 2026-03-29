@@ -708,7 +708,7 @@
   },
   "agent:visionary:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e": {
     "sessionId": "443e2783-d44c-4997-a61a-70163e28db92",
-    "updatedAt": 1774749162154,
+    "updatedAt": 1774794301425,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_05dc4903b4b1b4c5d7e730356ccef21e",
@@ -1007,7 +1007,7 @@
     "model": "glm-5",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774749082012,
+      "generatedAt": 1774794261470,
       "sessionId": "443e2783-d44c-4997-a61a-70163e28db92",
       "sessionKey": "agent:visionary:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e",
       "provider": "openai",
@@ -1027,9 +1027,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 34030,
-        "projectContextChars": 13664,
-        "nonProjectContextChars": 20366
+        "chars": 32911,
+        "projectContextChars": 11753,
+        "nonProjectContextChars": 21158
       },
       "injectedWorkspaceFiles": [
         {
@@ -1060,16 +1060,16 @@
           "name": "IDENTITY.md",
           "path": "/home/admin/.openclaw/workspace-visionary/IDENTITY.md",
           "missing": false,
-          "rawChars": 633,
-          "injectedChars": 633,
+          "rawChars": 227,
+          "injectedChars": 227,
           "truncated": false
         },
         {
           "name": "USER.md",
           "path": "/home/admin/.openclaw/workspace-visionary/USER.md",
           "missing": false,
-          "rawChars": 474,
-          "injectedChars": 474,
+          "rawChars": 341,
+          "injectedChars": 341,
           "truncated": false
         },
         {
@@ -1083,9 +1083,9 @@
         {
           "name": "BOOTSTRAP.md",
           "path": "/home/admin/.openclaw/workspace-visionary/BOOTSTRAP.md",
-          "missing": false,
-          "rawChars": 1449,
-          "injectedChars": 1449,
+          "missing": true,
+          "rawChars": 0,
+          "injectedChars": 77,
           "truncated": false
         }
       ],
@@ -1187,8 +1187,8 @@
         ]
       },
       "tools": {
-        "listChars": 3951,
-        "schemaChars": 27540,
+        "listChars": 4804,
+        "schemaChars": 33237,
         "entries": [
           {
             "name": "read",
@@ -1405,16 +1405,46 @@
             "summaryChars": 197,
             "schemaChars": 866,
             "propertiesCount": 7
+          },
+          {
+            "name": "tavily_search",
+            "summaryChars": 210,
+            "schemaChars": 2150,
+            "propertiesCount": 17
+          },
+          {
+            "name": "tavily_extract",
+            "summaryChars": 140,
+            "schemaChars": 604,
+            "propertiesCount": 6
+          },
+          {
+            "name": "tavily_crawl",
+            "summaryChars": 138,
+            "schemaChars": 1471,
+            "propertiesCount": 15
+          },
+          {
+            "name": "tavily_map",
+            "summaryChars": 125,
+            "schemaChars": 994,
+            "propertiesCount": 11
+          },
+          {
+            "name": "tavily_research",
+            "summaryChars": 151,
+            "schemaChars": 478,
+            "propertiesCount": 4
           }
         ]
       }
     },
-    "cacheRead": 22848,
+    "cacheRead": 28736,
     "cacheWrite": 0,
     "totalTokensFresh": true,
     "contextTokens": 128000,
-    "inputTokens": 7428,
-    "outputTokens": 1008,
-    "totalTokens": 24377
+    "inputTokens": 12531,
+    "outputTokens": 526,
+    "totalTokens": 29512
   }
 }

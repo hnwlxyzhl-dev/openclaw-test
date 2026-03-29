@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.3",
-    "lastTouchedAt": "2026-03-28T08:46:30.962Z"
+    "lastTouchedAt": "2026-03-29T13:53:58.046Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-28T08:46:30.930Z",
@@ -646,7 +646,8 @@
       "dashscope-cfg",
       "wecom",
       "openclaw-qqbot",
-      "feishu"
+      "feishu",
+      "openclaw-tavily"
     ],
     "entries": {
       "dashscope-cfg": {
@@ -666,6 +667,12 @@
       },
       "feishu": {
         "enabled": true
+      },
+      "openclaw-tavily": {
+        "enabled": true,
+        "config": {
+          "apiKey": "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"
+        }
       }
     },
     "installs": {
@@ -721,6 +728,19 @@
         "shasum": "22ccc6173a88ea3ba9c91caa65738ecd1b694162",
         "resolvedAt": "2026-03-26T08:11:39.529Z",
         "installedAt": "2026-03-26T08:13:12.735Z"
+      },
+      "openclaw-tavily": {
+        "source": "npm",
+        "spec": "openclaw-tavily",
+        "installPath": "/home/admin/.openclaw/extensions/openclaw-tavily",
+        "version": "0.2.1",
+        "resolvedName": "openclaw-tavily",
+        "resolvedVersion": "0.2.1",
+        "resolvedSpec": "openclaw-tavily@0.2.1",
+        "integrity": "sha512-Y/cYTiKWGjWm8TF0/0DGyB80Kuke1oJKEPcFvjmHutXSZSx42RmMqZ3I6kMz12hw1eoxJwQ8a0EJQAvq45KciQ==",
+        "shasum": "544d324879914108c50cfd801d7cff704069970d",
+        "resolvedAt": "2026-03-29T13:53:51.974Z",
+        "installedAt": "2026-03-29T13:53:56.639Z"
       }
     }
   }

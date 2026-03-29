@@ -37,4 +37,36 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 
 ---
 
+## 🔍 Web Search Priority
+
+当需要搜索网页时，按以下优先级使用工具：
+
+1. **Tavily Search** (首选) - `tavily_search`
+   - API Key 已配置在 `~/.openclaw/.env`
+   - 支持 search、extract、crawl、map、research
+   - 返回结构化结果 + 可选 AI 摘要
+
+2. **Multi Search Engine** (备选) - 使用 `web_fetch` 直接访问搜索引擎
+   - 无需 API Key
+   - 支持 17 个搜索引擎（百度、Bing、Google、DuckDuckGo 等）
+   - 当 Tavily 没找到结果时使用
+
+### Multi Search Engine 快速参考
+
+```javascript
+// 国内搜索
+web_fetch({url: "https://www.baidu.com/s?wd=关键词"})
+web_fetch({url: "https://cn.bing.com/search?q=关键词"})
+
+// 国际搜索
+web_fetch({url: "https://www.google.com/search?q=keyword"})
+web_fetch({url: "https://duckduckgo.com/html/?q=keyword"})
+
+// 高级搜索
+web_fetch({url: "https://www.google.com/search?q=site:github.com+react"})
+web_fetch({url: "https://www.google.com/search?q=AI&tbs=qdr:w"}) // 过去一周
+```
+
+---
+
 Add whatever helps you do your job. This is your cheat sheet.

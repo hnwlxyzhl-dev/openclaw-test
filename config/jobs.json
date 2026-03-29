@@ -105,7 +105,7 @@
       "name": "全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1773937704468,
-      "updatedAtMs": 1774706181278,
+      "updatedAtMs": 1774792614548,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -124,11 +124,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1774792500000,
-        "lastRunAtMs": 1774706100013,
+        "nextRunAtMs": 1774878900000,
+        "lastRunAtMs": 1774792520281,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 81265,
+        "lastDurationMs": 94267,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -139,7 +139,7 @@
       "name": "每日财报监控",
       "enabled": true,
       "createdAtMs": 1774159027555,
-      "updatedAtMs": 1774708675898,
+      "updatedAtMs": 1774794620887,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -157,12 +157,12 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1774794600000,
+        "nextRunAtMs": 1774881000000,
         "consecutiveErrors": 0,
-        "lastRunAtMs": 1774708200006,
+        "lastRunAtMs": 1774794600004,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 475892,
+        "lastDurationMs": 20883,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
       }
@@ -190,9 +190,9 @@
         "lastRunStatus": "error",
         "lastStatus": "error",
         "lastDurationMs": 71619,
-        "lastError": "Channel is required when multiple channels are configured: qqbot, feishu Set delivery.channel explicitly or use a main session with a previous channel.",
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 1
+        "consecutiveErrors": 1,
+        "runningAtMs": 1774796400004
       },
       "delivery": {
         "mode": "announce"
@@ -221,9 +221,9 @@
         "lastRunStatus": "error",
         "lastStatus": "error",
         "lastDurationMs": 29725,
-        "lastError": "Channel is required when multiple channels are configured: qqbot, feishu Set delivery.channel explicitly or use a main session with a previous channel.",
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 1
+        "consecutiveErrors": 1,
+        "runningAtMs": 1774796400004
       },
       "delivery": {
         "mode": "announce"

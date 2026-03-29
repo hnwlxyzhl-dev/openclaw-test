@@ -19,14 +19,22 @@
   - 如果接收到明确的操作指令，不能私自改变执行方式
   - 有不同意见可以先提出来询问，但未经用户同意不能私自改变策略
   - 例如：用户说"运行完"，就不能擅自设置超时中断程序
-- **联网搜索优先使用 searxng skill** —— 只要涉及联网搜索任务，优先调用 searxng 技能而非直接使用 web_search 工具。
+- **联网搜索优先级**：tavily-search > multi-search-engine > searxng > web_search
+  - **Tavily** (首选): `python3 skills/openclaw-tavily-search/scripts/tavily_search.py --query "..." --max-results 5 --format md`
+  - **Multi Search Engine** (备选): 17个搜索引擎聚合，无需API key
+    - 国内：百度、Bing CN、360、搜狗、微信、头条、集思录
+    - 国际：Google、DuckDuckGo、Brave、Startpage、WolframAlpha等
+    - 用法：`web_fetch({"url": "https://duckduckgo.com/html/?q=keyword"})`
+  - **SearXNG** (第三): 本地隐私搜索实例
+  - **web_search** (最后): Brave API，需配置密钥
+  - 搜索任务优先使用 Tavily，效果更好、速度更快
 - **⚠️ 数据获取执行顺序（最高优先级）**：
   - **必须按以下顺序获取数据，不能跳过任何一步**：
     1. **先用工具**：
        - `scripts/finance_data.py` - 统一金融数据（行情/指数/公告/新闻）
        - `scripts/realtime_quote.py` - A股实时行情（盘中可用）
        - tushare skill / akshare skill
-    2. **工具没有的，用搜索**：searxng skill > web_search
+    2. **工具没有的，用搜索**：tavily-search > multi-search-engine > searxng > web_search
     3. **搜索没有的，用爬虫**：
        - `scripts/scrapling_demo.py` - 高性能网页抓取（绑过反爬）
        - crawl4ai-skill > browser > web_fetch
@@ -50,7 +58,7 @@
     - A股行情：akshare > tushare > eastmoney_api（爬虫）
     - 美股行情：yahoo_finance > eastmoney_api（爬虫）
     - 跌停股：akshare > tushare
-    - 金融新闻：searxng > eastmoney_api
+    - 金融新闻：tavily-search > multi-search-engine > searxng > eastmoney_api
     - **指数行情：tushare (A股) > akshare (A股) > eastmoney_api**
   - **使用方式**：
     ```bash

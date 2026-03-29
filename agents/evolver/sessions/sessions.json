@@ -710,7 +710,7 @@
   },
   "agent:evolver:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e": {
     "sessionId": "973beb81-edd8-4164-996a-5bf7ffd6779b",
-    "updatedAt": 1774749043608,
+    "updatedAt": 1774794260865,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_05dc4903b4b1b4c5d7e730356ccef21e",
@@ -1009,7 +1009,7 @@
     "model": "glm-5",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774749004346,
+      "generatedAt": 1774794238644,
       "sessionId": "973beb81-edd8-4164-996a-5bf7ffd6779b",
       "sessionKey": "agent:evolver:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e",
       "provider": "openai",
@@ -1029,9 +1029,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 34008,
-        "projectContextChars": 13650,
-        "nonProjectContextChars": 20358
+        "chars": 34528,
+        "projectContextChars": 13317,
+        "nonProjectContextChars": 21211
       },
       "injectedWorkspaceFiles": [
         {
@@ -1062,16 +1062,16 @@
           "name": "IDENTITY.md",
           "path": "/home/admin/.openclaw/workspace-evolver/IDENTITY.md",
           "missing": false,
-          "rawChars": 633,
-          "injectedChars": 633,
+          "rawChars": 396,
+          "injectedChars": 396,
           "truncated": false
         },
         {
           "name": "USER.md",
           "path": "/home/admin/.openclaw/workspace-evolver/USER.md",
           "missing": false,
-          "rawChars": 474,
-          "injectedChars": 474,
+          "rawChars": 378,
+          "injectedChars": 378,
           "truncated": false
         },
         {
@@ -1189,8 +1189,8 @@
         ]
       },
       "tools": {
-        "listChars": 3951,
-        "schemaChars": 27540,
+        "listChars": 4804,
+        "schemaChars": 33237,
         "entries": [
           {
             "name": "read",
@@ -1407,16 +1407,46 @@
             "summaryChars": 197,
             "schemaChars": 866,
             "propertiesCount": 7
+          },
+          {
+            "name": "tavily_search",
+            "summaryChars": 210,
+            "schemaChars": 2150,
+            "propertiesCount": 17
+          },
+          {
+            "name": "tavily_extract",
+            "summaryChars": 140,
+            "schemaChars": 604,
+            "propertiesCount": 6
+          },
+          {
+            "name": "tavily_crawl",
+            "summaryChars": 138,
+            "schemaChars": 1471,
+            "propertiesCount": 15
+          },
+          {
+            "name": "tavily_map",
+            "summaryChars": 125,
+            "schemaChars": 994,
+            "propertiesCount": 11
+          },
+          {
+            "name": "tavily_research",
+            "summaryChars": 151,
+            "schemaChars": 478,
+            "propertiesCount": 4
           }
         ]
       }
     },
-    "cacheRead": 23488,
+    "cacheRead": 29376,
     "cacheWrite": 0,
     "totalTokensFresh": true,
     "contextTokens": 128000,
-    "inputTokens": 7969,
-    "outputTokens": 623,
-    "totalTokens": 23742
+    "inputTokens": 14781,
+    "outputTokens": 352,
+    "totalTokens": 31799
   }
 }

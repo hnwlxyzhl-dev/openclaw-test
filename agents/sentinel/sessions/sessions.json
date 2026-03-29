@@ -708,7 +708,7 @@
   },
   "agent:sentinel:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e": {
     "sessionId": "7d894534-4cad-4b2c-8b94-7811d128fd26",
-    "updatedAt": 1774749246875,
+    "updatedAt": 1774794328564,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_05dc4903b4b1b4c5d7e730356ccef21e",
@@ -1007,7 +1007,7 @@
     "model": "glm-5",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774749176365,
+      "generatedAt": 1774794280910,
       "sessionId": "7d894534-4cad-4b2c-8b94-7811d128fd26",
       "sessionKey": "agent:sentinel:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e",
       "provider": "openai",
@@ -1027,9 +1027,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 33715,
+        "chars": 34568,
         "projectContextChars": 13353,
-        "nonProjectContextChars": 20362
+        "nonProjectContextChars": 21215
       },
       "injectedWorkspaceFiles": [
         {
@@ -1187,8 +1187,8 @@
         ]
       },
       "tools": {
-        "listChars": 3951,
-        "schemaChars": 27540,
+        "listChars": 4804,
+        "schemaChars": 33237,
         "entries": [
           {
             "name": "read",
@@ -1405,16 +1405,46 @@
             "summaryChars": 197,
             "schemaChars": 866,
             "propertiesCount": 7
+          },
+          {
+            "name": "tavily_search",
+            "summaryChars": 210,
+            "schemaChars": 2150,
+            "propertiesCount": 17
+          },
+          {
+            "name": "tavily_extract",
+            "summaryChars": 140,
+            "schemaChars": 604,
+            "propertiesCount": 6
+          },
+          {
+            "name": "tavily_crawl",
+            "summaryChars": 138,
+            "schemaChars": 1471,
+            "propertiesCount": 15
+          },
+          {
+            "name": "tavily_map",
+            "summaryChars": 125,
+            "schemaChars": 994,
+            "propertiesCount": 11
+          },
+          {
+            "name": "tavily_research",
+            "summaryChars": 151,
+            "schemaChars": 478,
+            "propertiesCount": 4
           }
         ]
       }
     },
-    "cacheRead": 24448,
+    "cacheRead": 31040,
     "cacheWrite": 0,
     "totalTokensFresh": true,
     "contextTokens": 128000,
-    "inputTokens": 9761,
-    "outputTokens": 843,
-    "totalTokens": 25660
+    "inputTokens": 15623,
+    "outputTokens": 491,
+    "totalTokens": 32511
   }
 }

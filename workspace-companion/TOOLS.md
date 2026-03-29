@@ -2,6 +2,11 @@
 
 Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
 
+## ClawHub
+
+- Token: `clh_HFznCaeYn_jRaRsGe3yA4R3VCeeONDgO-9E09vJVwx0`
+- 用途：从 ClawHub 下载 skills 时使用
+
 ## What Goes Here
 
 Things like:

@@ -1,7 +1,7 @@
 {
   "agent:coordinate:feishu:coordinate:direct:ou_d36e36305cc9976ed9b96363e7e06d69": {
-    "sessionId": "b6d9a031-49ae-4ad7-9892-c27c964800b0",
-    "updatedAt": 1774687832360,
+    "sessionId": "657a45c7-4f8c-4009-9b06-068f4b346ab4",
+    "updatedAt": 1774785476984,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -22,10 +22,10 @@
       "to": "user:ou_d36e36305cc9976ed9b96363e7e06d69",
       "accountId": "coordinate"
     },
-    "sessionFile": "/home/admin/.openclaw/agents/coordinate/sessions/b6d9a031-49ae-4ad7-9892-c27c964800b0.jsonl",
+    "sessionFile": "/home/admin/.openclaw/agents/coordinate/sessions/657a45c7-4f8c-4009-9b06-068f4b346ab4.jsonl",
     "compactionCount": 0,
     "skillsSnapshot": {
-      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>feishu-doc</name>\n    <description>Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-doc/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-drive</name>\n    <description>Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-drive/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-perm</name>\n    <description>Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-perm/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-wiki</name>\n    <description>Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-channel</name>\n    <description>QQ 频道管理技能。查询频道列表、子频道、成员、发帖、公告、日程等操作。使用 qqbot_channel_api 工具代理 QQ 开放平台 HTTP 接口，自动处理 Token 鉴权。当用户需要查看频道、管理子频道、查询成员、发布帖子/公告/日程时使用此技能。</description>\n    <location>~/.openclaw/extensions/openclaw-qqbot/skills/qqbot-channel/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-remind</name>\n    <description>QQBot 定时提醒。支持一次性和周期性提醒的创建、查询、取消。当通过 QQ 通道通信且涉及提醒/定时任务时使用。</description>\n    <location>~/.openclaw/extensions/openclaw-qqbot/skills/qqbot-remind/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-media</name>\n    <description>QQ Bot 媒体发送指南。教 AI 如何发送图片给用户。【重要】当用户要求发送图片时必须使用 &lt;qqimg&gt; 标签。</description>\n    <location>~/.openclaw/extensions/qqbot/skills/qqbot-media/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-cron</name>\n    <description>QQ Bot 智能提醒技能。支持一次性提醒、周期性任务、自动降级确保送达。可设置、查询、取消提醒。</description>\n    <location>~/.openclaw/extensions/qqbot/skills/qqbot-cron/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>clawhub</name>\n    <description>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</description>\n    <location>/opt/openclaw/skills/clawhub/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/opt/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/opt/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tushare</name>\n    <description>tushare是一个财经数据接口包，拥有丰富的数据内容，如股票、基金、期货、数字货币等行情数据，公司财务、基金经理等基本面数据。该模块通过标准化API方式统一了数据资产的对外服务方式，以帮助有需要的技术用户更实时、简洁、轻量的使用相关数据。</description>\n    <location>/opt/openclaw/skills/tushare/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>video-frames</name>\n    <description>Extract frames or short clips from videos using ffmpeg.</description>\n    <location>/opt/openclaw/skills/video-frames/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/opt/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>akshare-stock</name>\n    <description>A股分析全能 Skill（实时行情、技术面、基本面、板块、衍生品与跨市场），基于 akshare + 自然语言路由</description>\n    <location>~/.agents/skills/akshare-stock/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>china-stock-analysis</name>\n    <description>A股价值投资分析工具，提供股票筛选、个股深度分析、行业对比和估值计算功能。基于价值投资理论，使用akshare获取公开财务数据，适合低频交易的普通投资者。</description>\n    <location>~/.agents/skills/china-stock-analysis/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>crawl4ai-skill</name>\n    <description>Web crawling and scraping tool with LLM-optimized output. 网页爬虫爬取工具 | Web crawler, web scraper, spider. DuckDuckGo search, site crawling, dynamic page scraping. 智能搜索爬取 | Free, no API key required.</description>\n    <location>~/.agents/skills/crawl4ai-skill/skills/crawl4ai-skill/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>faster-whisper</name>\n    <description>Local speech-to-text using faster-whisper. 4-6x faster than OpenAI Whisper with identical accuracy; GPU acceleration enables ~20x realtime transcription. SRT/VTT/TTML/CSV subtitles, speaker diarization, URL/YouTube input, batch processing with ETA, transcript search, chapter detection, per-file language map.</description>\n    <location>~/.agents/skills/faster-whisper/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>finance-news</name>\n    <description>Market news briefings with AI summaries. Use when asked about stock news, market updates, portfolio performance, morning/evening briefings, financial headlines, or price alerts. Supports US/Europe/Japan markets, WhatsApp delivery, and English/German output.</description>\n    <location>~/.agents/skills/finance-news/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>playwright-web-scraper</name>\n    <description>Extract structured data from multiple web pages using Playwright with built-in ethical\ncrawling practices including rate limiting, robots.txt compliance, and error monitoring.\nUse when asked to &quot;scrape data from&quot;, &quot;extract information from pages&quot;, &quot;collect data\nfrom site&quot;, &quot;crawl multiple pages&quot;, or when gathering structured data from websites.\nSupports pagination, multi-page extraction, data aggregation, and export to CSV/JSON/Markdown.\nWorks with browser_navigate, browser_evaluate, browser_wait_for, and browser_snapshot tools.\n</description>\n    <location>~/.agents/skills/playwright-web-scraper/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>stock-analysis</name>\n    <description>Analyze stocks and cryptocurrencies using Yahoo Finance data. Supports portfolio management (create, add, remove assets), crypto analysis (Top 20 by market cap), and periodic performance reports (daily/weekly/monthly/quarterly/yearly). 8 analysis dimensions for stocks, 3 for crypto. Use for stock analysis, portfolio tracking, earnings reactions, or crypto monitoring.</description>\n    <location>~/.agents/skills/stock-analysis/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>stock-market-pro</name>\n    <description>Professional stock price tracking, fundamental analysis, and financial reporting tool. Supports global markets (US, KR, etc.), Crypto, and Forex with real-time data. (1) Real-time quotes, (2) Valuation metrics (PE, EPS, ROE), (3) Earnings calendar and consensus, (4) High-quality Candlestick &amp; Line charts with technical indicators (MA5/20/60).</description>\n    <location>~/.agents/skills/stock-market-pro/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>yahoo-finance</name>\n    <description>Get stock prices, quotes, fundamentals, earnings, options, dividends, and analyst ratings using Yahoo Finance. Uses yfinance library - no API key required.</description>\n    <location>~/.agents/skills/yahoo-finance/SKILL.md</location>\n  </skill>\n</available_skills>",
+      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>feishu-doc</name>\n    <description>Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-doc/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-drive</name>\n    <description>Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-drive/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-perm</name>\n    <description>Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-perm/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-wiki</name>\n    <description>Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-channel</name>\n    <description>QQ 频道管理技能。查询频道列表、子频道、成员、发帖、公告、日程等操作。使用 qqbot_channel_api 工具代理 QQ 开放平台 HTTP 接口，自动处理 Token 鉴权。当用户需要查看频道、管理子频道、查询成员、发布帖子/公告/日程时使用此技能。</description>\n    <location>~/.openclaw/extensions/openclaw-qqbot/skills/qqbot-channel/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-remind</name>\n    <description>QQBot 定时提醒。支持一次性和周期性提醒的创建、查询、取消。当通过 QQ 通道通信且涉及提醒/定时任务时使用。</description>\n    <location>~/.openclaw/extensions/openclaw-qqbot/skills/qqbot-remind/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-media</name>\n    <description>QQ Bot 媒体发送指南。教 AI 如何发送图片给用户。【重要】当用户要求发送图片时必须使用 &lt;qqimg&gt; 标签。</description>\n    <location>~/.openclaw/extensions/qqbot/skills/qqbot-media/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-cron</name>\n    <description>QQ Bot 智能提醒技能。支持一次性提醒、周期性任务、自动降级确保送达。可设置、查询、取消提醒。</description>\n    <location>~/.openclaw/extensions/qqbot/skills/qqbot-cron/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>clawhub</name>\n    <description>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</description>\n    <location>/opt/openclaw/skills/clawhub/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/opt/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/opt/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tushare</name>\n    <description>tushare是一个财经数据接口包，拥有丰富的数据内容，如股票、基金、期货、数字货币等行情数据，公司财务、基金经理等基本面数据。该模块通过标准化API方式统一了数据资产的对外服务方式，以帮助有需要的技术用户更实时、简洁、轻量的使用相关数据。</description>\n    <location>/opt/openclaw/skills/tushare/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>video-frames</name>\n    <description>Extract frames or short clips from videos using ffmpeg.</description>\n    <location>/opt/openclaw/skills/video-frames/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/opt/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>crawl4ai-skill</name>\n    <description>Web crawling and scraping tool with LLM-optimized output. 网页爬虫爬取工具 | Web crawler, web scraper, spider. DuckDuckGo search, site crawling, dynamic page scraping. 智能搜索爬取 | Free, no API key required.</description>\n    <location>~/.agents/skills/crawl4ai-skill/skills/crawl4ai-skill/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>faster-whisper</name>\n    <description>Local speech-to-text using faster-whisper. 4-6x faster than OpenAI Whisper with identical accuracy; GPU acceleration enables ~20x realtime transcription. SRT/VTT/TTML/CSV subtitles, speaker diarization, URL/YouTube input, batch processing with ETA, transcript search, chapter detection, per-file language map.</description>\n    <location>~/.agents/skills/faster-whisper/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>playwright-web-scraper</name>\n    <description>Extract structured data from multiple web pages using Playwright with built-in ethical\ncrawling practices including rate limiting, robots.txt compliance, and error monitoring.\nUse when asked to &quot;scrape data from&quot;, &quot;extract information from pages&quot;, &quot;collect data\nfrom site&quot;, &quot;crawl multiple pages&quot;, or when gathering structured data from websites.\nSupports pagination, multi-page extraction, data aggregation, and export to CSV/JSON/Markdown.\nWorks with browser_navigate, browser_evaluate, browser_wait_for, and browser_snapshot tools.\n</description>\n    <location>~/.agents/skills/playwright-web-scraper/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>superpowers</name>\n    <description>Spec-first, TDD, subagent-driven software development workflow. Use when: (1) building any new feature or app — triggers brainstorm → plan → subagent execution loop, (2) debugging a bug or test failure — triggers systematic root-cause process, (3) user says &quot;let&apos;s build&quot;, &quot;help me plan&quot;, &quot;I want to add X&quot;, or &quot;this is broken&quot;, (4) completing a feature branch — triggers test verification + merge/PR options. NOT for: one-liner fixes (just edit), reading code, or non-code tasks. Requires exec tool and sessions_spawn.\n</description>\n    <location>~/.openclaw/workspace-coordinate/skills/superpowers/SKILL.md</location>\n  </skill>\n</available_skills>",
       "skills": [
         {
           "name": "feishu-doc"
@@ -75,13 +75,6 @@
           "requiredEnv": []
         },
         {
-          "name": "akshare-stock",
-          "requiredEnv": []
-        },
-        {
-          "name": "china-stock-analysis"
-        },
-        {
           "name": "crawl4ai-skill"
         },
         {
@@ -89,19 +82,10 @@
           "requiredEnv": []
         },
         {
-          "name": "finance-news"
-        },
-        {
           "name": "playwright-web-scraper"
         },
         {
-          "name": "stock-analysis"
-        },
-        {
-          "name": "stock-market-pro"
-        },
-        {
-          "name": "yahoo-finance"
+          "name": "superpowers"
         }
       ],
       "resolvedSkills": [
@@ -218,22 +202,6 @@
           "disableModelInvocation": false
         },
         {
-          "name": "akshare-stock",
-          "description": "A股分析全能 Skill（实时行情、技术面、基本面、板块、衍生品与跨市场），基于 akshare + 自然语言路由",
-          "filePath": "/home/admin/.agents/skills/akshare-stock/SKILL.md",
-          "baseDir": "/home/admin/.agents/skills/akshare-stock",
-          "source": "agents-skills-personal",
-          "disableModelInvocation": false
-        },
-        {
-          "name": "china-stock-analysis",
-          "description": "A股价值投资分析工具，提供股票筛选、个股深度分析、行业对比和估值计算功能。基于价值投资理论，使用akshare获取公开财务数据，适合低频交易的普通投资者。",
-          "filePath": "/home/admin/.agents/skills/china-stock-analysis/SKILL.md",
-          "baseDir": "/home/admin/.agents/skills/china-stock-analysis",
-          "source": "agents-skills-personal",
-          "disableModelInvocation": false
-        },
-        {
           "name": "crawl4ai-skill",
           "description": "Web crawling and scraping tool with LLM-optimized output. 网页爬虫爬取工具 | Web crawler, web scraper, spider. DuckDuckGo search, site crawling, dynamic page scraping. 智能搜索爬取 | Free, no API key required.",
           "filePath": "/home/admin/.agents/skills/crawl4ai-skill/skills/crawl4ai-skill/SKILL.md",
@@ -250,14 +218,6 @@
           "disableModelInvocation": false
         },
         {
-          "name": "finance-news",
-          "description": "Market news briefings with AI summaries. Use when asked about stock news, market updates, portfolio performance, morning/evening briefings, financial headlines, or price alerts. Supports US/Europe/Japan markets, WhatsApp delivery, and English/German output.",
-          "filePath": "/home/admin/.agents/skills/finance-news/SKILL.md",
-          "baseDir": "/home/admin/.agents/skills/finance-news",
-          "source": "agents-skills-personal",
-          "disableModelInvocation": false
-        },
-        {
           "name": "playwright-web-scraper",
           "description": "Extract structured data from multiple web pages using Playwright with built-in ethical\ncrawling practices including rate limiting, robots.txt compliance, and error monitoring.\nUse when asked to \"scrape data from\", \"extract information from pages\", \"collect data\nfrom site\", \"crawl multiple pages\", or when gathering structured data from websites.\nSupports pagination, multi-page extraction, data aggregation, and export to CSV/JSON/Markdown.\nWorks with browser_navigate, browser_evaluate, browser_wait_for, and browser_snapshot tools.\n",
           "filePath": "/home/admin/.agents/skills/playwright-web-scraper/SKILL.md",
@@ -266,27 +226,11 @@
           "disableModelInvocation": false
         },
         {
-          "name": "stock-analysis",
-          "description": "Analyze stocks and cryptocurrencies using Yahoo Finance data. Supports portfolio management (create, add, remove assets), crypto analysis (Top 20 by market cap), and periodic performance reports (daily/weekly/monthly/quarterly/yearly). 8 analysis dimensions for stocks, 3 for crypto. Use for stock analysis, portfolio tracking, earnings reactions, or crypto monitoring.",
-          "filePath": "/home/admin/.agents/skills/stock-analysis/SKILL.md",
-          "baseDir": "/home/admin/.agents/skills/stock-analysis",
-          "source": "agents-skills-personal",
-          "disableModelInvocation": false
-        },
-        {
-          "name": "stock-market-pro",
-          "description": "Professional stock price tracking, fundamental analysis, and financial reporting tool. Supports global markets (US, KR, etc.), Crypto, and Forex with real-time data. (1) Real-time quotes, (2) Valuation metrics (PE, EPS, ROE), (3) Earnings calendar and consensus, (4) High-quality Candlestick & Line charts with technical indicators (MA5/20/60).",
-          "filePath": "/home/admin/.agents/skills/stock-market-pro/SKILL.md",
-          "baseDir": "/home/admin/.agents/skills/stock-market-pro",
-          "source": "agents-skills-personal",
-          "disableModelInvocation": false
-        },
-        {
-          "name": "yahoo-finance",
-          "description": "Get stock prices, quotes, fundamentals, earnings, options, dividends, and analyst ratings using Yahoo Finance. Uses yfinance library - no API key required.",
-          "filePath": "/home/admin/.agents/skills/yahoo-finance/SKILL.md",
-          "baseDir": "/home/admin/.agents/skills/yahoo-finance",
-          "source": "agents-skills-personal",
+          "name": "superpowers",
+          "description": "Spec-first, TDD, subagent-driven software development workflow. Use when: (1) building any new feature or app — triggers brainstorm → plan → subagent execution loop, (2) debugging a bug or test failure — triggers systematic root-cause process, (3) user says \"let's build\", \"help me plan\", \"I want to add X\", or \"this is broken\", (4) completing a feature branch — triggers test verification + merge/PR options. NOT for: one-liner fixes (just edit), reading code, or non-code tasks. Requires exec tool and sessions_spawn.\n",
+          "filePath": "/home/admin/.openclaw/workspace-coordinate/skills/superpowers/SKILL.md",
+          "baseDir": "/home/admin/.openclaw/workspace-coordinate/skills/superpowers",
+          "source": "openclaw-workspace",
           "disableModelInvocation": false
         }
       ],
@@ -296,8 +240,8 @@
     "model": "glm-5",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774687822917,
-      "sessionId": "b6d9a031-49ae-4ad7-9892-c27c964800b0",
+      "generatedAt": 1774785020323,
+      "sessionId": "657a45c7-4f8c-4009-9b06-068f4b346ab4",
       "sessionKey": "agent:coordinate:feishu:coordinate:direct:ou_d36e36305cc9976ed9b96363e7e06d69",
       "provider": "openai",
       "model": "glm-5",
@@ -316,9 +260,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 33834,
-        "projectContextChars": 13671,
-        "nonProjectContextChars": 20163
+        "chars": 32491,
+        "projectContextChars": 13772,
+        "nonProjectContextChars": 18719
       },
       "injectedWorkspaceFiles": [
         {
@@ -341,8 +285,8 @@
           "name": "TOOLS.md",
           "path": "/home/admin/.openclaw/workspace-coordinate/TOOLS.md",
           "missing": false,
-          "rawChars": 850,
-          "injectedChars": 850,
+          "rawChars": 951,
+          "injectedChars": 951,
           "truncated": false
         },
         {
@@ -379,7 +323,7 @@
         }
       ],
       "skills": {
-        "promptChars": 8182,
+        "promptChars": 6738,
         "entries": [
           {
             "name": "feishu-doc",
@@ -438,14 +382,6 @@
             "blockChars": 390
           },
           {
-            "name": "akshare-stock",
-            "blockChars": 203
-          },
-          {
-            "name": "china-stock-analysis",
-            "blockChars": 237
-          },
-          {
             "name": "crawl4ai-skill",
             "blockChars": 365
           },
@@ -454,24 +390,12 @@
             "blockChars": 457
           },
           {
-            "name": "finance-news",
-            "blockChars": 401
-          },
-          {
             "name": "playwright-web-scraper",
             "blockChars": 739
           },
           {
-            "name": "stock-analysis",
-            "blockChars": 517
-          },
-          {
-            "name": "stock-market-pro",
-            "blockChars": 500
-          },
-          {
-            "name": "yahoo-finance",
-            "blockChars": 301
+            "name": "superpowers",
+            "blockChars": 730
           }
         ]
       },
@@ -698,17 +622,17 @@
         ]
       }
     },
-    "cacheRead": 14784,
+    "cacheRead": 32768,
     "cacheWrite": 0,
     "totalTokensFresh": true,
     "contextTokens": 128000,
-    "inputTokens": 5262,
-    "outputTokens": 40,
-    "totalTokens": 20046
+    "inputTokens": 16341,
+    "outputTokens": 3956,
+    "totalTokens": 35455
   },
   "agent:coordinate:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e": {
-    "sessionId": "6f17f861-0e0f-4842-801f-6a6ca2e4fae9",
-    "updatedAt": 1774692514333,
+    "sessionId": "7411eea0-e662-4a5f-85dc-1279d9273dbc",
+    "updatedAt": 1774749139389,
     "systemSent": true,
     "abortedLastRun": false,
     "displayName": "feishu:g-oc_05dc4903b4b1b4c5d7e730356ccef21e",
@@ -733,7 +657,7 @@
       "to": "chat:oc_05dc4903b4b1b4c5d7e730356ccef21e",
       "accountId": "coordinate"
     },
-    "sessionFile": "/home/admin/.openclaw/agents/coordinate/sessions/6f17f861-0e0f-4842-801f-6a6ca2e4fae9.jsonl",
+    "sessionFile": "/home/admin/.openclaw/agents/coordinate/sessions/7411eea0-e662-4a5f-85dc-1279d9273dbc.jsonl",
     "compactionCount": 0,
     "skillsSnapshot": {
       "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>feishu-doc</name>\n    <description>Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-doc/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-drive</name>\n    <description>Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-drive/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-perm</name>\n    <description>Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-perm/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-wiki</name>\n    <description>Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-channel</name>\n    <description>QQ 频道管理技能。查询频道列表、子频道、成员、发帖、公告、日程等操作。使用 qqbot_channel_api 工具代理 QQ 开放平台 HTTP 接口，自动处理 Token 鉴权。当用户需要查看频道、管理子频道、查询成员、发布帖子/公告/日程时使用此技能。</description>\n    <location>~/.openclaw/extensions/openclaw-qqbot/skills/qqbot-channel/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-remind</name>\n    <description>QQBot 定时提醒。支持一次性和周期性提醒的创建、查询、取消。当通过 QQ 通道通信且涉及提醒/定时任务时使用。</description>\n    <location>~/.openclaw/extensions/openclaw-qqbot/skills/qqbot-remind/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-media</name>\n    <description>QQ Bot 媒体发送指南。教 AI 如何发送图片给用户。【重要】当用户要求发送图片时必须使用 &lt;qqimg&gt; 标签。</description>\n    <location>~/.openclaw/extensions/qqbot/skills/qqbot-media/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-cron</name>\n    <description>QQ Bot 智能提醒技能。支持一次性提醒、周期性任务、自动降级确保送达。可设置、查询、取消提醒。</description>\n    <location>~/.openclaw/extensions/qqbot/skills/qqbot-cron/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>clawhub</name>\n    <description>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</description>\n    <location>/opt/openclaw/skills/clawhub/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/opt/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/opt/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tushare</name>\n    <description>tushare是一个财经数据接口包，拥有丰富的数据内容，如股票、基金、期货、数字货币等行情数据，公司财务、基金经理等基本面数据。该模块通过标准化API方式统一了数据资产的对外服务方式，以帮助有需要的技术用户更实时、简洁、轻量的使用相关数据。</description>\n    <location>/opt/openclaw/skills/tushare/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>video-frames</name>\n    <description>Extract frames or short clips from videos using ffmpeg.</description>\n    <location>/opt/openclaw/skills/video-frames/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/opt/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>akshare-stock</name>\n    <description>A股分析全能 Skill（实时行情、技术面、基本面、板块、衍生品与跨市场），基于 akshare + 自然语言路由</description>\n    <location>~/.agents/skills/akshare-stock/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>china-stock-analysis</name>\n    <description>A股价值投资分析工具，提供股票筛选、个股深度分析、行业对比和估值计算功能。基于价值投资理论，使用akshare获取公开财务数据，适合低频交易的普通投资者。</description>\n    <location>~/.agents/skills/china-stock-analysis/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>crawl4ai-skill</name>\n    <description>Web crawling and scraping tool with LLM-optimized output. 网页爬虫爬取工具 | Web crawler, web scraper, spider. DuckDuckGo search, site crawling, dynamic page scraping. 智能搜索爬取 | Free, no API key required.</description>\n    <location>~/.agents/skills/crawl4ai-skill/skills/crawl4ai-skill/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>faster-whisper</name>\n    <description>Local speech-to-text using faster-whisper. 4-6x faster than OpenAI Whisper with identical accuracy; GPU acceleration enables ~20x realtime transcription. SRT/VTT/TTML/CSV subtitles, speaker diarization, URL/YouTube input, batch processing with ETA, transcript search, chapter detection, per-file language map.</description>\n    <location>~/.agents/skills/faster-whisper/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>finance-news</name>\n    <description>Market news briefings with AI summaries. Use when asked about stock news, market updates, portfolio performance, morning/evening briefings, financial headlines, or price alerts. Supports US/Europe/Japan markets, WhatsApp delivery, and English/German output.</description>\n    <location>~/.agents/skills/finance-news/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>playwright-web-scraper</name>\n    <description>Extract structured data from multiple web pages using Playwright with built-in ethical\ncrawling practices including rate limiting, robots.txt compliance, and error monitoring.\nUse when asked to &quot;scrape data from&quot;, &quot;extract information from pages&quot;, &quot;collect data\nfrom site&quot;, &quot;crawl multiple pages&quot;, or when gathering structured data from websites.\nSupports pagination, multi-page extraction, data aggregation, and export to CSV/JSON/Markdown.\nWorks with browser_navigate, browser_evaluate, browser_wait_for, and browser_snapshot tools.\n</description>\n    <location>~/.agents/skills/playwright-web-scraper/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>stock-analysis</name>\n    <description>Analyze stocks and cryptocurrencies using Yahoo Finance data. Supports portfolio management (create, add, remove assets), crypto analysis (Top 20 by market cap), and periodic performance reports (daily/weekly/monthly/quarterly/yearly). 8 analysis dimensions for stocks, 3 for crypto. Use for stock analysis, portfolio tracking, earnings reactions, or crypto monitoring.</description>\n    <location>~/.agents/skills/stock-analysis/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>stock-market-pro</name>\n    <description>Professional stock price tracking, fundamental analysis, and financial reporting tool. Supports global markets (US, KR, etc.), Crypto, and Forex with real-time data. (1) Real-time quotes, (2) Valuation metrics (PE, EPS, ROE), (3) Earnings calendar and consensus, (4) High-quality Candlestick &amp; Line charts with technical indicators (MA5/20/60).</description>\n    <location>~/.agents/skills/stock-market-pro/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>yahoo-finance</name>\n    <description>Get stock prices, quotes, fundamentals, earnings, options, dividends, and analyst ratings using Yahoo Finance. Uses yfinance library - no API key required.</description>\n    <location>~/.agents/skills/yahoo-finance/SKILL.md</location>\n  </skill>\n</available_skills>",
@@ -1007,8 +931,8 @@
     "model": "glm-5",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1774692351705,
-      "sessionId": "6f17f861-0e0f-4842-801f-6a6ca2e4fae9",
+      "generatedAt": 1774749004352,
+      "sessionId": "7411eea0-e662-4a5f-85dc-1279d9273dbc",
       "sessionKey": "agent:coordinate:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e",
       "provider": "openai",
       "model": "glm-5",
@@ -1409,13 +1333,13 @@
         ]
       }
     },
-    "cacheRead": 43968,
+    "cacheRead": 30976,
     "cacheWrite": 0,
     "totalTokensFresh": true,
     "contextTokens": 128000,
-    "inputTokens": 3178,
-    "outputTokens": 1042,
-    "totalTokens": 44597
+    "inputTokens": 17275,
+    "outputTokens": 1729,
+    "totalTokens": 33127
   },
   "agent:coordinate:feishu:coordinate:direct:oc_05dc4903b4b1b4c5d7e730356ccef21e": {
     "origin": {

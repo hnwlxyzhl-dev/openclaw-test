@@ -21,7 +21,7 @@
     "providers": {
       "dashscope": {
         "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-        "apiKey": "$api-key",
+        "apiKey": "[REDACTED]",
         "api": "openai-completions",
         "models": [
           {
@@ -63,7 +63,7 @@
       },
       "dashscope-us": {
         "baseUrl": "https://dashscope-us.aliyuncs.com/compatible-mode/v1",
-        "apiKey": "$api-key",
+        "apiKey": "[REDACTED]",
         "api": "openai-completions",
         "models": [
           {
@@ -105,7 +105,7 @@
       },
       "openai": {
         "baseUrl": "https://open.bigmodel.cn/api/coding/paas/v4",
-        "apiKey": "e793255ca49f420985fa5c5d441a11ea.8CzFlVT7iPT9rxUn",
+        "apiKey": "[REDACTED]",
         "api": "openai-completions",
         "models": [
           {
@@ -385,6 +385,16 @@
             "*"
           ]
         }
+      },
+      {
+        "id": "ppt",
+        "name": "PPT Agent（演示专家）",
+        "workspace": "/home/admin/.openclaw/workspace-ppt-agent",
+        "subagents": {
+          "allowAgents": [
+            "*"
+          ]
+        }
       }
     ]
   },
@@ -513,47 +523,47 @@
       "accounts": {
         "eden": {
           "appId": "cli_a94fbbf5d3789cba",
-          "appSecret": "03Ov15VzUPIFaLirdjVxeehlqi7qVG8j"
+          "appSecret": "[REDACTED]"
         },
         "weaver": {
           "appId": "cli_a94cee73053a5cee",
-          "appSecret": "vnYvHupur3eJ9OT6IZ1RKdOSMJwfEjeE"
+          "appSecret": "[REDACTED]"
         },
         "coordinate": {
           "appId": "cli_a94cefd5e639dcb1",
-          "appSecret": "9rG2YPfS6Ed6dT9V2tOJvh5uVwOgEdyJ"
+          "appSecret": "[REDACTED]"
         },
         "visionary": {
           "appId": "cli_a94ce835283cdccd",
-          "appSecret": "cUmogBLFjqYQL4YW08kyXfH1xEyfT0O4"
+          "appSecret": "[REDACTED]"
         },
         "forger": {
           "appId": "cli_a94ce89c837a9cc0",
-          "appSecret": "zapWPdk4HZRpO1OEXa3uOcnKtAbojnK6"
+          "appSecret": "[REDACTED]"
         },
         "sentinel": {
           "appId": "cli_a94ce8b2fd781cb2",
-          "appSecret": "rZitYhUgWADe8CcgyXj4ffgUEYTzssyL"
+          "appSecret": "[REDACTED]"
         },
         "evolver": {
           "appId": "cli_a94ce8e2b3f95cb0",
-          "appSecret": "UmmMZG7QwhiU7Ui9HNAnnbLrqZBFEV8B"
+          "appSecret": "[REDACTED]"
         },
         "companion": {
           "appId": "cli_a94ce92305f85cd1",
-          "appSecret": "EV5G5l3zyPz0TsjUrRBkClNggpTe03WC"
+          "appSecret": "[REDACTED]"
         },
         "guardian": {
           "appId": "cli_a94ce97075b85cd2",
-          "appSecret": "NyDHYFqy1PxMkLfH9Z7hibYuCGhELfdx"
+          "appSecret": "[REDACTED]"
         },
         "hunter": {
           "appId": "cli_a94ce9831c245cce",
-          "appSecret": "xqYczB93Ye4mfMukkmaDTfO0YDbePsYH"
+          "appSecret": "[REDACTED]"
         },
         "dictator": {
           "appId": "cli_a94ce9e6e2b81cd1",
-          "appSecret": "jVqi3QuizQWt8c7GIOZUNg31PJhrntBa"
+          "appSecret": "[REDACTED]"
         },
         "default": {
           "allowFrom": [
@@ -571,7 +581,7 @@
     "qqbot": {
       "enabled": true,
       "appId": "1903682323",
-      "clientSecret": "WyDE12sVv88vUpxy",
+      "clientSecret": "[REDACTED]",
       "allowFrom": [
         "*"
       ]
@@ -580,7 +590,7 @@
       "enabled": false,
       "mode": "ws",
       "botId": "aibmZhvXjzhw-RH0qV2snyYYuTE4TwJwRVO",
-      "secret": "gB1kIh1oVHPcxhxTGxdTy82CAoMRdg7CTaomtzaYGJ5"
+      "secret": "[REDACTED]"
     }
   },
   "gateway": {

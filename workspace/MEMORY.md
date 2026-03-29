@@ -234,6 +234,9 @@
 | **ClawHub** | https://clawhub.com | `clawhub install <skill>` | 需要登录认证 |
 | **skills.sh** | https://skills.sh/ | `npx skills add <owner/repo@skill>` | Vercel Labs，无需登录 |
 
+**ClawHub Token:** `clh_HFznCaeYn_jRaRsGe3yA4R3VCeeONDgO-9E09vJVwx0`
+- 登录命令：`clawhub login --token clh_HFznCaeYn_jRaRsGe3yA4R3VCeeONDgO-9E09vJVwx0`
+
 **使用建议：**
 - ClawHub 需要先 `clawhub login --token <token>` 登录
 - skills.sh 可以直接使用，有安全审计（Socket/Snyk）

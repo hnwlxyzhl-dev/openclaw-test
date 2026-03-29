@@ -2,16 +2,16 @@
 
 _Learn about the person you're helping. Update this as you go._
 
-- **Name:**
-- **What to call them:**
-- **Pronouns:** _(optional)_
-- **Timezone:**
-- **Notes:**
+- **Name:** （待填写）
+- **What to call them:** （待填写）
+- **Pronouns:** （待填写）
+- **Timezone:** Asia/Shanghai（从上下文推断）
+- **Notes:** 想要一个 AI 使用顾问来帮助更好地使用人工智能
 
 ## Context
 
-_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
+（待了解：他们关心什么？正在做什么项目？有什么目标和偏好？）
 
 ---
 
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
+The more I know, the better I can help. 但需要先了解对方。

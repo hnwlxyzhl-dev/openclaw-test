@@ -6,7 +6,7 @@
       "name": "每日跌停股票分析",
       "enabled": true,
       "createdAtMs": 1773724552141,
-      "updatedAtMs": 1774673823032,
+      "updatedAtMs": 1774760188367,
       "schedule": {
         "kind": "cron",
         "expr": "55 12 * * *",
@@ -24,11 +24,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1774760100000,
-        "lastRunAtMs": 1774673700007,
+        "nextRunAtMs": 1774846500000,
+        "lastRunAtMs": 1774760100006,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 123025,
+        "lastDurationMs": 88361,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -172,7 +172,7 @@
       "name": "GitHub配置备份",
       "enabled": true,
       "createdAtMs": 1774683770925,
-      "updatedAtMs": 1774683770925,
+      "updatedAtMs": 1774710071627,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -185,8 +185,14 @@
         "message": "执行OpenClaw配置备份到GitHub。运行脚本：/home/admin/.openclaw/scripts/backup_to_github.sh"
       },
       "state": {
-        "nextRunAtMs": 1774710000000,
-        "runningAtMs": 1774710000007
+        "nextRunAtMs": 1774796400000,
+        "lastRunAtMs": 1774710000008,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 71619,
+        "lastError": "Channel is required when multiple channels are configured: qqbot, feishu Set delivery.channel explicitly or use a main session with a previous channel.",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
       },
       "delivery": {
         "mode": "announce"
@@ -197,7 +203,7 @@
       "name": "本地配置备份",
       "enabled": true,
       "createdAtMs": 1774710240000,
-      "updatedAtMs": 1774710240000,
+      "updatedAtMs": 1774710101352,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -210,8 +216,14 @@
         "message": "执行openclaw.json本地备份。运行脚本：/home/admin/.openclaw/scripts/backup_local.sh"
       },
       "state": {
-        "nextRunAtMs": 1774710000000,
-        "runningAtMs": 1774710000007
+        "nextRunAtMs": 1774796400000,
+        "lastRunAtMs": 1774710071627,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 29725,
+        "lastError": "Channel is required when multiple channels are configured: qqbot, feishu Set delivery.channel explicitly or use a main session with a previous channel.",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
       },
       "delivery": {
         "mode": "announce"

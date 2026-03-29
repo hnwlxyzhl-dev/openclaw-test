@@ -35,6 +35,10 @@ Things like:
 
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
 
+### ClawHub
+- Token: `clh_HFznCaeYn_jRaRsGe3yA4R3VCeeONDgO-9E09vJVwx0`
+- 用途：从 clawhub.com 下载 skills
+
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.

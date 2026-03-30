@@ -37,120 +37,116 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 
 ---
 
-## 📊 PPT工具快速参考
+## 📊 16 个技能快速参考（2026-03-30）
 
-### 工具清单
+### PPT 制作技能（6 个）
 
-#### 1. python-pptx（本地方案）
-- **类型：** Python库
-- **安装：** `pip install python-pptx`
-- **费用：** 免费
-- **完成度：** 93%
-- **限制：** 不支持动画
-- **最佳脚本：** `generate_ppt_v5_ultimate.py`
-- **文档：** `PPT工具完整知识库.md`
+| 技能 | 用途 | 触发 | 输出 |
+|------|------|------|------|
+| **powerpoint-pptx** | 读写 PPTX、布局、模板 | 涉及 `.pptx` | PPTX |
+| **ppt-generator** | 乔布斯风竖屏 | 产品发布/主题演讲 | HTML |
+| **openclaw-slides** | 12 种风格 | 通用场景 | HTML |
+| **slides-cog** | CellCog 深度研究 | 研究报告 | PDF/PPTX |
+| **youmind-slides** | 在线编辑协作 | 云端管理 | 在线 |
+| **ppt-visual** | 设计规范指导 | 设计指导 | 文档 |
 
-#### 2. 2slides MCP（云端方案）⭐ 推荐
-- **类型：** MCP服务器
-- **官网：** https://2slides.com
-- **GitHub：** https://github.com/2slides/mcp-2slides
-- **API：** https://2slides.com/api
-- **费用：** 付费（1-210积分/页）
-- **功能：** Fast PPT, Nano Banana, AI配音
-- **配置路径：** `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **支持中文：** ✅
+### 搜索技能（2 个）
 
-### 快速决策
+| 技能 | 用途 | 触发 |
+|------|------|------|
+| **tavily-search** | Tavily API 搜索 | 搜索/查找/搜索链接 |
+| **multi-search-engine** | 17 搜索引擎 | 多引擎搜索 |
 
-**需要快速PPT（预算充足）：**
-→ 使用2slides Fast PPT（1积分/页，5分钟）
+### Office 自动化（2 个）
 
-**需要专业PPT（预算充足）：**
-→ 使用2slides Nano Banana（100积分/页，10分钟）
+| 技能 | 用途 | 触发 |
+|------|------|------|
+| **office-automation** | Word/Excel 自动化 | 批量处理/模板填充 |
+| **excel-automation** | Excel 实时交互 | Excel 实时操作 |
 
-**需要AI配音PPT：**
-→ 使用2slides + AI配音（210积分/页）
+### 邮件与文档（2 个）
 
-**预算有限：**
-→ 使用python-pptx（93%完成度，已完成）
+| 技能 | 用途 | 触发 |
+|------|------|------|
+| **imap-smtp-email** | 邮件收发/搜索 | 检查邮件/发送邮件 |
+| **document-skills** | 创建技能文档 | 创建 skill/写 SKILL.md |
 
-**需要100%完美：**
-→ python-pptx + 手动动画（免费，15分钟）
+### 工作流（2 个）
 
-### 2slides MCP配置模板
+| 技能 | 用途 | 触发 |
+|------|------|------|
+| **superpowers** | TDD + 子代理开发 | 构建功能/调试 |
+| **superpowers-cn** | 中文工作流 | 开发/写代码 |
 
-```json
-{
-  "mcpServers": {
-    "2slides": {
-      "command": "npx",
-      "args": ["2slides-mcp"],
-      "env": {
-        "API_KEY": "YOUR_API_KEY_HERE"
-      }
-    }
-  }
-}
+### 自我改进（1 个）
+
+| 技能 | 用途 | 触发 |
+|------|------|------|
+| **self-improvement** | 持续优化能力 | 自我改进 |
+
+---
+
+## 🔧 技能目录位置
+
+```
+/home/admin/.openclaw/workspace-weaver/skills/
+├── powerpoint-pptx/
+├── ppt-generator/
+├── openclaw-slides/
+├── slides-cog/
+├── youmind-slides-generator/
+├── ppt-visual/
+├── tavily-search/
+├── multi-search-engine/
+├── office-automation/
+├── excel-automation/
+├── imap-smtp-email/
+├── document-skills/
+├── superpowers/
+├── superpowers-cn/
+└── self-improvement/
 ```
 
-### 2slides常用功能
+---
 
-**搜索主题：**
-```javascript
-themes_search(query="business", limit=10)
+## 📋 PPT 技能选择指南
+
+**需要 .pptx 文件：**
+→ `powerpoint-pptx` + `ppt-visual`
+
+**需要 HTML 演示：**
+→ `ppt-generator`（竖屏）/ `openclaw-slides`（横屏）
+
+**需要深度研究：**
+→ `slides-cog`
+
+**需要协作编辑：**
+→ `youmind-slides-generator`
+
+---
+
+## 🔍 搜索技能选择指南
+
+**需要快速搜索：**
+→ `tavily-search`
+
+**需要多引擎对比：**
+→ `multi-search-engine`（百度/Bing/Google/DuckDuckGo 等）
+
+---
+
+## 📧 邮件技能使用
+
+```bash
+# 检查邮件
+node skills/imap-smtp-email/scripts/imap.js check --limit 10
+
+# 发送邮件
+node skills/imap-smtp-email/scripts/smtp.js send \
+  --to recipient@example.com \
+  --subject "主题" \
+  --body "内容"
 ```
-
-**快速生成：**
-```javascript
-slides_generate(
-  themeId="st-xxx",
-  userInput="生成5页ML介绍",
-  responseLanguage="Simplified Chinese",
-  mode="sync"
-)
-```
-
-**专业生成：**
-```javascript
-slides_create_pdf_slides(
-  userInput="内容",
-  designStyle="现代、深色",
-  aspectRatio="16:9",
-  resolution="2K",
-  mode="async"
-)
-```
-
-**添加配音：**
-```javascript
-slides_generate_narration(
-  jobId="xxx",
-  mode="multi",
-  speaker1Name="张三",
-  speaker1Voice="Aoede"
-)
-```
-
-### 已创建的PPT文件
-
-- `如何制作专业级PPT_v5_ultimate.pptx` ⭐ 推荐（93%完成度）
-- 18页完整内容
-- 专业蓝色主题
-- 包含图表和配色展示
-
-### 详细文档位置
-
-- 完整知识库：`PPT工具完整知识库.md` (9,104字)
-- 2slides学习笔记：`2slides-MCP完整学习笔记.md` (4,695字)
-- 动画技术研究：`PPT动画技术研究完整报告.md` (3,433字)
-- 生成脚本：`generate_ppt_v5_ultimate.py` (23KB)
-
-### 重要经验
-
-1. ✅ **主动搜索工具** - 不要等用户提示
-2. ✅ **检查MCP生态** - https://github.com/modelcontextprotocol/servers
-3. ✅ **追求完美** - 不满足于"够用"
-4. ✅ **提供选择** - 列出所有方案，让用户决定
 
 ---
 

@@ -576,7 +576,8 @@
           "requireMention": false
         }
       },
-      "dmPolicy": "open"
+      "dmPolicy": "open",
+      "defaultAccount": "eden"
     },
     "qqbot": {
       "enabled": true,

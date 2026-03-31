@@ -385,16 +385,6 @@
             "*"
           ]
         }
-      },
-      {
-        "id": "ppt",
-        "name": "PPT Agent（演示专家）",
-        "workspace": "/home/admin/.openclaw/workspace-ppt-agent",
-        "subagents": {
-          "allowAgents": [
-            "*"
-          ]
-        }
       }
     ]
   },

@@ -238,7 +238,7 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "openai/glm-5"
+        "primary": "openai/glm-5-turbo"
       },
       "imageModel": {
         "primary": "openai/glm-4.6v"

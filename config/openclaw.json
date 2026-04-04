@@ -1,10 +1,10 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.3",
-    "lastTouchedAt": "2026-03-29T13:53:58.046Z"
+    "lastTouchedAt": "2026-04-04T04:17:25.098Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-28T08:46:30.930Z",
+    "lastRunAt": "2026-04-04T04:17:25.080Z",
     "lastRunVersion": "2026.3.3",
     "lastRunCommand": "doctor",
     "lastRunMode": "local"
@@ -567,7 +567,10 @@
         }
       },
       "dmPolicy": "open",
-      "defaultAccount": "eden"
+      "defaultAccount": "eden",
+      "allowFrom": [
+        "*"
+      ]
     },
     "qqbot": {
       "enabled": true,

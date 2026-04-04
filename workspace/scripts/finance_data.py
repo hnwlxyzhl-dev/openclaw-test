@@ -737,6 +737,113 @@ def search_news(keyword: str) -> dict:
 
 
 # ============================================================================
+# 港股财报数据
+# ============================================================================
+
+def get_hk_financial_indicators(code: str, period: str = "年度") -> dict:
+    """
+    获取港股财务分析主要指标（营收、净利润、ROE、毛利率等）
+    
+    Args:
+        code: 港股代码（纯数字，如 00700、01810）
+        period: "年度" 或 "报告期"
+    """
+    try:
+        import akshare as ak
+        
+        df = ak.stock_financial_hk_analysis_indicator_em(symbol=code, indicator=period)
+        
+        if df is None or len(df) == 0:
+            return {"error": f"未找到 {code} 的财务指标数据"}
+        
+        records = []
+        for _, row in df.iterrows():
+            report_date = str(row.get('REPORT_DATE', ''))[:10]
+            records.append({
+                "report_date": report_date,
+                "fiscal_year": row.get('FISCAL_YEAR', ''),
+                "currency": row.get('CURRENCY', ''),
+                "revenue": row.get('OPERATE_INCOME'),           # 营业收入
+                "revenue_yoy": round(row.get('OPERATE_INCOME_YOY', 0), 2),  # 营收同比%
+                "net_profit": row.get('HOLDER_PROFIT'),         # 归母净利润
+                "net_profit_yoy": round(row.get('HOLDER_PROFIT_YOY', 0), 2), # 净利润同比%
+                "gross_profit": row.get('GROSS_PROFIT'),        # 毛利
+                "gross_profit_yoy": round(row.get('GROSS_PROFIT_YOY', 0), 2), # 毛利同比%
+                "gross_margin": round(row.get('GROSS_PROFIT_RATIO', 0), 2),   # 毛利率%
+                "net_margin": round(row.get('NET_PROFIT_RATIO', 0), 2),       # 净利率%
+                "roe": round(row.get('ROE_AVG', 0), 2),                      # ROE(平均)%
+                "roa": round(row.get('ROA', 0), 2),                           # ROA%
+                "eps": row.get('BASIC_EPS'),                 # 基本EPS
+                "bps": row.get('BPS'),                      # 每股净资产
+                "debt_ratio": round(row.get('DEBT_ASSET_RATIO', 0), 2),       # 资产负债率%
+                "current_ratio": round(row.get('CURRENT_RATIO', 0), 2),       # 流动比率
+                "ocf_per_share": round(row.get('PER_NETCASH_OPERATE', 0), 2), # 每股经营现金流
+            })
+        
+        stock_name = df.iloc[0].get('SECURITY_NAME_ABBR', '') if len(df) > 0 else ''
+        
+        return {
+            "source": "akshare_eastmoney",
+            "code": code,
+            "name": stock_name,
+            "period": period,
+            "count": len(records),
+            "records": records,
+        }
+    except Exception as e:
+        return {"error": f"get_hk_financial_indicators: {str(e)}"}
+
+
+def get_hk_financial_report(code: str, report_type: str = "利润表", period: str = "年度") -> dict:
+    """
+    获取港股三大财务报表
+    
+    Args:
+        code: 港股代码（纯数字，如 00700）
+        report_type: "资产负债表" / "利润表" / "现金流量表"
+        period: "年度" 或 "报告期"
+    """
+    try:
+        import akshare as ak
+        
+        df = ak.stock_financial_hk_report_em(stock=code, symbol=report_type, indicator=period)
+        
+        if df is None or len(df) == 0:
+            return {"error": f"未找到 {code} 的{report_type}数据"}
+        
+        stock_name = df.iloc[0].get('SECURITY_NAME_ABBR', '') if len(df) > 0 else ''
+        
+        # 按报告日期分组，每期转为字典
+        dates = df['REPORT_DATE'].unique()
+        records = []
+        for date in dates:
+            date_df = df[df['REPORT_DATE'] == date]
+            items = []
+            for _, row in date_df.iterrows():
+                items.append({
+                    "item": row.get('STD_ITEM_NAME', ''),
+                    "code": row.get('STD_ITEM_CODE', ''),
+                    "amount": row.get('AMOUNT'),
+                })
+            records.append({
+                "report_date": str(date)[:10],
+                "items": items,
+            })
+        
+        return {
+            "source": "akshare_eastmoney",
+            "code": code,
+            "name": stock_name,
+            "report_type": report_type,
+            "period": period,
+            "count": len(records),
+            "records": records,
+        }
+    except Exception as e:
+        return {"error": f"get_hk_financial_report: {str(e)}"}
+
+
+# ============================================================================
 # CLI 入口
 # ============================================================================
 
@@ -782,6 +889,16 @@ def main():
     news_parser = subparsers.add_parser("news", help="搜索金融新闻")
     news_parser.add_argument("keyword", help="搜索关键词")
     news_parser.add_argument("--json", action="store_true", help="JSON输出")
+    
+    # hk-finance 命令（港股财报）
+    hk_parser = subparsers.add_parser("hk-finance", help="港股财报数据")
+    hk_parser.add_argument("code", help="港股代码（纯数字，如 00700、01810）")
+    hk_parser.add_argument("--type", dest="report_type", default="indicators",
+                          choices=["indicators", "balance", "income", "cashflow"],
+                          help="indicators(财务指标,默认) / balance(资产负债表) / income(利润表) / cashflow(现金流量表)")
+    hk_parser.add_argument("--period", default="年度", choices=["年度", "报告期"],
+                          help="年度(默认) / 报告期")
+    hk_parser.add_argument("--json", action="store_true", help="JSON输出")
     
     args = parser.parse_args()
     
@@ -899,6 +1016,53 @@ def main():
                 for i, news in enumerate(result.get('news', []), 1):
                     print(f"  {i}. {news['title']}")
                     print(f"     {news['source']} | {news['date']}")
+                    print()
+    
+    elif args.command == "hk-finance":
+        if args.report_type == "indicators":
+            result = get_hk_financial_indicators(args.code, args.period)
+        else:
+            type_map = {"balance": "资产负债表", "income": "利润表", "cashflow": "现金流量表"}
+            result = get_hk_financial_report(args.code, type_map[args.report_type], args.period)
+        
+        if args.json:
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+        else:
+            if "error" in result:
+                print(f"❌ {result['error']}")
+            elif args.report_type == "indicators":
+                name = result.get('name', '')
+                print(f"\n📊 {name}({result['code']}) 财务指标 - 数据源: {result['source']}\n")
+                print(f"  {'报告期':<12} {'营收(亿)':<14} {'营收同比':<10} {'净利润(亿)':<14} {'净利润同比':<10} {'毛利率':<8} {'ROE':<8} {'负债率':<8}")
+                print(f"  {'─'*84}")
+                for r in result['records']:
+                    rev = f"{r['revenue']/1e8:,.1f}" if r['revenue'] else "N/A"
+                    rev_yoy = f"{r['revenue_yoy']:+.1f}%" if r['revenue_yoy'] else "N/A"
+                    profit = f"{r['net_profit']/1e8:,.1f}" if r['net_profit'] else "N/A"
+                    profit_yoy = f"{r['net_profit_yoy']:+.1f}%" if r['net_profit_yoy'] else "N/A"
+                    gm = f"{r['gross_margin']}%" if r['gross_margin'] else "N/A"
+                    roe = f"{r['roe']}%" if r['roe'] else "N/A"
+                    dr = f"{r['debt_ratio']}%" if r['debt_ratio'] else "N/A"
+                    print(f"  {r['report_date']:<12} {rev:<14} {rev_yoy:<10} {profit:<14} {profit_yoy:<10} {gm:<8} {roe:<8} {dr:<8}")
+            else:
+                # 报表类型
+                type_map = {"资产负债表": "资产负债表", "利润表": "利润表", "现金流量表": "现金流量表"}
+                rt = result.get('report_type', '')
+                print(f"\n📊 {result.get('name', '')}({result['code']}) {rt} - 数据源: {result['source']}\n")
+                for r in result['records'][:3]:  # 最多显示3期
+                    print(f"  【{r['report_date']}】")
+                    for item in r['items']:
+                        amount = item['amount']
+                        if amount is not None:
+                            if abs(amount) >= 1e8:
+                                amount_str = f"{amount/1e8:,.2f}亿"
+                            elif abs(amount) >= 1e4:
+                                amount_str = f"{amount/1e4:,.2f}万"
+                            else:
+                                amount_str = f"{amount:,.2f}"
+                        else:
+                            amount_str = "N/A"
+                        print(f"    {item['item']}: {amount_str}")
                     print()
     
     else:

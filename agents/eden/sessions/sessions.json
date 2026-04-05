@@ -1,7 +1,7 @@
 {
   "agent:eden:main": {
-    "sessionId": "7eab1639-58c2-4789-98ff-6c68de62f668",
-    "updatedAt": 1775232067550,
+    "sessionId": "dbe931dc-335b-43d4-afec-a17fdc157206",
+    "updatedAt": 1775401098382,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -14,7 +14,7 @@
       "surface": "webchat",
       "chatType": "direct"
     },
-    "sessionFile": "/home/admin/.openclaw/agents/eden/sessions/7eab1639-58c2-4789-98ff-6c68de62f668.jsonl",
+    "sessionFile": "/home/admin/.openclaw/agents/eden/sessions/dbe931dc-335b-43d4-afec-a17fdc157206.jsonl",
     "compactionCount": 0,
     "skillsSnapshot": {
       "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>feishu-doc</name>\n    <description>Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-doc/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-drive</name>\n    <description>Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-drive/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-perm</name>\n    <description>Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-perm/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-wiki</name>\n    <description>Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-channel</name>\n    <description>QQ 频道管理技能。查询频道列表、子频道、成员、发帖、公告、日程等操作。使用 qqbot_channel_api 工具代理 QQ 开放平台 HTTP 接口，自动处理 Token 鉴权。当用户需要查看频道、管理子频道、查询成员、发布帖子/公告/日程时使用此技能。</description>\n    <location>~/.openclaw/extensions/openclaw-qqbot/skills/qqbot-channel/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-remind</name>\n    <description>QQBot 定时提醒。支持一次性和周期性提醒的创建、查询、取消。当通过 QQ 通道通信且涉及提醒/定时任务时使用。</description>\n    <location>~/.openclaw/extensions/openclaw-qqbot/skills/qqbot-remind/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-media</name>\n    <description>QQ Bot 媒体发送指南。教 AI 如何发送图片给用户。【重要】当用户要求发送图片时必须使用 &lt;qqimg&gt; 标签。</description>\n    <location>~/.openclaw/extensions/qqbot/skills/qqbot-media/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tavily-search</name>\n    <description>Web search via Tavily API (alternative to Brave). Use when the user asks to search the web / look up sources / find links and Brave web_search is unavailable or undesired. Returns a small set of relevant results (title, url, snippet) and can optionally include short answer summaries.</description>\n    <location>~/.openclaw/workspace/skills/openclaw-tavily-search/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-cron</name>\n    <description>QQ Bot 智能提醒技能。支持一次性提醒、周期性任务、自动降级确保送达。可设置、查询、取消提醒。</description>\n    <location>~/.openclaw/extensions/qqbot/skills/qqbot-cron/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>clawhub</name>\n    <description>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</description>\n    <location>/opt/openclaw/skills/clawhub/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/opt/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/opt/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tushare</name>\n    <description>tushare是一个财经数据接口包，拥有丰富的数据内容，如股票、基金、期货、数字货币等行情数据，公司财务、基金经理等基本面数据。该模块通过标准化API方式统一了数据资产的对外服务方式，以帮助有需要的技术用户更实时、简洁、轻量的使用相关数据。</description>\n    <location>/opt/openclaw/skills/tushare/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>video-frames</name>\n    <description>Extract frames or short clips from videos using ffmpeg.</description>\n    <location>/opt/openclaw/skills/video-frames/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/opt/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>crawl4ai-skill</name>\n    <description>Web crawling and scraping tool with LLM-optimized output. 网页爬虫爬取工具 | Web crawler, web scraper, spider. DuckDuckGo search, site crawling, dynamic page scraping. 智能搜索爬取 | Free, no API key required.</description>\n    <location>~/.agents/skills/crawl4ai-skill/skills/crawl4ai-skill/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>faster-whisper</name>\n    <description>Local speech-to-text using faster-whisper. 4-6x faster than OpenAI Whisper with identical accuracy; GPU acceleration enables ~20x realtime transcription. SRT/VTT/TTML/CSV subtitles, speaker diarization, URL/YouTube input, batch processing with ETA, transcript search, chapter detection, per-file language map.</description>\n    <location>~/.agents/skills/faster-whisper/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>playwright-web-scraper</name>\n    <description>Extract structured data from multiple web pages using Playwright with built-in ethical\ncrawling practices including rate limiting, robots.txt compliance, and error monitoring.\nUse when asked to &quot;scrape data from&quot;, &quot;extract information from pages&quot;, &quot;collect data\nfrom site&quot;, &quot;crawl multiple pages&quot;, or when gathering structured data from websites.\nSupports pagination, multi-page extraction, data aggregation, and export to CSV/JSON/Markdown.\nWorks with browser_navigate, browser_evaluate, browser_wait_for, and browser_snapshot tools.\n</description>\n    <location>~/.agents/skills/playwright-web-scraper/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>excel-automation</name>\n    <description>&gt;</description>\n    <location>~/.openclaw/workspace/skills/excel-automation/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>imap-smtp-email</name>\n    <description>Read and send email via IMAP/SMTP. Check for new/unread messages, fetch content, search mailboxes, mark as read/unread, and send emails with attachments. Works with any IMAP/SMTP server including Gmail, Outlook, 163.com, vip.163.com, 126.com, vip.126.com, 188.com, and vip.188.com.</description>\n    <location>~/.openclaw/workspace/skills/imap-smtp-email/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>office-automation</name>\n    <description>自动化处理 Word 和 Excel 文件。使用 Python 脚本读取、写入、格式化文档和表格。支持批量处理、模板填充、数据提取和格式转换。</description>\n    <location>~/.openclaw/workspace/skills/office-automation/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>ppt-visual</name>\n    <description>Design presentation visuals and slide layouts. Create visual concepts, suggest graphics, and provide design specifications for impactful PowerPoint slides.</description>\n    <location>~/.openclaw/workspace/skills/ppt-visual/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>Agent Browser</name>\n    <description>A fast Rust-based headless browser automation CLI with Node.js fallback that enables AI agents to navigate, click, type, and snapshot pages via structured commands.</description>\n    <location>~/.openclaw/workspace/skills/agent-browser/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>ai-presentation-maker</name>\n    <description>AI Presentation Maker — the interview-driven pitch deck generator for your OpenClaw agent. Tell it what you built, who you&apos;re presenting to, and pick an angle — it generates a complete slide deck with speaker notes, factual validation, and real cost breakdowns. No made-up ROI. No speculative projections. Just compelling presentations built from actual work. Exports to Markdown, PPTX, and PDF. Works standalone or alongside AI Persona OS. Built by Jeff J Hunter.</description>\n    <location>~/.openclaw/workspace/skills/ai-presentation-maker/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>multi-search-engine</name>\n    <description>Multi search engine integration with 17 engines (8 CN + 9 Global). Supports advanced search operators, time filters, site search, privacy engines, and WolframAlpha knowledge queries. No API keys required.</description>\n    <location>~/.openclaw/workspace/skills/multi-search-engine/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>openclaw-slides</name>\n    <description>Create stunning, animation-rich HTML presentations from scratch or convert PowerPoint files (.ppt/.pptx) to beautiful web slides. Use when the user wants to build a pitch deck, presentation, slideshow, or slide deck — or convert an existing PPT to a web presentation. Generates zero-dependency single HTML files with keyboard/touch navigation and scroll-triggered animations. Style options include Neon Cyber, Bold Signal, Swiss Modern, Paper &amp; Ink, and 8 more curated presets.</description>\n    <location>~/.openclaw/workspace/skills/openclaw-slides/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>Powerpoint / PPTX</name>\n    <description>Create, inspect, and edit Microsoft PowerPoint presentations and PPTX decks with reliable layouts, templates, placeholders, notes, charts, and visual QA. Use when (1) the task is about PowerPoint or `.pptx`; (2) layouts, placeholders, notes, charts, comments, or template fidelity matter; (3) the deck must render cleanly after edits.</description>\n    <location>~/.openclaw/workspace/skills/powerpoint-pptx/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>ppt-generator</name>\n    <description>将用户讲稿一键生成乔布斯风极简科技感竖屏HTML演示稿。当用户需要生成PPT、演示文稿、Slides、幻灯片，或要求科技风/极简风/乔布斯风格的演示时触发此技能。输出为单个可直接运行的HTML文件。</description>\n    <location>~/.openclaw/workspace/skills/ppt-generator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>proactive-agent</name>\n    <description>Transform AI agents from task-followers into proactive partners that anticipate needs and continuously improve. Now with WAL Protocol, Working Buffer, Autonomous Crons, and battle-tested patterns. Part of the Hal Stack 🦞</description>\n    <location>~/.openclaw/workspace/skills/proactive-agent/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>searxng</name>\n    <description>Privacy-respecting metasearch using your local SearXNG instance. Search the web, images, news, and more without external API dependencies.</description>\n    <location>~/.openclaw/workspace/skills/searxng/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>self-improvement</name>\n    <description>Captures learnings, errors, and corrections to enable continuous improvement. Use when: (1) A command or operation fails unexpectedly, (2) User corrects Claude (&apos;No, that&apos;s wrong...&apos;, &apos;Actually...&apos;), (3) User requests a capability that doesn&apos;t exist, (4) An external API or tool fails, (5) Claude realizes its knowledge is outdated or incorrect, (6) A better approach is discovered for a recurring task. Also review learnings before major tasks.</description>\n    <location>~/.openclaw/workspace/skills/self-improving-agent/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-vetter</name>\n    <description>Security-first skill vetting for AI agents. Use before installing any skill from ClawdHub, GitHub, or other sources. Checks for red flags, permission scope, and suspicious patterns.</description>\n    <location>~/.openclaw/workspace/skills/skill-vetter/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>slides-cog</name>\n    <description>AI presentation and slide deck generation powered by CellCog. Create pitch decks, keynotes, business presentations, educational slides, investor decks — PDF or native PPTX. Deep research fills content from minimal prompts. #1 on DeepResearch Bench (Feb 2026). Professional slide design, charts, and layouts.</description>\n    <location>~/.openclaw/workspace/skills/slides-cog/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>superpowers</name>\n    <description>Spec-first, TDD, subagent-driven software development workflow. Use when: (1) building any new feature or app — triggers brainstorm → plan → subagent execution loop, (2) debugging a bug or test failure — triggers systematic root-cause process, (3) user says &quot;let&apos;s build&quot;, &quot;help me plan&quot;, &quot;I want to add X&quot;, or &quot;this is broken&quot;, (4) completing a feature branch — triggers test verification + merge/PR options. NOT for: one-liner fixes (just edit), reading code, or non-code tasks. Requires exec tool and sessions_spawn.\n</description>\n    <location>~/.openclaw/workspace/skills/superpowers/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>superpowers-cn</name>\n    <description>中文AI工作流框架 - 先理解需求再执行，让AI做事更有逻辑</description>\n    <location>~/.openclaw/workspace/skills/superpowers-cn/SKILL.md</location>\n  </skill>\n</available_skills>",
@@ -425,8 +425,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775232021799,
-      "sessionId": "7eab1639-58c2-4789-98ff-6c68de62f668",
+      "generatedAt": 1775401067162,
+      "sessionId": "dbe931dc-335b-43d4-afec-a17fdc157206",
       "sessionKey": "agent:eden:main",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -445,9 +445,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 42272,
-        "projectContextChars": 16155,
-        "nonProjectContextChars": 26117
+        "chars": 37996,
+        "projectContextChars": 11691,
+        "nonProjectContextChars": 26305
       },
       "injectedWorkspaceFiles": [
         {
@@ -470,8 +470,8 @@
           "name": "TOOLS.md",
           "path": "/home/admin/.openclaw/workspace/TOOLS.md",
           "missing": false,
-          "rawChars": 2408,
-          "injectedChars": 2408,
+          "rawChars": 4613,
+          "injectedChars": 4613,
           "truncated": false
         },
         {
@@ -510,8 +510,8 @@
           "name": "MEMORY.md",
           "path": "/home/admin/.openclaw/workspace/MEMORY.md",
           "missing": false,
-          "rawChars": 7637,
-          "injectedChars": 7637,
+          "rawChars": 968,
+          "injectedChars": 968,
           "truncated": false
         }
       ],
@@ -913,12 +913,12 @@
         ]
       }
     },
-    "cacheRead": 57872,
+    "cacheRead": 25391,
     "cacheWrite": 0,
-    "contextTokens": 200000,
-    "inputTokens": 13346,
-    "outputTokens": 843,
-    "totalTokens": 57901
+    "contextTokens": 1048576,
+    "inputTokens": 9887,
+    "outputTokens": 1742,
+    "totalTokens": 28961
   },
   "agent:eden:qqbot:default:direct:c54621f2f354f9c150382e3be9618c6e": {
     "sessionId": "50658a07-502e-469f-b8c0-96e21cbb176b",
@@ -1787,8 +1787,8 @@
     "totalTokensFresh": true
   },
   "agent:eden:feishu:eden:direct:ou_5984d8f20adcac5cc0ee74bf3dae2c54": {
-    "sessionId": "792601a6-00da-46db-91f5-2b28917baf0b",
-    "updatedAt": 1775302215450,
+    "sessionId": "950c3465-660a-4d8d-8be1-24cbc14e39e6",
+    "updatedAt": 1775371847320,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -1809,7 +1809,7 @@
       "to": "user:ou_5984d8f20adcac5cc0ee74bf3dae2c54",
       "accountId": "eden"
     },
-    "sessionFile": "/home/admin/.openclaw/agents/eden/sessions/792601a6-00da-46db-91f5-2b28917baf0b.jsonl",
+    "sessionFile": "/home/admin/.openclaw/agents/eden/sessions/950c3465-660a-4d8d-8be1-24cbc14e39e6.jsonl",
     "compactionCount": 0,
     "skillsSnapshot": {
       "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>feishu-doc</name>\n    <description>Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-doc/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-drive</name>\n    <description>Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-drive/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-perm</name>\n    <description>Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-perm/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-wiki</name>\n    <description>Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-channel</name>\n    <description>QQ 频道管理技能。查询频道列表、子频道、成员、发帖、公告、日程等操作。使用 qqbot_channel_api 工具代理 QQ 开放平台 HTTP 接口，自动处理 Token 鉴权。当用户需要查看频道、管理子频道、查询成员、发布帖子/公告/日程时使用此技能。</description>\n    <location>~/.openclaw/extensions/openclaw-qqbot/skills/qqbot-channel/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-remind</name>\n    <description>QQBot 定时提醒。支持一次性和周期性提醒的创建、查询、取消。当通过 QQ 通道通信且涉及提醒/定时任务时使用。</description>\n    <location>~/.openclaw/extensions/openclaw-qqbot/skills/qqbot-remind/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-media</name>\n    <description>QQ Bot 媒体发送指南。教 AI 如何发送图片给用户。【重要】当用户要求发送图片时必须使用 &lt;qqimg&gt; 标签。</description>\n    <location>~/.openclaw/extensions/qqbot/skills/qqbot-media/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tavily-search</name>\n    <description>Web search via Tavily API (alternative to Brave). Use when the user asks to search the web / look up sources / find links and Brave web_search is unavailable or undesired. Returns a small set of relevant results (title, url, snippet) and can optionally include short answer summaries.</description>\n    <location>~/.openclaw/workspace/skills/openclaw-tavily-search/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-cron</name>\n    <description>QQ Bot 智能提醒技能。支持一次性提醒、周期性任务、自动降级确保送达。可设置、查询、取消提醒。</description>\n    <location>~/.openclaw/extensions/qqbot/skills/qqbot-cron/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>clawhub</name>\n    <description>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</description>\n    <location>/opt/openclaw/skills/clawhub/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/opt/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/opt/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tushare</name>\n    <description>tushare是一个财经数据接口包，拥有丰富的数据内容，如股票、基金、期货、数字货币等行情数据，公司财务、基金经理等基本面数据。该模块通过标准化API方式统一了数据资产的对外服务方式，以帮助有需要的技术用户更实时、简洁、轻量的使用相关数据。</description>\n    <location>/opt/openclaw/skills/tushare/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>video-frames</name>\n    <description>Extract frames or short clips from videos using ffmpeg.</description>\n    <location>/opt/openclaw/skills/video-frames/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/opt/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>crawl4ai-skill</name>\n    <description>Web crawling and scraping tool with LLM-optimized output. 网页爬虫爬取工具 | Web crawler, web scraper, spider. DuckDuckGo search, site crawling, dynamic page scraping. 智能搜索爬取 | Free, no API key required.</description>\n    <location>~/.agents/skills/crawl4ai-skill/skills/crawl4ai-skill/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>faster-whisper</name>\n    <description>Local speech-to-text using faster-whisper. 4-6x faster than OpenAI Whisper with identical accuracy; GPU acceleration enables ~20x realtime transcription. SRT/VTT/TTML/CSV subtitles, speaker diarization, URL/YouTube input, batch processing with ETA, transcript search, chapter detection, per-file language map.</description>\n    <location>~/.agents/skills/faster-whisper/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>playwright-web-scraper</name>\n    <description>Extract structured data from multiple web pages using Playwright with built-in ethical\ncrawling practices including rate limiting, robots.txt compliance, and error monitoring.\nUse when asked to &quot;scrape data from&quot;, &quot;extract information from pages&quot;, &quot;collect data\nfrom site&quot;, &quot;crawl multiple pages&quot;, or when gathering structured data from websites.\nSupports pagination, multi-page extraction, data aggregation, and export to CSV/JSON/Markdown.\nWorks with browser_navigate, browser_evaluate, browser_wait_for, and browser_snapshot tools.\n</description>\n    <location>~/.agents/skills/playwright-web-scraper/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>excel-automation</name>\n    <description>&gt;</description>\n    <location>~/.openclaw/workspace/skills/excel-automation/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>imap-smtp-email</name>\n    <description>Read and send email via IMAP/SMTP. Check for new/unread messages, fetch content, search mailboxes, mark as read/unread, and send emails with attachments. Works with any IMAP/SMTP server including Gmail, Outlook, 163.com, vip.163.com, 126.com, vip.126.com, 188.com, and vip.188.com.</description>\n    <location>~/.openclaw/workspace/skills/imap-smtp-email/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>office-automation</name>\n    <description>自动化处理 Word 和 Excel 文件。使用 Python 脚本读取、写入、格式化文档和表格。支持批量处理、模板填充、数据提取和格式转换。</description>\n    <location>~/.openclaw/workspace/skills/office-automation/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>ppt-visual</name>\n    <description>Design presentation visuals and slide layouts. Create visual concepts, suggest graphics, and provide design specifications for impactful PowerPoint slides.</description>\n    <location>~/.openclaw/workspace/skills/ppt-visual/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>Agent Browser</name>\n    <description>A fast Rust-based headless browser automation CLI with Node.js fallback that enables AI agents to navigate, click, type, and snapshot pages via structured commands.</description>\n    <location>~/.openclaw/workspace/skills/agent-browser/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>ai-presentation-maker</name>\n    <description>AI Presentation Maker — the interview-driven pitch deck generator for your OpenClaw agent. Tell it what you built, who you&apos;re presenting to, and pick an angle — it generates a complete slide deck with speaker notes, factual validation, and real cost breakdowns. No made-up ROI. No speculative projections. Just compelling presentations built from actual work. Exports to Markdown, PPTX, and PDF. Works standalone or alongside AI Persona OS. Built by Jeff J Hunter.</description>\n    <location>~/.openclaw/workspace/skills/ai-presentation-maker/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>multi-search-engine</name>\n    <description>Multi search engine integration with 17 engines (8 CN + 9 Global). Supports advanced search operators, time filters, site search, privacy engines, and WolframAlpha knowledge queries. No API keys required.</description>\n    <location>~/.openclaw/workspace/skills/multi-search-engine/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>openclaw-slides</name>\n    <description>Create stunning, animation-rich HTML presentations from scratch or convert PowerPoint files (.ppt/.pptx) to beautiful web slides. Use when the user wants to build a pitch deck, presentation, slideshow, or slide deck — or convert an existing PPT to a web presentation. Generates zero-dependency single HTML files with keyboard/touch navigation and scroll-triggered animations. Style options include Neon Cyber, Bold Signal, Swiss Modern, Paper &amp; Ink, and 8 more curated presets.</description>\n    <location>~/.openclaw/workspace/skills/openclaw-slides/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>Powerpoint / PPTX</name>\n    <description>Create, inspect, and edit Microsoft PowerPoint presentations and PPTX decks with reliable layouts, templates, placeholders, notes, charts, and visual QA. Use when (1) the task is about PowerPoint or `.pptx`; (2) layouts, placeholders, notes, charts, comments, or template fidelity matter; (3) the deck must render cleanly after edits.</description>\n    <location>~/.openclaw/workspace/skills/powerpoint-pptx/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>ppt-generator</name>\n    <description>将用户讲稿一键生成乔布斯风极简科技感竖屏HTML演示稿。当用户需要生成PPT、演示文稿、Slides、幻灯片，或要求科技风/极简风/乔布斯风格的演示时触发此技能。输出为单个可直接运行的HTML文件。</description>\n    <location>~/.openclaw/workspace/skills/ppt-generator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>proactive-agent</name>\n    <description>Transform AI agents from task-followers into proactive partners that anticipate needs and continuously improve. Now with WAL Protocol, Working Buffer, Autonomous Crons, and battle-tested patterns. Part of the Hal Stack 🦞</description>\n    <location>~/.openclaw/workspace/skills/proactive-agent/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>searxng</name>\n    <description>Privacy-respecting metasearch using your local SearXNG instance. Search the web, images, news, and more without external API dependencies.</description>\n    <location>~/.openclaw/workspace/skills/searxng/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>self-improvement</name>\n    <description>Captures learnings, errors, and corrections to enable continuous improvement. Use when: (1) A command or operation fails unexpectedly, (2) User corrects Claude (&apos;No, that&apos;s wrong...&apos;, &apos;Actually...&apos;), (3) User requests a capability that doesn&apos;t exist, (4) An external API or tool fails, (5) Claude realizes its knowledge is outdated or incorrect, (6) A better approach is discovered for a recurring task. Also review learnings before major tasks.</description>\n    <location>~/.openclaw/workspace/skills/self-improving-agent/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-vetter</name>\n    <description>Security-first skill vetting for AI agents. Use before installing any skill from ClawdHub, GitHub, or other sources. Checks for red flags, permission scope, and suspicious patterns.</description>\n    <location>~/.openclaw/workspace/skills/skill-vetter/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>slides-cog</name>\n    <description>AI presentation and slide deck generation powered by CellCog. Create pitch decks, keynotes, business presentations, educational slides, investor decks — PDF or native PPTX. Deep research fills content from minimal prompts. #1 on DeepResearch Bench (Feb 2026). Professional slide design, charts, and layouts.</description>\n    <location>~/.openclaw/workspace/skills/slides-cog/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>superpowers</name>\n    <description>Spec-first, TDD, subagent-driven software development workflow. Use when: (1) building any new feature or app — triggers brainstorm → plan → subagent execution loop, (2) debugging a bug or test failure — triggers systematic root-cause process, (3) user says &quot;let&apos;s build&quot;, &quot;help me plan&quot;, &quot;I want to add X&quot;, or &quot;this is broken&quot;, (4) completing a feature branch — triggers test verification + merge/PR options. NOT for: one-liner fixes (just edit), reading code, or non-code tasks. Requires exec tool and sessions_spawn.\n</description>\n    <location>~/.openclaw/workspace/skills/superpowers/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>superpowers-cn</name>\n    <description>中文AI工作流框架 - 先理解需求再执行，让AI做事更有逻辑</description>\n    <location>~/.openclaw/workspace/skills/superpowers-cn/SKILL.md</location>\n  </skill>\n</available_skills>",
@@ -2219,8 +2219,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775302202511,
-      "sessionId": "792601a6-00da-46db-91f5-2b28917baf0b",
+      "generatedAt": 1775371818969,
+      "sessionId": "950c3465-660a-4d8d-8be1-24cbc14e39e6",
       "sessionKey": "agent:eden:feishu:eden:direct:ou_5984d8f20adcac5cc0ee74bf3dae2c54",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -2239,9 +2239,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 42541,
-        "projectContextChars": 16155,
-        "nonProjectContextChars": 26386
+        "chars": 38078,
+        "projectContextChars": 11691,
+        "nonProjectContextChars": 26387
       },
       "injectedWorkspaceFiles": [
         {
@@ -2264,8 +2264,8 @@
           "name": "TOOLS.md",
           "path": "/home/admin/.openclaw/workspace/TOOLS.md",
           "missing": false,
-          "rawChars": 2408,
-          "injectedChars": 2408,
+          "rawChars": 4613,
+          "injectedChars": 4613,
           "truncated": false
         },
         {
@@ -2304,8 +2304,8 @@
           "name": "MEMORY.md",
           "path": "/home/admin/.openclaw/workspace/MEMORY.md",
           "missing": false,
-          "rawChars": 7637,
-          "injectedChars": 7637,
+          "rawChars": 968,
+          "injectedChars": 968,
           "truncated": false
         }
       ],
@@ -2707,14 +2707,13 @@
         ]
       }
     },
-    "cacheRead": 123612,
+    "cacheRead": 50335,
     "cacheWrite": 0,
     "totalTokensFresh": true,
-    "contextTokens": 200000,
-    "inputTokens": 3754,
-    "outputTokens": 392,
-    "totalTokens": 123904,
-    "reasoningLevel": "on"
+    "contextTokens": 1048576,
+    "inputTokens": 26930,
+    "outputTokens": 2540,
+    "totalTokens": 50908
   },
   "agent:eden:feishu:hunter:direct:ou_4c8499b94572ae1598169c894bca1f83": {
     "sessionId": "ebb535b9-675b-42ad-9c9d-95250a34d6ce",
@@ -5437,8 +5436,8 @@
     "updatedAt": 1774688405487
   },
   "agent:eden:cron:f2d586a2-6864-4030-9d75-3fbdda17429f": {
-    "sessionId": "4b107a6c-83fd-490b-a9db-31878458f259",
-    "updatedAt": 1775310900009,
+    "sessionId": "5ae81505-09d2-456f-9061-49b1fbda2337",
+    "updatedAt": 1775397300010,
     "systemSent": true,
     "label": "Cron: 全球资产低位检索-晚间",
     "skillsSnapshot": {
@@ -5824,8 +5823,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775310900504,
-      "sessionId": "4b107a6c-83fd-490b-a9db-31878458f259",
+      "generatedAt": 1775397300510,
+      "sessionId": "5ae81505-09d2-456f-9061-49b1fbda2337",
       "sessionKey": "agent:eden:cron:f2d586a2-6864-4030-9d75-3fbdda17429f",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -6280,17 +6279,17 @@
         ]
       }
     },
-    "contextTokens": 200000,
-    "inputTokens": 19832,
-    "outputTokens": 5791,
-    "totalTokens": 31922,
+    "contextTokens": 1048576,
+    "inputTokens": 18463,
+    "outputTokens": 5519,
+    "totalTokens": 29933,
     "totalTokensFresh": true,
-    "cacheRead": 432055,
+    "cacheRead": 63277,
     "cacheWrite": 0
   },
   "agent:eden:cron:aebc76ee-4975-4710-bdcc-cca5a40aac43": {
-    "sessionId": "044a8e9e-b49f-4fa3-ac4c-4afcf3fee0f2",
-    "updatedAt": 1775313000010,
+    "sessionId": "23e214a0-2cc2-4daa-a2ca-91458eb48012",
+    "updatedAt": 1775399400007,
     "systemSent": true,
     "label": "Cron: 每日财报监控",
     "skillsSnapshot": {
@@ -6676,8 +6675,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775313000236,
-      "sessionId": "044a8e9e-b49f-4fa3-ac4c-4afcf3fee0f2",
+      "generatedAt": 1775399400480,
+      "sessionId": "23e214a0-2cc2-4daa-a2ca-91458eb48012",
       "sessionKey": "agent:eden:cron:aebc76ee-4975-4710-bdcc-cca5a40aac43",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -7132,17 +7131,17 @@
         ]
       }
     },
-    "contextTokens": 200000,
-    "inputTokens": 15509,
-    "outputTokens": 792,
-    "totalTokens": 25523,
+    "contextTokens": 1048576,
+    "inputTokens": 12998,
+    "outputTokens": 295,
+    "totalTokens": 22960,
     "totalTokensFresh": true,
-    "cacheRead": 55269,
+    "cacheRead": 32499,
     "cacheWrite": 0
   },
   "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721": {
-    "sessionId": "c75882df-82f8-4c77-8efd-89dbc47055a6",
-    "updatedAt": 1775314800012,
+    "sessionId": "3b203e58-cd89-45ae-a592-2e1104dd2938",
+    "updatedAt": 1775401200007,
     "systemSent": true,
     "label": "Cron: GitHub配置备份",
     "skillsSnapshot": {
@@ -7528,8 +7527,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775228400165,
-      "sessionId": "18ebfb9e-5f57-40ae-9518-91f7fb7dfad5",
+      "generatedAt": 1775314800203,
+      "sessionId": "c75882df-82f8-4c77-8efd-89dbc47055a6",
       "sessionKey": "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -7548,8 +7547,8 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 30461,
-        "projectContextChars": 6758,
+        "chars": 32666,
+        "projectContextChars": 8963,
         "nonProjectContextChars": 23703
       },
       "injectedWorkspaceFiles": [
@@ -7573,8 +7572,8 @@
           "name": "TOOLS.md",
           "path": "/home/admin/.openclaw/workspace/TOOLS.md",
           "missing": false,
-          "rawChars": 2408,
-          "injectedChars": 2408,
+          "rawChars": 4613,
+          "injectedChars": 4613,
           "truncated": false
         },
         {
@@ -7985,16 +7984,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 11669,
-    "outputTokens": 390,
-    "totalTokens": 21661,
+    "inputTokens": 15615,
+    "outputTokens": 774,
+    "totalTokens": 25824,
     "totalTokensFresh": true,
-    "cacheRead": 31417,
+    "cacheRead": 79908,
     "cacheWrite": 0
   },
   "agent:eden:cron:f8e2c4a1-7890-4bcd-ef12-3456789abcde": {
-    "sessionId": "226f30d1-c3d2-429a-bdec-9c0039e117ee",
-    "updatedAt": 1775228421333,
+    "sessionId": "8c263e32-ab4f-4631-96b8-344195d42dbc",
+    "updatedAt": 1775314836672,
     "systemSent": true,
     "label": "Cron: 本地配置备份",
     "skillsSnapshot": {
@@ -8380,8 +8379,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775228421451,
-      "sessionId": "226f30d1-c3d2-429a-bdec-9c0039e117ee",
+      "generatedAt": 1775314837101,
+      "sessionId": "8c263e32-ab4f-4631-96b8-344195d42dbc",
       "sessionKey": "agent:eden:cron:f8e2c4a1-7890-4bcd-ef12-3456789abcde",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -8400,8 +8399,8 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 30461,
-        "projectContextChars": 6758,
+        "chars": 32666,
+        "projectContextChars": 8963,
         "nonProjectContextChars": 23703
       },
       "injectedWorkspaceFiles": [
@@ -8425,8 +8424,8 @@
           "name": "TOOLS.md",
           "path": "/home/admin/.openclaw/workspace/TOOLS.md",
           "missing": false,
-          "rawChars": 2408,
-          "injectedChars": 2408,
+          "rawChars": 4613,
+          "injectedChars": 4613,
           "truncated": false
         },
         {
@@ -8837,16 +8836,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 1205,
-    "outputTokens": 570,
-    "totalTokens": 22832,
+    "inputTokens": 1384,
+    "outputTokens": 614,
+    "totalTokens": 23855,
     "totalTokensFresh": true,
-    "cacheRead": 86697,
+    "cacheRead": 135804,
     "cacheWrite": 0
   },
   "agent:eden:cron:45566dd9-d934-4b4d-a0e8-3e00fcedfc46": {
-    "sessionId": "43d453b1-64bc-4751-8582-d05dc27b1a2e",
-    "updatedAt": 1775278500015,
+    "sessionId": "6600ece8-7efa-4a9f-8f2c-66469ef8a8a1",
+    "updatedAt": 1775364900017,
     "systemSent": true,
     "label": "Cron: 每日跌停股票分析",
     "skillsSnapshot": {
@@ -9232,8 +9231,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775278500224,
-      "sessionId": "43d453b1-64bc-4751-8582-d05dc27b1a2e",
+      "generatedAt": 1775364900501,
+      "sessionId": "6600ece8-7efa-4a9f-8f2c-66469ef8a8a1",
       "sessionKey": "agent:eden:cron:45566dd9-d934-4b4d-a0e8-3e00fcedfc46",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -9252,8 +9251,8 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 31385,
-        "projectContextChars": 6758,
+        "chars": 33590,
+        "projectContextChars": 8963,
         "nonProjectContextChars": 24627
       },
       "injectedWorkspaceFiles": [
@@ -9277,8 +9276,8 @@
           "name": "TOOLS.md",
           "path": "/home/admin/.openclaw/workspace/TOOLS.md",
           "missing": false,
-          "rawChars": 2408,
-          "injectedChars": 2408,
+          "rawChars": 4613,
+          "injectedChars": 4613,
           "truncated": false
         },
         {
@@ -9688,12 +9687,12 @@
         ]
       }
     },
-    "contextTokens": 200000,
-    "inputTokens": 46097,
-    "outputTokens": 1973,
-    "totalTokens": 50456,
+    "contextTokens": 1048576,
+    "inputTokens": 46432,
+    "outputTokens": 1784,
+    "totalTokens": 54205,
     "totalTokensFresh": true,
-    "cacheRead": 105209,
+    "cacheRead": 167953,
     "cacheWrite": 0
   },
   "agent:eden:cron:458244b1-cdc2-49e2-9164-423694c18dca": {
@@ -11466,9 +11465,9 @@
     "cacheRead": 768556,
     "cacheWrite": 0
   },
-  "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721:run:18ebfb9e-5f57-40ae-9518-91f7fb7dfad5": {
-    "sessionId": "18ebfb9e-5f57-40ae-9518-91f7fb7dfad5",
-    "updatedAt": 1775228400007,
+  "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721:run:c75882df-82f8-4c77-8efd-89dbc47055a6": {
+    "sessionId": "c75882df-82f8-4c77-8efd-89dbc47055a6",
+    "updatedAt": 1775314800012,
     "systemSent": true,
     "label": "Cron: GitHub配置备份",
     "skillsSnapshot": {
@@ -11854,8 +11853,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775228400165,
-      "sessionId": "18ebfb9e-5f57-40ae-9518-91f7fb7dfad5",
+      "generatedAt": 1775314800203,
+      "sessionId": "c75882df-82f8-4c77-8efd-89dbc47055a6",
       "sessionKey": "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -11874,8 +11873,8 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 30461,
-        "projectContextChars": 6758,
+        "chars": 32666,
+        "projectContextChars": 8963,
         "nonProjectContextChars": 23703
       },
       "injectedWorkspaceFiles": [
@@ -11899,8 +11898,8 @@
           "name": "TOOLS.md",
           "path": "/home/admin/.openclaw/workspace/TOOLS.md",
           "missing": false,
-          "rawChars": 2408,
-          "injectedChars": 2408,
+          "rawChars": 4613,
+          "injectedChars": 4613,
           "truncated": false
         },
         {
@@ -12311,16 +12310,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 11669,
-    "outputTokens": 390,
-    "totalTokens": 21661,
+    "inputTokens": 15615,
+    "outputTokens": 774,
+    "totalTokens": 25824,
     "totalTokensFresh": true,
-    "cacheRead": 31417,
+    "cacheRead": 79908,
     "cacheWrite": 0
   },
-  "agent:eden:cron:f8e2c4a1-7890-4bcd-ef12-3456789abcde:run:226f30d1-c3d2-429a-bdec-9c0039e117ee": {
-    "sessionId": "226f30d1-c3d2-429a-bdec-9c0039e117ee",
-    "updatedAt": 1775228421333,
+  "agent:eden:cron:f8e2c4a1-7890-4bcd-ef12-3456789abcde:run:8c263e32-ab4f-4631-96b8-344195d42dbc": {
+    "sessionId": "8c263e32-ab4f-4631-96b8-344195d42dbc",
+    "updatedAt": 1775314836672,
     "systemSent": true,
     "label": "Cron: 本地配置备份",
     "skillsSnapshot": {
@@ -12706,8 +12705,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775228421451,
-      "sessionId": "226f30d1-c3d2-429a-bdec-9c0039e117ee",
+      "generatedAt": 1775314837101,
+      "sessionId": "8c263e32-ab4f-4631-96b8-344195d42dbc",
       "sessionKey": "agent:eden:cron:f8e2c4a1-7890-4bcd-ef12-3456789abcde",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -12726,8 +12725,8 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 30461,
-        "projectContextChars": 6758,
+        "chars": 32666,
+        "projectContextChars": 8963,
         "nonProjectContextChars": 23703
       },
       "injectedWorkspaceFiles": [
@@ -12751,8 +12750,8 @@
           "name": "TOOLS.md",
           "path": "/home/admin/.openclaw/workspace/TOOLS.md",
           "missing": false,
-          "rawChars": 2408,
-          "injectedChars": 2408,
+          "rawChars": 4613,
+          "injectedChars": 4613,
           "truncated": false
         },
         {
@@ -13163,16 +13162,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 1205,
-    "outputTokens": 570,
-    "totalTokens": 22832,
+    "inputTokens": 1384,
+    "outputTokens": 614,
+    "totalTokens": 23855,
     "totalTokensFresh": true,
-    "cacheRead": 86697,
+    "cacheRead": 135804,
     "cacheWrite": 0
   },
-  "agent:eden:cron:45566dd9-d934-4b4d-a0e8-3e00fcedfc46:run:43d453b1-64bc-4751-8582-d05dc27b1a2e": {
-    "sessionId": "43d453b1-64bc-4751-8582-d05dc27b1a2e",
-    "updatedAt": 1775278500015,
+  "agent:eden:cron:45566dd9-d934-4b4d-a0e8-3e00fcedfc46:run:6600ece8-7efa-4a9f-8f2c-66469ef8a8a1": {
+    "sessionId": "6600ece8-7efa-4a9f-8f2c-66469ef8a8a1",
+    "updatedAt": 1775364900017,
     "systemSent": true,
     "label": "Cron: 每日跌停股票分析",
     "skillsSnapshot": {
@@ -13558,8 +13557,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775278500224,
-      "sessionId": "43d453b1-64bc-4751-8582-d05dc27b1a2e",
+      "generatedAt": 1775364900501,
+      "sessionId": "6600ece8-7efa-4a9f-8f2c-66469ef8a8a1",
       "sessionKey": "agent:eden:cron:45566dd9-d934-4b4d-a0e8-3e00fcedfc46",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -13578,8 +13577,8 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 31385,
-        "projectContextChars": 6758,
+        "chars": 33590,
+        "projectContextChars": 8963,
         "nonProjectContextChars": 24627
       },
       "injectedWorkspaceFiles": [
@@ -13603,8 +13602,8 @@
           "name": "TOOLS.md",
           "path": "/home/admin/.openclaw/workspace/TOOLS.md",
           "missing": false,
-          "rawChars": 2408,
-          "injectedChars": 2408,
+          "rawChars": 4613,
+          "injectedChars": 4613,
           "truncated": false
         },
         {
@@ -14014,17 +14013,17 @@
         ]
       }
     },
-    "contextTokens": 200000,
-    "inputTokens": 46097,
-    "outputTokens": 1973,
-    "totalTokens": 50456,
+    "contextTokens": 1048576,
+    "inputTokens": 46432,
+    "outputTokens": 1784,
+    "totalTokens": 54205,
     "totalTokensFresh": true,
-    "cacheRead": 105209,
+    "cacheRead": 167953,
     "cacheWrite": 0
   },
-  "agent:eden:cron:f2d586a2-6864-4030-9d75-3fbdda17429f:run:4b107a6c-83fd-490b-a9db-31878458f259": {
-    "sessionId": "4b107a6c-83fd-490b-a9db-31878458f259",
-    "updatedAt": 1775310900009,
+  "agent:eden:cron:f2d586a2-6864-4030-9d75-3fbdda17429f:run:5ae81505-09d2-456f-9061-49b1fbda2337": {
+    "sessionId": "5ae81505-09d2-456f-9061-49b1fbda2337",
+    "updatedAt": 1775397300010,
     "systemSent": true,
     "label": "Cron: 全球资产低位检索-晚间",
     "skillsSnapshot": {
@@ -14410,8 +14409,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775310900504,
-      "sessionId": "4b107a6c-83fd-490b-a9db-31878458f259",
+      "generatedAt": 1775397300510,
+      "sessionId": "5ae81505-09d2-456f-9061-49b1fbda2337",
       "sessionKey": "agent:eden:cron:f2d586a2-6864-4030-9d75-3fbdda17429f",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -14866,17 +14865,17 @@
         ]
       }
     },
-    "contextTokens": 200000,
-    "inputTokens": 19832,
-    "outputTokens": 5791,
-    "totalTokens": 31922,
+    "contextTokens": 1048576,
+    "inputTokens": 18463,
+    "outputTokens": 5519,
+    "totalTokens": 29933,
     "totalTokensFresh": true,
-    "cacheRead": 432055,
+    "cacheRead": 63277,
     "cacheWrite": 0
   },
-  "agent:eden:cron:aebc76ee-4975-4710-bdcc-cca5a40aac43:run:044a8e9e-b49f-4fa3-ac4c-4afcf3fee0f2": {
-    "sessionId": "044a8e9e-b49f-4fa3-ac4c-4afcf3fee0f2",
-    "updatedAt": 1775313000010,
+  "agent:eden:cron:aebc76ee-4975-4710-bdcc-cca5a40aac43:run:23e214a0-2cc2-4daa-a2ca-91458eb48012": {
+    "sessionId": "23e214a0-2cc2-4daa-a2ca-91458eb48012",
+    "updatedAt": 1775399400007,
     "systemSent": true,
     "label": "Cron: 每日财报监控",
     "skillsSnapshot": {
@@ -15262,8 +15261,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775313000236,
-      "sessionId": "044a8e9e-b49f-4fa3-ac4c-4afcf3fee0f2",
+      "generatedAt": 1775399400480,
+      "sessionId": "23e214a0-2cc2-4daa-a2ca-91458eb48012",
       "sessionKey": "agent:eden:cron:aebc76ee-4975-4710-bdcc-cca5a40aac43",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -15718,17 +15717,17 @@
         ]
       }
     },
-    "contextTokens": 200000,
-    "inputTokens": 15509,
-    "outputTokens": 792,
-    "totalTokens": 25523,
+    "contextTokens": 1048576,
+    "inputTokens": 12998,
+    "outputTokens": 295,
+    "totalTokens": 22960,
     "totalTokensFresh": true,
-    "cacheRead": 55269,
+    "cacheRead": 32499,
     "cacheWrite": 0
   },
-  "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721:run:c75882df-82f8-4c77-8efd-89dbc47055a6": {
-    "sessionId": "c75882df-82f8-4c77-8efd-89dbc47055a6",
-    "updatedAt": 1775314800012,
+  "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721:run:3b203e58-cd89-45ae-a592-2e1104dd2938": {
+    "sessionId": "3b203e58-cd89-45ae-a592-2e1104dd2938",
+    "updatedAt": 1775401200007,
     "systemSent": true,
     "label": "Cron: GitHub配置备份",
     "skillsSnapshot": {
@@ -16114,8 +16113,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775228400165,
-      "sessionId": "18ebfb9e-5f57-40ae-9518-91f7fb7dfad5",
+      "generatedAt": 1775314800203,
+      "sessionId": "c75882df-82f8-4c77-8efd-89dbc47055a6",
       "sessionKey": "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -16134,8 +16133,8 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 30461,
-        "projectContextChars": 6758,
+        "chars": 32666,
+        "projectContextChars": 8963,
         "nonProjectContextChars": 23703
       },
       "injectedWorkspaceFiles": [
@@ -16159,8 +16158,8 @@
           "name": "TOOLS.md",
           "path": "/home/admin/.openclaw/workspace/TOOLS.md",
           "missing": false,
-          "rawChars": 2408,
-          "injectedChars": 2408,
+          "rawChars": 4613,
+          "injectedChars": 4613,
           "truncated": false
         },
         {
@@ -16571,11 +16570,11 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 11669,
-    "outputTokens": 390,
-    "totalTokens": 21661,
+    "inputTokens": 15615,
+    "outputTokens": 774,
+    "totalTokens": 25824,
     "totalTokensFresh": true,
-    "cacheRead": 31417,
+    "cacheRead": 79908,
     "cacheWrite": 0
   }
 }

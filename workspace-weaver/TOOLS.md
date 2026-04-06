@@ -123,6 +123,35 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 **需要协作编辑：**
 → `youmind-slides-generator`
 
+**需要高质量PPT（内容密集+架构图）：**
+→ ⭐ **多Agent PPT 工作流**（详见 `memory/multi-agent-ppt-workflow.md`）
+
+**⚠️ 做PPT前必须先读 Skill：**
+→ `~/.openclaw/workspace-weaver/skills/powerpoint-pptx/SKILL.md`
+
+---
+
+## 🤖 多Agent PPT 工作流（2026-04-06 新增）
+
+**适用场景：** 内容密集型PPT（10+章节）、需要架构图/流程图、质量要求高
+
+**4+1模式：**
+| 步骤 | 角色 | 职责 | 输出 |
+|------|------|------|------|
+| Step 1 | 调研Agent | 收集专业知识 | `memory/{topic}-research.md` |
+| Step 2 | 设计Agent | 生成架构图 | `output/{topic}-diagrams.pptx` |
+| Step 3 | 主代理(我) | 整合+制作 | `output/{topic}_v3.pptx` |
+| Step 4 | 质检Agent | 7维度评分 | 质检报告 |
+| Step 4.5 | 主代理(我) | 修复直到≥95 | `output/{topic}_v5.pptx` |
+
+**关键原则：**
+- 创意决策由主代理做，子代理只做辅助
+- 文件系统是唯一通信渠道
+- Task太长则写到文件，task中引用路径
+- ⚠️ 子代理生成的坐标经常出错，必须质检
+
+**详细文档：** `memory/multi-agent-ppt-workflow.md`
+
 ---
 
 ## 🔍 搜索技能选择指南

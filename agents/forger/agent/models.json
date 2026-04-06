@@ -19,7 +19,7 @@
             "cacheRead": 0,
             "cacheWrite": 0
           },
-          "contextWindow": 200000,
+          "contextWindow": 1048576,
           "maxTokens": 131072
         },
         {

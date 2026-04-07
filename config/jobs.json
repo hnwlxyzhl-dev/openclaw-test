@@ -6,7 +6,7 @@
       "name": "每日跌停股票分析",
       "enabled": true,
       "createdAtMs": 1773724552141,
-      "updatedAtMs": 1775451380893,
+      "updatedAtMs": 1775537784999,
       "schedule": {
         "kind": "cron",
         "expr": "55 12 * * *",
@@ -24,11 +24,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1775537700000,
-        "lastRunAtMs": 1775451300008,
+        "nextRunAtMs": 1775624100000,
+        "lastRunAtMs": 1775537700010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 80885,
+        "lastDurationMs": 84989,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -39,7 +39,7 @@
       "name": "赞宇科技跌停监控",
       "enabled": true,
       "createdAtMs": 1773811341903,
-      "updatedAtMs": 1775457026570,
+      "updatedAtMs": 1775543461444,
       "schedule": {
         "kind": "cron",
         "expr": "30 9,10,11,13,14 * * 1-5"
@@ -56,11 +56,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1775525400000,
-        "lastRunAtMs": 1775457000005,
+        "nextRunAtMs": 1775611800000,
+        "lastRunAtMs": 1775543400007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 26565,
+        "lastDurationMs": 61437,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -71,7 +71,7 @@
       "name": "股票新闻公告监控",
       "enabled": true,
       "createdAtMs": 1773841500000,
-      "updatedAtMs": 1775480649674,
+      "updatedAtMs": 1775567067086,
       "schedule": {
         "kind": "cron",
         "expr": "0 21 * * 1-5",
@@ -89,11 +89,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1775566800000,
-        "lastRunAtMs": 1775480400006,
+        "nextRunAtMs": 1775653200000,
+        "lastRunAtMs": 1775566800005,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 249668,
+        "lastDurationMs": 267081,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -104,7 +104,7 @@
       "name": "全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1773937704468,
-      "updatedAtMs": 1775483795897,
+      "updatedAtMs": 1775570156455,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -123,11 +123,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1775570100000,
-        "lastRunAtMs": 1775483700022,
+        "nextRunAtMs": 1775656500000,
+        "lastRunAtMs": 1775570100005,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 95875,
+        "lastDurationMs": 56450,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -138,7 +138,7 @@
       "name": "每日财报监控",
       "enabled": true,
       "createdAtMs": 1774159027555,
-      "updatedAtMs": 1775485863124,
+      "updatedAtMs": 1775572235085,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -156,12 +156,12 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1775572200000,
+        "nextRunAtMs": 1775658600000,
         "consecutiveErrors": 0,
-        "lastRunAtMs": 1775485800005,
+        "lastRunAtMs": 1775572200004,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 63119,
+        "lastDurationMs": 35081,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
       }
@@ -171,7 +171,7 @@
       "name": "GitHub配置备份",
       "enabled": true,
       "createdAtMs": 1774683770925,
-      "updatedAtMs": 1775401237069,
+      "updatedAtMs": 1775487643152,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -184,14 +184,14 @@
         "message": "执行OpenClaw配置备份到GitHub。运行脚本：/home/admin/.openclaw/scripts/backup_to_github.sh"
       },
       "state": {
-        "nextRunAtMs": 1775487600000,
-        "lastRunAtMs": 1775401200004,
+        "nextRunAtMs": 1775574000000,
+        "lastRunAtMs": 1775487600007,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 37065,
+        "lastDurationMs": 43145,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 9,
-        "runningAtMs": 1775487600006
+        "consecutiveErrors": 10,
+        "runningAtMs": 1775574000005
       },
       "delivery": {
         "mode": "announce"
@@ -202,7 +202,7 @@
       "name": "本地配置备份",
       "enabled": true,
       "createdAtMs": 1774710240000,
-      "updatedAtMs": 1775401256217,
+      "updatedAtMs": 1775487722853,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -215,14 +215,14 @@
         "message": "执行openclaw.json本地备份。运行脚本：/home/admin/.openclaw/scripts/backup_local.sh"
       },
       "state": {
-        "nextRunAtMs": 1775487600000,
-        "lastRunAtMs": 1775401237069,
+        "nextRunAtMs": 1775574000000,
+        "lastRunAtMs": 1775487643152,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 19148,
+        "lastDurationMs": 79701,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 9,
-        "runningAtMs": 1775487600006
+        "consecutiveErrors": 10,
+        "runningAtMs": 1775574000005
       },
       "delivery": {
         "mode": "announce"

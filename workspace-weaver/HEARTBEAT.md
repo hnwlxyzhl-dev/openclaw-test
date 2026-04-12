@@ -1,35 +1,40 @@
 # HEARTBEAT.md
 
-## ⚠️ Transformer PPT v2 制作监控（2026-04-09，最高优先级）
+## ⚠️ Transformer PPT v6 生成中（2026-04-12 21:40）
 
-### 当前任务
-- 重做 Transformer PPT（v2），目标98分以上
-- 基于读者评审（82分）+ 技术质检（82分）的反馈全链路修复
+### 目标
+- 13页全中文PPT，每页300-400字
+- 质检≥95，读者评审≥95
+- 达标后飞书发给用户
 
-### 进度
-- [x] Step 1: 调研
-- [x] Step 2: 内容逻辑设计
-- [x] Step 3: 架构图设计
-- [x] Step 4: v1制作（82分，不达标）
-- [x] Step 5: 技术质检（发现5处P0/P1重叠）
-- [x] Step 6: 读者评审（发现术语未解释、信息密度不均）
-- [ ] Step 6.5: v2重做（进行中 - 子代理 transformer-v2）
-- [ ] Step 7: v2质检 + 读者评审
-- [ ] Step 7.5: 如果<98分继续修复
-- [ ] Step 8: 发送邮件给用户
+### 当前进度
+- [x] 内容设计完成
+- [ ] Part 1（第1-7页）生成中 → v6-part1
+- [ ] Part 2（第8-13页）生成中 → v6-part2
+- [ ] 合并13页
+- [ ] 修复小字体、\x0b等
+- [ ] 质检（目标≥95）
+- [ ] 读者评审（目标≥95）
+- [ ] 如<95，修复后重新检查
+- [ ] 发送最终版给用户
 
 ### 关键文件
-- v1脚本: scripts/generate_transformer_ppt.py
-- v2任务: memory/transformer-v2-task.md
-- 读者评审: memory/transformer-reader-review.md
-- 技术质检: memory/transformer-qa-report.md
-- v2输出: output/Transformer_架构深度解析_v2.pptx
+- Part1: output/transformer_v6_part1.pptx
+- Part2: output/transformer_v6_part2.pptx
+- 合并: output/Transformer_v6_zh.pptx
+- 质检: memory/transformer-v6-qa.md
+- 读者: memory/transformer-v6-reader.md
 
-### ⚠️ 子代理完成后必须立即执行
-- 读取v2输出文件
-- 如果生成成功 → 立即启动质检+读者评审
-- 如果失败 → 分析错误，修复后重试
-- 评审通过(>=98) → 发邮件通知用户
-- 评审不通过 → 根据反馈继续修复
+### 心跳检查（每5分钟）
+1. `subagents list` — 检查v6-part1和v6-part2状态
+2. 如果都完成 → 合并 + 修复 + 启动质检+读者评审
+3. 如果质检/读者完成 → 检查分数，<95则修复
+4. 如果达标 → 飞书发送给用户
+5. 如果子代理卡住>10分钟 → kill后重启
+6. 全部完成 → 清空此文件
 
-### 不达标的绝对不能发给用户！
+### ⚠️ 用户要求
+- 质检≥95，读者评审≥95
+- 每页300-400字
+- 全中文
+- 达标前不发文件

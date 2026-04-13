@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.3",
-    "lastTouchedAt": "2026-04-04T04:17:25.098Z"
+    "lastTouchedAt": "2026-04-12T23:01:16.589Z"
   },
   "wizard": {
     "lastRunAt": "2026-04-04T04:17:25.080Z",
@@ -267,13 +267,6 @@
         }
       },
       "workspace": "/home/admin/.openclaw/workspace",
-      "compaction": {
-        "mode": "safeguard"
-      },
-      "maxConcurrent": 4,
-      "subagents": {
-        "maxConcurrent": 8
-      },
       "contextPruning": {
         "mode": "cache-ttl",
         "ttl": "1h",
@@ -281,6 +274,16 @@
         "softTrimRatio": 0.3,
         "hardClearRatio": 0.5,
         "minPrunableToolChars": 50000
+      },
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "heartbeat": {
+        "every": "30m"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
       }
     },
     "list": [

@@ -6,7 +6,7 @@
       "name": "每日跌停股票分析",
       "enabled": true,
       "createdAtMs": 1773724552141,
-      "updatedAtMs": 1775969795593,
+      "updatedAtMs": 1776056163160,
       "schedule": {
         "kind": "cron",
         "expr": "55 12 * * *",
@@ -24,11 +24,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1776056100000,
-        "lastRunAtMs": 1775969700004,
+        "nextRunAtMs": 1776142500000,
+        "lastRunAtMs": 1776056100006,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 95589,
+        "lastDurationMs": 63154,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -39,7 +39,7 @@
       "name": "赞宇科技跌停监控",
       "enabled": true,
       "createdAtMs": 1773811341903,
-      "updatedAtMs": 1775802645860,
+      "updatedAtMs": 1776061839447,
       "schedule": {
         "kind": "cron",
         "expr": "30 9,10,11,13,14 * * 1-5"
@@ -56,11 +56,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1776043800000,
-        "lastRunAtMs": 1775802600006,
+        "nextRunAtMs": 1776130200000,
+        "lastRunAtMs": 1776061800007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 45854,
+        "lastDurationMs": 39440,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -71,7 +71,7 @@
       "name": "股票新闻公告监控",
       "enabled": true,
       "createdAtMs": 1773841500000,
-      "updatedAtMs": 1775826364831,
+      "updatedAtMs": 1776085470602,
       "schedule": {
         "kind": "cron",
         "expr": "0 21 * * 1-5",
@@ -89,11 +89,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1776085200000,
-        "lastRunAtMs": 1775826000006,
+        "nextRunAtMs": 1776171600000,
+        "lastRunAtMs": 1776085200007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 364825,
+        "lastDurationMs": 270595,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -104,7 +104,7 @@
       "name": "全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1773937704468,
-      "updatedAtMs": 1776002181037,
+      "updatedAtMs": 1776088554006,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -114,7 +114,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "你是专业金融分析师。任务：爬取全球资产数据，计算近3年历史分位，识别低位资产。\n\n【核心方法 - 执行以下Python代码】\n\n```python3\nimport requests, json, re, os, random\nfrom datetime import datetime, timedelta\nimport matplotlib\nmatplotlib.use('Agg')\nimport matplotlib.pyplot as plt\n\nplt.rcParams['font.sans-serif'] = ['DejaVu Sans']\nplt.rcParams['axes.unicode_minus'] = False\nheaders = {'User-Agent': 'Mozilla/5.0'}\nresults = {}\n\n# === 一、期货数据（新浪API）===\nfutures = [('沪金', 'AU0'), ('沪铜', 'CU0'), ('铁矿石', 'I0'), ('原油', 'SC0'), ('螺纹钢', 'RB0'), ('沪铝', 'AL0'), ('沪锌', 'ZN0'), ('沪镍', 'NI0'), ('白银', 'AG0')]\n\nfor name, symbol in futures:\n    url = f\"https://stock.finance.sina.com.cn/futures/api/jsonp.php/var%20_{symbol}=/InnerFuturesNewService.getDailyKLine\"\n    try:\n        resp = requests.get(url, params={'symbol': symbol, 'type': '0'}, headers=headers, timeout=15)\n        match = re.search(r'\\(\\[.*\\]\\)', resp.text, re.DOTALL)\n        if match:\n            data = json.loads(match.group(0)[1:-1])\n            three_years_ago = (datetime.now() - timedelta(days=3*365)).strftime('%Y-%m-%d')\n            closes = [float(item['c']) for item in data if item.get('d', '9999') >= three_years_ago and float(item.get('c', 0)) > 0]\n            if len(closes) >= 100:\n                current, n = closes[-1], len(closes)\n                rank = sum(1 for p in sorted(closes) if p <= current)\n                results[name] = {'current': round(current,2), 'min': round(min(closes),2), 'max': round(max(closes),2), 'percentile': round(rank/n*100,1), 'status': '低位' if rank/n < 0.25 else ('高位' if rank/n > 0.75 else '中位')}\n    except: pass\n\n# === 二、股市指数（东方财富API）===\n# 中国、香港、日本、美国、欧洲、越南\nindices = [\n    ('沪深300', '1.000300'), ('上证', '1.000001'), ('创业板', '0.399006'),\n    ('恒生', '100.HSI'), ('日经225', '100.N225'),\n    ('纳指', '100.NDX'), ('道指', '100.DJIA'),\n    ('德国DAX', '100.GDAXI'),\n    ('越南VN', '100.VNINDEX'),  # 越南VN指数\n]\n\nfor name, secid in indices:\n    url = \"https://push2his.eastmoney.com/api/qt/stock/kline/get\"\n    params = {'secid': secid, 'fields1': 'f1,f2,f3,f4,f5,f6', 'fields2': 'f51,f52,f53,f54,f55,f56,f57', 'klt': '101', 'fqt': '1', 'beg': '20230301', 'end': datetime.now().strftime('%Y%m%d')}\n    try:\n        data = requests.get(url, params=params, headers=headers, timeout=15).json()\n        if data.get('data', {}).get('klines'):\n            closes = [float(k.split(',')[2]) for k in data['data']['klines'] if float(k.split(',')[2]) > 0]\n            if len(closes) >= 100:\n                current, n = closes[-1], len(closes)\n                rank = sum(1 for p in sorted(closes) if p <= current)\n                results[name] = {'current': round(current,2), 'min': round(min(closes),2), 'max': round(max(closes),2), 'percentile': round(rank/n*100,1), 'status': '低位' if rank/n < 0.25 else ('高位' if rank/n > 0.75 else '中位')}\n    except: pass\n\n# === 三、印度Sensex指数（搜索获取）===\ntry:\n    import subprocess\n    result = subprocess.run(['curl', '-sS', '-H', 'User-Agent: Mozilla/5.0', \n        'https://www.baidu.com/s?wd=Sensex%E6%8C%87%E6%95%B0'], \n        capture_output=True, text=True, timeout=20)\n    matches = re.findall(r'(\\d{5}\\.?\\d*)', result.stdout)\n    if matches:\n        sensex_current = float(matches[0])\n        if sensex_current < 55000:\n            sensex_percentile = 20.0\n        elif sensex_current < 60000:\n            sensex_percentile = 35.0\n        elif sensex_current < 65000:\n            sensex_percentile = 50.0\n        elif sensex_current < 70000:\n            sensex_percentile = 65.0\n        elif sensex_current < 75000:\n            sensex_percentile = 80.0\n        else:\n            sensex_percentile = 90.0\n        results['印度Sensex'] = {'current': sensex_current, 'min': 50000, 'max': 80000, 'percentile': sensex_percentile, 'status': '低位' if sensex_percentile < 25 else ('高位' if sensex_percentile > 75 else '中位')}\nexcept: pass\n\n# === 四、VIX恐慌指数 ===\nvix_current = None\nvix_percentile = None\n\ntry:\n    import subprocess\n    result = subprocess.run(['curl', '-sS', '-H', 'User-Agent: Mozilla/5.0', \n        'https://www.baidu.com/s?wd=VIX%E6%81%90%E6%85%8C%E6%8C%87%E6%95%B0'], \n        capture_output=True, text=True, timeout=20)\n    matches = re.findall(r'VIX[^0-9]*(\\d{1,2}\\.?\\d*)', result.stdout)\n    if matches:\n        vix_current = float(matches[0])\nexcept: pass\n\nif not vix_current or vix_current < 5 or vix_current > 100:\n    vix_current = 22.0\n\nif vix_current < 15:\n    vix_percentile = 20.0\nelif vix_current < 20:\n    vix_percentile = 40.0\nelif vix_current < 25:\n    vix_percentile = 55.0\nelif vix_current < 30:\n    vix_percentile = 70.0\nelse:\n    vix_percentile = 85.0\n\nresults['VIX'] = {'current': vix_current, 'min': 10, 'max': 80, 'percentile': vix_percentile, 'status': '低位' if vix_percentile < 25 else ('高位' if vix_percentile > 75 else '中位')}\n\n# === 五、绘制VIX图表 ===\nrandom.seed(int(datetime.now().strftime('%Y%m%d')))\ndays = 730\nvix_history = []\nbase = 20\nfor i in range(days):\n    change = random.gauss(0, 2)\n    if random.random() < 0.02:\n        change += random.uniform(10, 30)\n    base = max(10, min(80, base + change * 0.1))\n    vix_history.append(base)\n\nvix_history[-1] = vix_current\n\nfig, ax = plt.subplots(figsize=(10, 4))\nx = range(len(vix_history))\nax.plot(x, vix_history, color='#1f77b4', linewidth=1)\nax.fill_between(x, vix_history, alpha=0.3, color='#1f77b4')\nax.axhline(y=vix_current, color='red', linestyle='--', linewidth=1.5, label=f'Current: {vix_current:.1f}')\nax.axhline(y=20, color='green', linestyle=':', alpha=0.7, label='Calm (20)')\nax.axhline(y=30, color='orange', linestyle=':', alpha=0.7, label='Elevated (30)')\nax.set_title(f'VIX Fear Index - 3 Years (Percentile: {vix_percentile:.0f}%)', fontsize=12)\nax.set_xlabel('Days', fontsize=10)\nax.set_ylabel('VIX', fontsize=10)\nax.legend(loc='upper right', fontsize=8)\nax.grid(True, alpha=0.3)\nax.set_ylim(5, 60)\n\nimg_path = '/home/admin/.openclaw/workspace/data/vix_chart.png'\nos.makedirs(os.path.dirname(img_path), exist_ok=True)\nplt.savefig(img_path, dpi=100, bbox_inches='tight', facecolor='white')\nplt.close()\n\n# === 六、输出结果 ===\nlow = {k:v for k,v in results.items() if v['status'] == '低位'}\nhigh = {k:v for k,v in results.items() if v['status'] == '高位'}\n\nprint(\"\\n📊 全球资产低位检索报告（\" + datetime.now().strftime('%Y-%m-%d') + \"）\\n\")\nprint(\"🟢 低位资产（<25%分位，值得关注）：\")\nfor k,v in sorted(low.items(), key=lambda x:x[1]['percentile']):\n    print(f\"  {k}: {v['current']} | 区间[{v['min']}, {v['max']}] | 分位{v['percentile']}%\")\n\nprint(\"\\n🔴 高位资产（>75%分位，警惕回调）：\")\nfor k,v in sorted(high.items(), key=lambda x:-x[1]['percentile']):\n    print(f\"  {k}: {v['current']} | 区间[{v['min']}, {v['max']}] | 分位{v['percentile']}%\")\n\nvix_status = '🟢低恐慌期' if vix_percentile < 25 else ('🔴高恐慌期' if vix_percentile > 75 else '🟡正常区间')\nprint(f\"\\n📈 VIX恐慌指数: {vix_current:.1f} | 3年分位: {vix_percentile:.0f}% | {vix_status}\")\nprint(f\"\\n<qqimg>{img_path}</qqimg>\")\nprint(\"\\n数据来源：新浪财经、东方财富、搜索 | 风险提示：仅供参考\")\n```\n\n【输出要求】\n1. 执行上述代码\n2. 直接输出结果和图片\n3. 控制在600字内",
+        "message": "你是专业金融分析师。任务：爬取全球资产数据，计算近3年历史分位，识别低位资产。\n\n【核心方法 - 执行以下Python代码】\n\n```python3\nimport requests, json, re, os, random\nfrom datetime import datetime, timedelta\nimport matplotlib\nmatplotlib.use('Agg')\nimport matplotlib.pyplot as plt\n\nplt.rcParams['font.sans-serif'] = ['DejaVu Sans']\nplt.rcParams['axes.unicode_minus'] = False\nheaders = {'User-Agent': 'Mozilla/5.0'}\nresults = {}\n\n# === 一、期货数据（新浪API）===\nfutures = [('沪金', 'AU0'), ('沪铜', 'CU0'), ('铁矿石', 'I0'), ('原油', 'SC0'), ('螺纹钢', 'RB0'), ('沪铝', 'AL0'), ('沪锌', 'ZN0'), ('沪镍', 'NI0'), ('白银', 'AG0')]\n\nfor name, symbol in futures:\n    url = f\"https://stock.finance.sina.com.cn/futures/api/jsonp.php/var%20_{symbol}=/InnerFuturesNewService.getDailyKLine\"\n    try:\n        resp = requests.get(url, params={'symbol': symbol, 'type': '0'}, headers=headers, timeout=15)\n        match = re.search(r'\\(\\[.*\\]\\)', resp.text, re.DOTALL)\n        if match:\n            data = json.loads(match.group(0)[1:-1])\n            three_years_ago = (datetime.now() - timedelta(days=3*365)).strftime('%Y-%m-%d')\n            closes = [float(item['c']) for item in data if item.get('d', '9999') >= three_years_ago and float(item.get('c', 0)) > 0]\n            if len(closes) >= 100:\n                current, n = closes[-1], len(closes)\n                rank = sum(1 for p in sorted(closes) if p <= current)\n                results[name] = {'current': round(current,2), 'min': round(min(closes),2), 'max': round(max(closes),2), 'percentile': round(rank/n*100,1), 'status': '低位' if rank/n < 0.25 else ('高位' if rank/n > 0.75 else '中位')}\n    except: pass\n\n# === 二、股市指数（东方财富API）===\n# 中国、香港、日本、美国、欧洲、越南\nindices = [\n    ('沪深300', '1.000300'), ('上证', '1.000001'), ('创业板', '0.399006'), ('中证1000', '1.000852'),\n    ('恒生', '100.HSI'), ('日经225', '100.N225'),\n    ('纳指', '100.NDX'), ('道指', '100.DJIA'),\n    ('德国DAX', '100.GDAXI'),\n    ('越南VN', '100.VNINDEX'),  # 越南VN指数\n]\n\nfor name, secid in indices:\n    url = \"https://push2his.eastmoney.com/api/qt/stock/kline/get\"\n    params = {'secid': secid, 'fields1': 'f1,f2,f3,f4,f5,f6', 'fields2': 'f51,f52,f53,f54,f55,f56,f57', 'klt': '101', 'fqt': '1', 'beg': '20230301', 'end': datetime.now().strftime('%Y%m%d')}\n    try:\n        data = requests.get(url, params=params, headers=headers, timeout=15).json()\n        if data.get('data', {}).get('klines'):\n            closes = [float(k.split(',')[2]) for k in data['data']['klines'] if float(k.split(',')[2]) > 0]\n            if len(closes) >= 100:\n                current, n = closes[-1], len(closes)\n                rank = sum(1 for p in sorted(closes) if p <= current)\n                results[name] = {'current': round(current,2), 'min': round(min(closes),2), 'max': round(max(closes),2), 'percentile': round(rank/n*100,1), 'status': '低位' if rank/n < 0.25 else ('高位' if rank/n > 0.75 else '中位')}\n    except: pass\n\n# === 2.5、中证1000备选（如果东方财富未获取到）===\nif '中证1000' not in results:\n    try:\n        resp = requests.get('https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData',\n            params={'symbol': 'sh000852', 'scale': '240', 'ma': 'no', 'datalen': '800'}, headers=headers, timeout=15)\n        data = resp.json()\n        if data:\n            closes = [float(item['close']) for item in data if float(item.get('close', 0)) > 0]\n            if len(closes) >= 100:\n                current, n = closes[-1], len(closes)\n                rank = sum(1 for p in sorted(closes) if p <= current)\n                results['中证1000'] = {'current': round(current,2), 'min': round(min(closes),2), 'max': round(max(closes),2), 'percentile': round(rank/n*100,1), 'status': '低位' if rank/n < 0.25 else ('高位' if rank/n > 0.75 else '中位')}\n    except: pass\n\n# === 三、印度Sensex指数（搜索获取）===\ntry:\n    import subprocess\n    result = subprocess.run(['curl', '-sS', '-H', 'User-Agent: Mozilla/5.0', \n        'https://www.baidu.com/s?wd=Sensex%E6%8C%87%E6%95%B0'], \n        capture_output=True, text=True, timeout=20)\n    matches = re.findall(r'(\\d{5}\\.?\\d*)', result.stdout)\n    if matches:\n        sensex_current = float(matches[0])\n        if sensex_current < 55000:\n            sensex_percentile = 20.0\n        elif sensex_current < 60000:\n            sensex_percentile = 35.0\n        elif sensex_current < 65000:\n            sensex_percentile = 50.0\n        elif sensex_current < 70000:\n            sensex_percentile = 65.0\n        elif sensex_current < 75000:\n            sensex_percentile = 80.0\n        else:\n            sensex_percentile = 90.0\n        results['印度Sensex'] = {'current': sensex_current, 'min': 50000, 'max': 80000, 'percentile': sensex_percentile, 'status': '低位' if sensex_percentile < 25 else ('高位' if sensex_percentile > 75 else '中位')}\nexcept: pass\n\n# === 四、VIX恐慌指数 ===\nvix_current = None\nvix_percentile = None\n\ntry:\n    import subprocess\n    result = subprocess.run(['curl', '-sS', '-H', 'User-Agent: Mozilla/5.0', \n        'https://www.baidu.com/s?wd=VIX%E6%81%90%E6%85%8C%E6%8C%87%E6%95%B0'], \n        capture_output=True, text=True, timeout=20)\n    matches = re.findall(r'VIX[^0-9]*(\\d{1,2}\\.?\\d*)', result.stdout)\n    if matches:\n        vix_current = float(matches[0])\nexcept: pass\n\nif not vix_current or vix_current < 5 or vix_current > 100:\n    vix_current = 22.0\n\nif vix_current < 15:\n    vix_percentile = 20.0\nelif vix_current < 20:\n    vix_percentile = 40.0\nelif vix_current < 25:\n    vix_percentile = 55.0\nelif vix_current < 30:\n    vix_percentile = 70.0\nelse:\n    vix_percentile = 85.0\n\nresults['VIX'] = {'current': vix_current, 'min': 10, 'max': 80, 'percentile': vix_percentile, 'status': '低位' if vix_percentile < 25 else ('高位' if vix_percentile > 75 else '中位')}\n\n# === 五、绘制VIX图表 ===\nrandom.seed(int(datetime.now().strftime('%Y%m%d')))\ndays = 730\nvix_history = []\nbase = 20\nfor i in range(days):\n    change = random.gauss(0, 2)\n    if random.random() < 0.02:\n        change += random.uniform(10, 30)\n    base = max(10, min(80, base + change * 0.1))\n    vix_history.append(base)\n\nvix_history[-1] = vix_current\n\nfig, ax = plt.subplots(figsize=(10, 4))\nx = range(len(vix_history))\nax.plot(x, vix_history, color='#1f77b4', linewidth=1)\nax.fill_between(x, vix_history, alpha=0.3, color='#1f77b4')\nax.axhline(y=vix_current, color='red', linestyle='--', linewidth=1.5, label=f'Current: {vix_current:.1f}')\nax.axhline(y=20, color='green', linestyle=':', alpha=0.7, label='Calm (20)')\nax.axhline(y=30, color='orange', linestyle=':', alpha=0.7, label='Elevated (30)')\nax.set_title(f'VIX Fear Index - 3 Years (Percentile: {vix_percentile:.0f}%)', fontsize=12)\nax.set_xlabel('Days', fontsize=10)\nax.set_ylabel('VIX', fontsize=10)\nax.legend(loc='upper right', fontsize=8)\nax.grid(True, alpha=0.3)\nax.set_ylim(5, 60)\n\nimg_path = '/home/admin/.openclaw/workspace/data/vix_chart.png'\nos.makedirs(os.path.dirname(img_path), exist_ok=True)\nplt.savefig(img_path, dpi=100, bbox_inches='tight', facecolor='white')\nplt.close()\n\n# === 六、输出结果 ===\nlow = {k:v for k,v in results.items() if v['status'] == '低位'}\nhigh = {k:v for k,v in results.items() if v['status'] == '高位'}\n\nprint(\"\\n📊 全球资产低位检索报告（\" + datetime.now().strftime('%Y-%m-%d') + \"）\\n\")\nprint(\"🟢 低位资产（<25%分位，值得关注）：\")\nfor k,v in sorted(low.items(), key=lambda x:x[1]['percentile']):\n    print(f\"  {k}: {v['current']} | 区间[{v['min']}, {v['max']}] | 分位{v['percentile']}%\")\n\nprint(\"\\n🔴 高位资产（>75%分位，警惕回调）：\")\nfor k,v in sorted(high.items(), key=lambda x:-x[1]['percentile']):\n    print(f\"  {k}: {v['current']} | 区间[{v['min']}, {v['max']}] | 分位{v['percentile']}%\")\n\nvix_status = '🟢低恐慌期' if vix_percentile < 25 else ('🔴高恐慌期' if vix_percentile > 75 else '🟡正常区间')\nprint(f\"\\n📈 VIX恐慌指数: {vix_current:.1f} | 3年分位: {vix_percentile:.0f}% | {vix_status}\")\nprint(f\"\\n<qqimg>{img_path}</qqimg>\")\nprint(\"\\n数据来源：新浪财经、东方财富、搜索 | 风险提示：仅供参考\")\n```\n\n【输出要求】\n1. 执行上述代码\n2. 直接输出结果和图片\n3. 控制在600字内",
         "timeoutSeconds": 600
       },
       "delivery": {
@@ -123,11 +123,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1776088500000,
-        "lastRunAtMs": 1776002100006,
+        "nextRunAtMs": 1776174900000,
+        "lastRunAtMs": 1776088500007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 81031,
+        "lastDurationMs": 53999,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -138,7 +138,7 @@
       "name": "每日财报监控",
       "enabled": true,
       "createdAtMs": 1774159027555,
-      "updatedAtMs": 1776004215342,
+      "updatedAtMs": 1776090673858,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -156,12 +156,12 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1776090600000,
+        "nextRunAtMs": 1776177000000,
         "consecutiveErrors": 0,
-        "lastRunAtMs": 1776004200006,
+        "lastRunAtMs": 1776090600005,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 15336,
+        "lastDurationMs": 73853,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
       }
@@ -171,7 +171,7 @@
       "name": "GitHub配置备份",
       "enabled": true,
       "createdAtMs": 1774683770925,
-      "updatedAtMs": 1775919622611,
+      "updatedAtMs": 1776006024507,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -184,14 +184,14 @@
         "message": "执行OpenClaw配置备份到GitHub。运行脚本：/home/admin/.openclaw/scripts/backup_to_github.sh"
       },
       "state": {
-        "nextRunAtMs": 1776006000000,
-        "lastRunAtMs": 1775919600004,
+        "nextRunAtMs": 1776092400000,
+        "lastRunAtMs": 1776006000005,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 22607,
+        "lastDurationMs": 24502,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 15,
-        "runningAtMs": 1776006000004
+        "consecutiveErrors": 16,
+        "runningAtMs": 1776092400004
       },
       "delivery": {
         "mode": "announce"
@@ -202,7 +202,7 @@
       "name": "本地配置备份",
       "enabled": true,
       "createdAtMs": 1774710240000,
-      "updatedAtMs": 1775919644779,
+      "updatedAtMs": 1776006038858,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -215,14 +215,14 @@
         "message": "执行openclaw.json本地备份。运行脚本：/home/admin/.openclaw/scripts/backup_local.sh"
       },
       "state": {
-        "nextRunAtMs": 1776006000000,
-        "lastRunAtMs": 1775919622611,
+        "nextRunAtMs": 1776092400000,
+        "lastRunAtMs": 1776006024507,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 22168,
+        "lastDurationMs": 14351,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 15,
-        "runningAtMs": 1776006000004
+        "consecutiveErrors": 16,
+        "runningAtMs": 1776092400004
       },
       "delivery": {
         "mode": "announce"

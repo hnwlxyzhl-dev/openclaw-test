@@ -30,7 +30,7 @@ for name, symbol in futures:
 # === 二、股市指数（东方财富API）===
 # 中国、香港、日本、美国、欧洲、越南
 indices = [
-    ('沪深300', '1.000300'), ('上证', '1.000001'), ('创业板', '0.399006'),
+    ('沪深300', '1.000300'), ('上证', '1.000001'), ('创业板', '0.399006'), ('中证1000', '1.000852'),
     ('恒生', '100.HSI'), ('日经225', '100.N225'),
     ('纳指', '100.NDX'), ('道指', '100.DJIA'),
     ('德国DAX', '100.GDAXI'),
@@ -48,6 +48,20 @@ for name, secid in indices:
                 current, n = closes[-1], len(closes)
                 rank = sum(1 for p in sorted(closes) if p <= current)
                 results[name] = {'current': round(current,2), 'min': round(min(closes),2), 'max': round(max(closes),2), 'percentile': round(rank/n*100,1), 'status': '低位' if rank/n < 0.25 else ('高位' if rank/n > 0.75 else '中位')}
+    except: pass
+
+# === 2.5、中证1000备选（如果东方财富未获取到）===
+if '中证1000' not in results:
+    try:
+        resp = requests.get('https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData',
+            params={'symbol': 'sh000852', 'scale': '240', 'ma': 'no', 'datalen': '800'}, headers=headers, timeout=15)
+        data = resp.json()
+        if data:
+            closes = [float(item['close']) for item in data if float(item.get('close', 0)) > 0]
+            if len(closes) >= 100:
+                current, n = closes[-1], len(closes)
+                rank = sum(1 for p in sorted(closes) if p <= current)
+                results['中证1000'] = {'current': round(current,2), 'min': round(min(closes),2), 'max': round(max(closes),2), 'percentile': round(rank/n*100,1), 'status': '低位' if rank/n < 0.25 else ('高位' if rank/n > 0.75 else '中位')}
     except: pass
 
 # === 三、印度Sensex指数（搜索获取）===
@@ -152,5 +166,5 @@ for k,v in sorted(high.items(), key=lambda x:-x[1]['percentile']):
 
 vix_status = '🟢低恐慌期' if vix_percentile < 25 else ('🔴高恐慌期' if vix_percentile > 75 else '🟡正常区间')
 print(f"\n📈 VIX恐慌指数: {vix_current:.1f} | 3年分位: {vix_percentile:.0f}% | {vix_status}")
-print(f"\n<qqimg>{img_path}</qqimg>")
+print(f"\n<qqimg>/home/admin/.openclaw/workspace/data/vix_chart.png</qqimg>")
 print("\n数据来源：新浪财经、东方财富、搜索 | 风险提示：仅供参考")

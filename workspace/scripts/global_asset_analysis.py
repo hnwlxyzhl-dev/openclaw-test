@@ -28,13 +28,12 @@ for name, symbol in futures:
     except: pass
 
 # === 二、股市指数（东方财富API）===
-# 中国、香港、日本、美国、欧洲、越南
 indices = [
     ('沪深300', '1.000300'), ('上证', '1.000001'), ('创业板', '0.399006'), ('中证1000', '1.000852'),
     ('恒生', '100.HSI'), ('日经225', '100.N225'),
     ('纳指', '100.NDX'), ('道指', '100.DJIA'),
     ('德国DAX', '100.GDAXI'),
-    ('越南VN', '100.VNINDEX'),  # 越南VN指数
+    ('越南VN', '100.VNINDEX'),
 ]
 
 for name, secid in indices:
@@ -50,7 +49,7 @@ for name, secid in indices:
                 results[name] = {'current': round(current,2), 'min': round(min(closes),2), 'max': round(max(closes),2), 'percentile': round(rank/n*100,1), 'status': '低位' if rank/n < 0.25 else ('高位' if rank/n > 0.75 else '中位')}
     except: pass
 
-# === 2.5、中证1000备选（如果东方财富未获取到）===
+# === 2.5、中证1000备选 ===
 if '中证1000' not in results:
     try:
         resp = requests.get('https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData',
@@ -64,9 +63,8 @@ if '中证1000' not in results:
                 results['中证1000'] = {'current': round(current,2), 'min': round(min(closes),2), 'max': round(max(closes),2), 'percentile': round(rank/n*100,1), 'status': '低位' if rank/n < 0.25 else ('高位' if rank/n > 0.75 else '中位')}
     except: pass
 
-# === 三、印度Sensex指数（搜索获取）===
+# === 三、印度Sensex指数 ===
 try:
-    import subprocess
     result = subprocess.run(['curl', '-sS', '-H', 'User-Agent: Mozilla/5.0', 
         'https://www.baidu.com/s?wd=Sensex%E6%8C%87%E6%95%B0'], 
         capture_output=True, text=True, timeout=20)
@@ -93,7 +91,6 @@ vix_current = None
 vix_percentile = None
 
 try:
-    import subprocess
     result = subprocess.run(['curl', '-sS', '-H', 'User-Agent: Mozilla/5.0', 
         'https://www.baidu.com/s?wd=VIX%E6%81%90%E6%85%8C%E6%8C%87%E6%95%B0'], 
         capture_output=True, text=True, timeout=20)
@@ -166,5 +163,5 @@ for k,v in sorted(high.items(), key=lambda x:-x[1]['percentile']):
 
 vix_status = '🟢低恐慌期' if vix_percentile < 25 else ('🔴高恐慌期' if vix_percentile > 75 else '🟡正常区间')
 print(f"\n📈 VIX恐慌指数: {vix_current:.1f} | 3年分位: {vix_percentile:.0f}% | {vix_status}")
-print(f"\n<qqimg>/home/admin/.openclaw/workspace/data/vix_chart.png</qqimg>")
+print(f"\n<qqimg>{img_path}</qqimg>")
 print("\n数据来源：新浪财经、东方财富、搜索 | 风险提示：仅供参考")

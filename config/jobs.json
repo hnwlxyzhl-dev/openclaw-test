@@ -6,7 +6,7 @@
       "name": "每日跌停股票分析",
       "enabled": true,
       "createdAtMs": 1773724552141,
-      "updatedAtMs": 1776401764428,
+      "updatedAtMs": 1776488159593,
       "schedule": {
         "kind": "cron",
         "expr": "55 12 * * *",
@@ -24,11 +24,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1776488100000,
-        "lastRunAtMs": 1776401700034,
+        "nextRunAtMs": 1776574500000,
+        "lastRunAtMs": 1776488100007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 64394,
+        "lastDurationMs": 59586,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -104,7 +104,7 @@
       "name": "全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1773937704468,
-      "updatedAtMs": 1776434108011,
+      "updatedAtMs": 1776520567983,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -123,14 +123,14 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1776520500000,
-        "lastRunAtMs": 1776434100012,
+        "nextRunAtMs": 1776606900000,
+        "lastRunAtMs": 1776520500007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 7999,
-        "lastDeliveryStatus": "not-delivered",
+        "lastDurationMs": 67976,
+        "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
-        "lastDelivered": false
+        "lastDelivered": true
       }
     },
     {
@@ -138,7 +138,7 @@
       "name": "每日财报监控",
       "enabled": true,
       "createdAtMs": 1774159027555,
-      "updatedAtMs": 1776436317983,
+      "updatedAtMs": 1776522699096,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -156,12 +156,12 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1776522600000,
+        "nextRunAtMs": 1776609000000,
         "consecutiveErrors": 0,
-        "lastRunAtMs": 1776436200005,
+        "lastRunAtMs": 1776522600004,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 117978,
+        "lastDurationMs": 99092,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
       }
@@ -171,7 +171,7 @@
       "name": "GitHub配置备份",
       "enabled": true,
       "createdAtMs": 1774683770925,
-      "updatedAtMs": 1776351668957,
+      "updatedAtMs": 1776438086567,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -184,14 +184,14 @@
         "message": "执行OpenClaw配置备份到GitHub。运行脚本：/home/admin/.openclaw/scripts/backup_to_github.sh"
       },
       "state": {
-        "nextRunAtMs": 1776438000000,
-        "lastRunAtMs": 1776351600005,
+        "nextRunAtMs": 1776524400000,
+        "lastRunAtMs": 1776438000004,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 68952,
+        "lastDurationMs": 86563,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 20,
-        "runningAtMs": 1776438000003
+        "consecutiveErrors": 21,
+        "runningAtMs": 1776524400004
       },
       "delivery": {
         "mode": "announce"
@@ -202,7 +202,7 @@
       "name": "本地配置备份",
       "enabled": true,
       "createdAtMs": 1774710240000,
-      "updatedAtMs": 1776351702578,
+      "updatedAtMs": 1776438100951,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -215,14 +215,14 @@
         "message": "执行openclaw.json本地备份。运行脚本：/home/admin/.openclaw/scripts/backup_local.sh"
       },
       "state": {
-        "nextRunAtMs": 1776438000000,
-        "lastRunAtMs": 1776351668957,
+        "nextRunAtMs": 1776524400000,
+        "lastRunAtMs": 1776438086567,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 33621,
+        "lastDurationMs": 14384,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 20,
-        "runningAtMs": 1776438000003
+        "consecutiveErrors": 21,
+        "runningAtMs": 1776524400004
       },
       "delivery": {
         "mode": "announce"

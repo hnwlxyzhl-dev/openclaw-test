@@ -6,7 +6,7 @@
       "name": "每日跌停股票分析",
       "enabled": true,
       "createdAtMs": 1773724552141,
-      "updatedAtMs": 1777006586614,
+      "updatedAtMs": 1777092973812,
       "schedule": {
         "kind": "cron",
         "expr": "55 12 * * *",
@@ -24,11 +24,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1777092900000,
-        "lastRunAtMs": 1777006500005,
+        "nextRunAtMs": 1777179300000,
+        "lastRunAtMs": 1777092900009,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 86609,
+        "lastDurationMs": 73803,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -104,7 +104,7 @@
       "name": "全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1773937704468,
-      "updatedAtMs": 1777038968570,
+      "updatedAtMs": 1777125383322,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -123,11 +123,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1777125300000,
-        "lastRunAtMs": 1777038900008,
+        "nextRunAtMs": 1777211700000,
+        "lastRunAtMs": 1777125300008,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 68562,
+        "lastDurationMs": 83314,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -138,7 +138,7 @@
       "name": "每日财报监控",
       "enabled": true,
       "createdAtMs": 1774159027555,
-      "updatedAtMs": 1777041261267,
+      "updatedAtMs": 1777127658708,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -156,12 +156,12 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1777127400000,
+        "nextRunAtMs": 1777213800000,
         "consecutiveErrors": 0,
-        "lastRunAtMs": 1777041000005,
+        "lastRunAtMs": 1777127400007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 261262,
+        "lastDurationMs": 258701,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
       }
@@ -171,7 +171,7 @@
       "name": "GitHub配置备份",
       "enabled": true,
       "createdAtMs": 1774683770925,
-      "updatedAtMs": 1776956454305,
+      "updatedAtMs": 1777042847814,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -184,14 +184,14 @@
         "message": "执行OpenClaw配置备份到GitHub。运行脚本：/home/admin/.openclaw/scripts/backup_to_github.sh"
       },
       "state": {
-        "nextRunAtMs": 1777042800000,
-        "lastRunAtMs": 1776956400006,
+        "nextRunAtMs": 1777129200000,
+        "lastRunAtMs": 1777042800005,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 54299,
+        "lastDurationMs": 47809,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 27,
-        "runningAtMs": 1777042800004
+        "consecutiveErrors": 28,
+        "runningAtMs": 1777129200005
       },
       "delivery": {
         "mode": "announce"
@@ -202,7 +202,7 @@
       "name": "本地配置备份",
       "enabled": true,
       "createdAtMs": 1774710240000,
-      "updatedAtMs": 1776956502964,
+      "updatedAtMs": 1777042907301,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -215,14 +215,14 @@
         "message": "执行openclaw.json本地备份。运行脚本：/home/admin/.openclaw/scripts/backup_local.sh"
       },
       "state": {
-        "nextRunAtMs": 1777042800000,
-        "lastRunAtMs": 1776956454305,
+        "nextRunAtMs": 1777129200000,
+        "lastRunAtMs": 1777042847814,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 48659,
+        "lastDurationMs": 59487,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 27,
-        "runningAtMs": 1777042800004
+        "consecutiveErrors": 28,
+        "runningAtMs": 1777129200005
       },
       "delivery": {
         "mode": "announce"

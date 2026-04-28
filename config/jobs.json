@@ -6,7 +6,7 @@
       "name": "每日跌停股票分析",
       "enabled": true,
       "createdAtMs": 1773724552141,
-      "updatedAtMs": 1777265802273,
+      "updatedAtMs": 1777352156329,
       "schedule": {
         "kind": "cron",
         "expr": "55 12 * * *",
@@ -24,43 +24,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1777352100000,
-        "lastRunAtMs": 1777265700002,
+        "nextRunAtMs": 1777438500000,
+        "lastRunAtMs": 1777352100019,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 102271,
-        "lastDelivered": true,
-        "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0
-      }
-    },
-    {
-      "id": "458244b1-cdc2-49e2-9164-423694c18dca",
-      "name": "赞宇科技跌停监控",
-      "enabled": true,
-      "createdAtMs": 1773811341903,
-      "updatedAtMs": 1777271458852,
-      "schedule": {
-        "kind": "cron",
-        "expr": "30 9,10,11,13,14 * * 1-5"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "你是专业金融分析师。任务：监控002637赞宇科技的跌停状态。\n\n【重要】必须使用以下代码获取实时数据：\n```python\nimport tushare as ts\ndf = ts.get_realtime_quotes(\"002637\")\nprice = float(df[\"price\"].values[0])\npre_close = float(df[\"pre_close\"].values[0])\npct_chg = (price - pre_close) / pre_close * 100\n```\n\n执行逻辑：\n1. 用上述代码获取实时涨跌幅\n2. 如果 pct_chg > -9.5%（即跌停已打开）：立即发消息\"⚠️ 赞宇科技跌停已打开！当前涨跌幅XX%，请关注！\"然后回复\"DONE_DELETE_JOB\"\n3. 如果 pct_chg 接近-10%（仍跌停）：不发送消息，保持静默\n4. 检查今天日期，如果超过2026-03-23，回复\"DONE_DELETE_JOB\"停止监控\n\n注意：只用 ts.get_realtime_quotes，不用 pro.daily（那是盘后数据）"
-      },
-      "delivery": {
-        "mode": "announce",
-        "channel": "qqbot",
-        "to": "C54621F2F354F9C150382E3BE9618C6E"
-      },
-      "state": {
-        "nextRunAtMs": 1777339800000,
-        "lastRunAtMs": 1777271400004,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 58848,
+        "lastDurationMs": 56310,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -71,7 +39,7 @@
       "name": "股票新闻公告监控",
       "enabled": true,
       "createdAtMs": 1773841500000,
-      "updatedAtMs": 1777294995978,
+      "updatedAtMs": 1777381508973,
       "schedule": {
         "kind": "cron",
         "expr": "0 21 * * 1-5",
@@ -89,11 +57,11 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1777381200000,
-        "lastRunAtMs": 1777294800006,
+        "nextRunAtMs": 1777467600000,
+        "lastRunAtMs": 1777381200011,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 195972,
+        "lastDurationMs": 308962,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -104,7 +72,7 @@
       "name": "全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1773937704468,
-      "updatedAtMs": 1777298168967,
+      "updatedAtMs": 1777384566142,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -123,14 +91,15 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1777384500000,
-        "lastRunAtMs": 1777298100006,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 68961,
+        "nextRunAtMs": 1777470900000,
+        "lastRunAtMs": 1777384500014,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 66128,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0,
-        "lastDelivered": true
+        "consecutiveErrors": 1,
+        "lastDelivered": true,
+        "lastError": "⚠️ ✉️ Message failed"
       }
     },
     {
@@ -138,7 +107,7 @@
       "name": "每日财报监控",
       "enabled": true,
       "createdAtMs": 1774159027555,
-      "updatedAtMs": 1777300476356,
+      "updatedAtMs": 1777386773431,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -156,14 +125,15 @@
         "to": "C54621F2F354F9C150382E3BE9618C6E"
       },
       "state": {
-        "nextRunAtMs": 1777386600000,
-        "consecutiveErrors": 0,
-        "lastRunAtMs": 1777300200005,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 276351,
+        "nextRunAtMs": 1777473000000,
+        "consecutiveErrors": 1,
+        "lastRunAtMs": 1777386600005,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 173426,
         "lastDelivered": true,
-        "lastDeliveryStatus": "delivered"
+        "lastDeliveryStatus": "delivered",
+        "lastError": "Unhandled stop reason: model_context_window_exceeded"
       }
     },
     {
@@ -171,7 +141,7 @@
       "name": "GitHub配置备份",
       "enabled": true,
       "createdAtMs": 1774683770925,
-      "updatedAtMs": 1777215639256,
+      "updatedAtMs": 1777302067088,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -184,14 +154,14 @@
         "message": "执行OpenClaw配置备份到GitHub。运行脚本：/home/admin/.openclaw/scripts/backup_to_github.sh"
       },
       "state": {
-        "nextRunAtMs": 1777302000000,
-        "lastRunAtMs": 1777215600004,
+        "nextRunAtMs": 1777388400000,
+        "lastRunAtMs": 1777302000007,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 39252,
+        "lastDurationMs": 67081,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 30,
-        "runningAtMs": 1777302000005
+        "consecutiveErrors": 31,
+        "runningAtMs": 1777388400006
       },
       "delivery": {
         "mode": "announce"
@@ -202,7 +172,7 @@
       "name": "本地配置备份",
       "enabled": true,
       "createdAtMs": 1774710240000,
-      "updatedAtMs": 1777215694810,
+      "updatedAtMs": 1777302082229,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -215,14 +185,14 @@
         "message": "执行openclaw.json本地备份。运行脚本：/home/admin/.openclaw/scripts/backup_local.sh"
       },
       "state": {
-        "nextRunAtMs": 1777302000000,
-        "lastRunAtMs": 1777215639256,
+        "nextRunAtMs": 1777388400000,
+        "lastRunAtMs": 1777302067088,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 55554,
+        "lastDurationMs": 15141,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 30,
-        "runningAtMs": 1777302000005
+        "consecutiveErrors": 31,
+        "runningAtMs": 1777388400006
       },
       "delivery": {
         "mode": "announce"

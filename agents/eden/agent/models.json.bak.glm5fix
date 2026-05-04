@@ -1,8 +1,92 @@
 {
   "providers": {
-    "openai": {
-      "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+    "dashscope": {
+      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
       "apiKey": "$api-key",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "qwen3-max-2026-01-23",
+          "name": "Qwen3-Max-2026-01-23",
+          "api": "openai-completions",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 262144,
+          "maxTokens": 65536
+        },
+        {
+          "id": "qwen3.5-plus",
+          "name": "Qwen3.5-Plus",
+          "api": "openai-completions",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 1000000,
+          "maxTokens": 65536
+        }
+      ]
+    },
+    "dashscope-us": {
+      "baseUrl": "https://dashscope-us.aliyuncs.com/compatible-mode/v1",
+      "apiKey": "$api-key",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "qwen3-max-2025-09-23",
+          "name": "qwen3-max-2025-09-23",
+          "api": "openai-completions",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32768,
+          "maxTokens": 8192
+        },
+        {
+          "id": "qwen3-vl-plus",
+          "name": "qwen3-vl-plus",
+          "api": "openai-completions",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32768,
+          "maxTokens": 8192
+        }
+      ]
+    },
+    "openai": {
+      "baseUrl": "https://open.bigmodel.cn/api/coding/paas/v4",
+      "apiKey": "e793255ca49f420985fa5c5d441a11ea.8CzFlVT7iPT9rxUn",
       "api": "openai-completions",
       "models": [
         {
@@ -19,7 +103,7 @@
             "cacheRead": 0,
             "cacheWrite": 0
           },
-          "contextWindow": 200000,
+          "contextWindow": 1048576,
           "maxTokens": 131072
         },
         {
@@ -127,90 +211,6 @@
           },
           "contextWindow": 8192,
           "maxTokens": 4096
-        }
-      ]
-    },
-    "dashscope": {
-      "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/v1",
-      "apiKey": "$api-key",
-      "api": "openai-completions",
-      "models": [
-        {
-          "id": "qwen3-max-2026-01-23",
-          "name": "Qwen3-Max-2026-01-23",
-          "api": "openai-completions",
-          "reasoning": false,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "contextWindow": 262144,
-          "maxTokens": 65536
-        },
-        {
-          "id": "qwen3.5-plus",
-          "name": "Qwen3.5-Plus",
-          "api": "openai-completions",
-          "reasoning": false,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "contextWindow": 1000000,
-          "maxTokens": 65536
-        }
-      ]
-    },
-    "dashscope-us": {
-      "baseUrl": "https://dashscope-us.aliyuncs.com/compatible-mode/v1",
-      "apiKey": "$api-key",
-      "api": "openai-completions",
-      "models": [
-        {
-          "id": "qwen3-max-2025-09-23",
-          "name": "qwen3-max-2025-09-23",
-          "api": "openai-completions",
-          "reasoning": false,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "contextWindow": 32768,
-          "maxTokens": 8192
-        },
-        {
-          "id": "qwen3-vl-plus",
-          "name": "qwen3-vl-plus",
-          "api": "openai-completions",
-          "reasoning": false,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "contextWindow": 32768,
-          "maxTokens": 8192
         }
       ]
     }

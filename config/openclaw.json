@@ -122,7 +122,7 @@
               "cacheRead": 0,
               "cacheWrite": 0
             },
-            "contextWindow": 1048576,
+            "contextWindow": 200000,
             "maxTokens": 131072
           },
           {
@@ -139,7 +139,7 @@
               "cacheRead": 0,
               "cacheWrite": 0
             },
-            "contextWindow": 128000,
+            "contextWindow": 200000,
             "maxTokens": 8192
           },
           {
@@ -269,7 +269,7 @@
       "workspace": "/home/admin/.openclaw/workspace",
       "contextPruning": {
         "mode": "cache-ttl",
-        "ttl": "1h",
+        "ttl": "4h",
         "keepLastAssistants": 3,
         "softTrimRatio": 0.3,
         "hardClearRatio": 0.5,

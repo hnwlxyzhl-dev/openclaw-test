@@ -24,6 +24,10 @@
         "channel": "feishu",
         "accountId": "eden",
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
+      },
+      "state": {
+        "nextRunAtMs": 1777993200000,
+        "runningAtMs": 1777993200004
       }
     },
     {
@@ -49,6 +53,10 @@
         "channel": "feishu",
         "accountId": "eden",
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
+      },
+      "state": {
+        "nextRunAtMs": 1777993200000,
+        "runningAtMs": 1777993200004
       }
     },
     {
@@ -105,7 +113,7 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1777986000000
+        "nextRunAtMs": 1778072400000
       },
       "agentId": "hunter"
     },
@@ -114,7 +122,7 @@
       "name": "Hunter-全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1777963242525,
+      "updatedAtMs": 1777989323710,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -135,7 +143,15 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1777989300000
+        "nextRunAtMs": 1778075700000,
+        "lastRunAtMs": 1777989300005,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 23705,
+        "lastError": "⚠️ API rate limit reached. Please try again later.",
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 1
       },
       "agentId": "hunter"
     },
@@ -144,7 +160,7 @@
       "name": "Hunter-每日财报监控",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1777963242525,
+      "updatedAtMs": 1777991462727,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -164,7 +180,14 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1777991400000
+        "nextRunAtMs": 1778077800000,
+        "lastRunAtMs": 1777991400004,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 62723,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
       },
       "agentId": "hunter"
     }

@@ -6,7 +6,7 @@
       "name": "GitHub配置备份",
       "enabled": true,
       "createdAtMs": 1774683770925,
-      "updatedAtMs": 1777906863314,
+      "updatedAtMs": 1777993272303,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -26,8 +26,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1777993200000,
-        "runningAtMs": 1777993200004
+        "nextRunAtMs": 1778079600000,
+        "lastRunAtMs": 1777993200006,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 72297,
+        "lastDelivered": false,
+        "lastDeliveryStatus": "not-delivered",
+        "lastDeliveryError": "cron announce delivery failed",
+        "consecutiveErrors": 0,
+        "runningAtMs": 1778079600002
       }
     },
     {
@@ -35,7 +43,7 @@
       "name": "本地配置备份",
       "enabled": true,
       "createdAtMs": 1774710240000,
-      "updatedAtMs": 1777906881773,
+      "updatedAtMs": 1777993350502,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -55,8 +63,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1777993200000,
-        "runningAtMs": 1777993200004
+        "nextRunAtMs": 1778079600000,
+        "lastRunAtMs": 1777993272303,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 78199,
+        "lastDelivered": false,
+        "lastDeliveryStatus": "not-delivered",
+        "lastDeliveryError": "cron announce delivery failed",
+        "consecutiveErrors": 0,
+        "runningAtMs": 1778079600002
       }
     },
     {
@@ -64,7 +80,7 @@
       "name": "Hunter-每日跌停股票分析",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1777963242525,
+      "updatedAtMs": 1778043559622,
       "schedule": {
         "kind": "cron",
         "expr": "55 12 * * *",
@@ -84,7 +100,14 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1778043300000
+        "nextRunAtMs": 1778129700000,
+        "lastRunAtMs": 1778043300009,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 259613,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
       },
       "agentId": "hunter"
     },
@@ -113,7 +136,7 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1778072400000
+        "nextRunAtMs": 1778158800000
       },
       "agentId": "hunter"
     },
@@ -122,7 +145,7 @@
       "name": "Hunter-全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1777989323710,
+      "updatedAtMs": 1778075779312,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -143,15 +166,14 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1778075700000,
-        "lastRunAtMs": 1777989300005,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 23705,
-        "lastError": "⚠️ API rate limit reached. Please try again later.",
+        "nextRunAtMs": 1778162100000,
+        "lastRunAtMs": 1778075700013,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 79299,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 1
+        "consecutiveErrors": 0
       },
       "agentId": "hunter"
     },
@@ -160,7 +182,7 @@
       "name": "Hunter-每日财报监控",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1777991462727,
+      "updatedAtMs": 1778077833761,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -180,11 +202,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1778077800000,
-        "lastRunAtMs": 1777991400004,
+        "nextRunAtMs": 1778164200000,
+        "lastRunAtMs": 1778077800003,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 62723,
+        "lastDurationMs": 33758,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0

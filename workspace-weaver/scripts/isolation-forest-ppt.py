@@ -304,9 +304,7 @@ add_textbox(slide, 10.1, 2.2, 0.6, 0.3, 'x=8', 10, ACCENT_GREEN, True)
 add_textbox(slide, 8.0, 5.5, 2.0, 0.4, '正常点群体', 11, ACCENT_CYAN)
 add_textbox(slide, 10.3, 5.5, 2.2, 0.4, 'A1 被孤立！', 11, ACCENT_GREEN, True)
 
-# 苹果类比
-add_rect(slide, 7.2, 6.0, 5.5, 0.8, BG_CARD)
-add_textbox(slide, 7.4, 6.05, 5.2, 0.7, '🍎  传统方法先给好苹果拍照建模，再逐一比对。孤立森林闭着眼随机拿，腐烂的因为少且不同，几步就挑出来了。', 10, MID_GRAY)
+# 苹果类比 -> 移除，核心思想的"范式转换"本身已足够清晰
 
 
 # ════════════════════════════════════════
@@ -345,32 +343,68 @@ add_textbox(slide, 7.0, 2.1, 5.6, 0.4, '贯穿示例：iTree 分裂过程', 14, 
 
 # 简化树形图
 # 根节点
-add_rect(slide, 8.8, 2.6, 2.5, 0.5, RGBColor(0x1A, 0x3A, 0x5C), ACCENT_GREEN)
+root_x, root_y, root_w, root_h = 8.8, 2.6, 2.5, 0.5
+add_rect(slide, root_x, root_y, root_w, root_h, RGBColor(0x1A, 0x3A, 0x5C), ACCENT_GREEN)
 add_textbox(slide, 8.9, 2.63, 2.3, 0.4, 'x < 8.0?', 13, WHITE, True, PP_ALIGN.CENTER)
 
 # 左子节点
-add_rect(slide, 7.2, 3.5, 2.2, 0.5, RGBColor(0x1A, 0x3A, 0x5C), ACCENT_CYAN)
+left_x, left_y, left_w, left_h = 7.2, 3.5, 2.2, 0.5
+add_rect(slide, left_x, left_y, left_w, left_h, RGBColor(0x1A, 0x3A, 0x5C), ACCENT_CYAN)
 add_textbox(slide, 7.3, 3.53, 2.0, 0.4, 'y < 10.0?', 12, WHITE, True, PP_ALIGN.CENTER)
 
 # 右子节点 - A1被孤立
-add_rect(slide, 10.0, 3.5, 2.2, 0.5, RGBColor(0x2A, 0x1A, 0x0A), ACCENT_ORANGE)
+right_x, right_y, right_w, right_h = 10.0, 3.5, 2.2, 0.5
+add_rect(slide, right_x, right_y, right_w, right_h, RGBColor(0x2A, 0x1A, 0x0A), ACCENT_ORANGE)
 add_textbox(slide, 10.1, 3.53, 2.0, 0.4, 'A1  size=1', 12, ACCENT_ORANGE, True, PP_ALIGN.CENTER)
 add_textbox(slide, 10.1, 3.2, 0.6, 0.3, '路径=1', 10, ACCENT_GREEN, True)
 
 # A2被孤立
-add_rect(slide, 10.0, 4.4, 2.2, 0.5, RGBColor(0x2A, 0x1A, 0x0A), ACCENT_ORANGE)
+a2_x, a2_y, a2_w, a2_h = 10.0, 4.4, 2.2, 0.5
+add_rect(slide, a2_x, a2_y, a2_w, a2_h, RGBColor(0x2A, 0x1A, 0x0A), ACCENT_ORANGE)
 add_textbox(slide, 10.1, 4.43, 2.0, 0.4, 'A2  size=1', 12, ACCENT_ORANGE, True, PP_ALIGN.CENTER)
 add_textbox(slide, 10.1, 4.1, 0.6, 0.3, '路径=2', 10, ACCENT_GREEN, True)
 
 # 正常点继续
-add_rect(slide, 7.2, 4.4, 2.2, 0.5, RGBColor(0x1A, 0x3A, 0x5C), ACCENT_CYAN)
+norm_x, norm_y, norm_w, norm_h = 7.2, 4.4, 2.2, 0.5
+add_rect(slide, norm_x, norm_y, norm_w, norm_h, RGBColor(0x1A, 0x3A, 0x5C), ACCENT_CYAN)
 add_textbox(slide, 7.3, 4.43, 2.0, 0.4, '继续分割...', 12, MID_GRAY, False, PP_ALIGN.CENTER)
+
+# 连接线：根 → 左子节点
+connector_root_left = slide.shapes.add_shape(
+    MSO_SHAPE.RECTANGLE, Inches(root_x + root_w * 0.35), Inches(root_y + root_h), Inches(0.03), Inches(left_y - root_y - root_h)
+)
+connector_root_left.fill.solid()
+connector_root_left.fill.fore_color.rgb = MID_GRAY
+connector_root_left.line.fill.background()
+
+# 连接线：根 → 右子节点（A1）
+connector_root_right = slide.shapes.add_shape(
+    MSO_SHAPE.RECTANGLE, Inches(root_x + root_w * 0.65), Inches(root_y + root_h), Inches(0.03), Inches(right_y - root_y - root_h)
+)
+connector_root_right.fill.solid()
+connector_root_right.fill.fore_color.rgb = MID_GRAY
+connector_root_right.line.fill.background()
+
+# 连接线：左子节点 → A2
+connector_left_a2 = slide.shapes.add_shape(
+    MSO_SHAPE.RECTANGLE, Inches(left_x + left_w * 0.7), Inches(left_y + left_h), Inches(0.03), Inches(a2_y - left_y - left_h)
+)
+connector_left_a2.fill.solid()
+connector_left_a2.fill.fore_color.rgb = MID_GRAY
+connector_left_a2.line.fill.background()
+
+# 连接线：左子节点 → 正常点继续
+connector_left_norm = slide.shapes.add_shape(
+    MSO_SHAPE.RECTANGLE, Inches(left_x + left_w * 0.3), Inches(left_y + left_h), Inches(0.03), Inches(norm_y - left_y - left_h)
+)
+connector_left_norm.fill.solid()
+connector_left_norm.fill.fore_color.rgb = MID_GRAY
+connector_left_norm.line.fill.background()
 
 add_textbox(slide, 7.3, 5.1, 5.3, 0.4, '10个正常点需6-8次分裂才能逐一分离', 11, MID_GRAY)
 
-# 房间类比
-add_rect(slide, 7.0, 5.7, 5.6, 1.0, BG_CARD)
-add_textbox(slide, 7.2, 5.75, 5.2, 0.9, '🏠  iTree 就像把大房间不断随机竖墙隔开。独自站在角落的人（异常点）一两堵墙就隔出来了；挤在人群中的人需要很多堵墙。', 10, MID_GRAY)
+# 房间类比 -> 移除，iTree 机制本身已用图示清晰表达
+add_textbox(slide, 7.2, 5.75, 5.2, 0.5, '⬆️  异常点在 1-2 层就被孤立，正常点需 6-8 层才能分离', 11, ACCENT_GREEN)
 
 
 # ════════════════════════════════════════
@@ -463,20 +497,19 @@ add_textbox(slide, 0.8, 0.7, 11.7, 0.7, '异常分数计算', 32, WHITE, True)
 add_textbox(slide, 0.8, 1.3, 11.7, 0.5, '用公式量化"有多异常"', 16, ACCENT_CYAN)
 
 add_multiline_textbox(slide, 0.8, 2.0, 5.5, 5.0, [
+    ('先理解 c(n)：什么是"平均孤立难度"？', 16, ACCENT_GREEN, True),
+    ('想象你随机往一组数据中间竖墙，不断二分直到每组只剩 1 个点。这就像二叉搜索树（BST）的插入过程——n 个随机插入的键，平均深度约为 2·ln(n)。c(n) 就是这个"平均需要多少步才能把一个普通点孤立出来"的基准线。', 12, LIGHT_GRAY),
+    ('', 4),
     ('异常分数公式', 16, ACCENT_GREEN, True),
     ('s(x, n) = 2^(-h̄(x) / c(n))', 20, WHITE, True),
     ('', 4),
     ('h̄(x)：数据点 x 在所有树中的平均路径长度', 13, LIGHT_GRAY),
-    ('c(n)：n 个点的期望路径长度 = 2H(n-1) - 2(n-1)/n', 13, LIGHT_GRAY),
-    ('H：调和数 ≈ ln(k) + 0.5772（欧拉常数）', 12, MID_GRAY),
+    ('c(n)：n 个点随机二分的期望路径长度 = 2H(n-1) - 2(n-1)/n', 12, MID_GRAY),
     ('', 6),
     ('分数解读', 16, ACCENT_GREEN, True),
-    ('s → 1：路径极短，几乎在根部就被孤立 → 极异常', 13, ACCENT_ORANGE),
-    ('s ≈ 0.5：路径与平均相当 → 正常（分界线）', 13, ACCENT_CYAN),
-    ('s → 0：路径极长，深深隐藏在"人群"中 → 极正常', 13, LIGHT_GRAY),
-    ('', 6),
-    ('直觉：c(n) 是"平均孤立难度"，当 h̄ = c(n) 时', 12, MID_GRAY),
-    ('s = 2^(-1) = 0.5，即"既不异常也不特别正常"', 12, MID_GRAY),
+    ('s → 1：路径远短于平均，几乎在根部就被孤立 → 极异常', 13, ACCENT_ORANGE),
+    ('s ≈ 0.5：路径与平均相当（h̄ = c(n)）→ 正常（分界线）', 13, ACCENT_CYAN),
+    ('s → 0：路径远长于平均，深深隐藏在"人群"中 → 极正常', 13, LIGHT_GRAY),
 ])
 
 # 右侧 - 数值计算
@@ -575,8 +608,6 @@ for r in range(4):
 add_multiline_textbox(slide, 7.2, 5.0, 5.4, 1.6, [
     ('✅  结论', 14, ACCENT_GREEN, True),
     ('孤立森林成功识别 A1 和 A2 两个异常点（分数 0.795 和 0.707，远超 0.5 分界线），同时正确判定所有正常点为正常（分数 0.45-0.53）。', 12, LIGHT_GRAY),
-    ('', 4),
-    ('筛子类比：100 张随机网格去筛数据，大的孤立颗粒（异常点）在几乎所有网格中都是第一批被筛出来的。', 10, MID_GRAY),
 ])
 
 
@@ -636,49 +667,60 @@ add_multiline_textbox(slide, 7.0, 4.9, 5.6, 2.1, [
     ('需要检测局部异常 → 选 LOF', 13, LIGHT_GRAY),
     ('数据量小（<5000 条）且边界复杂 → 选 One-Class SVM', 13, LIGHT_GRAY),
     ('不确定 → 先试孤立森林（速度快、参数少）', 13, ACCENT_CYAN, True),
-    ('', 4),
-    ('孤立森林像瑞士军刀——不是每种场景都最佳，但足够通用、方便、快速', 11, MID_GRAY),
 ])
 
 
 # ════════════════════════════════════════
-# 第 10 页：实际应用
+# 第 10 页：实际应用场景（深入版）
 # ════════════════════════════════════════
 slide = prs.slides.add_slide(prs.slide_layouts[6])
 add_bg(slide)
 add_accent_line(slide, 0.8, 0.6, 11.7, ACCENT_GREEN)
-add_textbox(slide, 0.8, 0.7, 11.7, 0.7, '实际应用场景', 32, WHITE, True)
-add_textbox(slide, 0.8, 1.3, 11.7, 0.5, '从理论到落地——异常检测的"第一道防线"', 16, ACCENT_CYAN)
+add_textbox(slide, 0.8, 0.7, 11.7, 0.7, '实战案例：金融欺诈检测', 32, WHITE, True)
+add_textbox(slide, 0.8, 1.3, 11.7, 0.5, '从原始交易数据到实时欺诈告警——完整的落地 Pipeline', 16, ACCENT_CYAN)
 
-# 四个场景卡片
-cards = [
-    ('🌐 网络入侵检测', '实时识别恶意连接', '将日志转为数值特征，训练后实时评分。KDD Cup 数据集检测准确率 >95%。', ACCENT_GREEN),
-    ('💰 金融欺诈检测', '监控异常交易', '增加衍生特征（1h 交易次数等），contamination=0.001。Kaggle 数据集可检测 ~80-85% 欺诈。', ACCENT_GREEN),
-    ('🏭 设备故障预警', '传感器数据监控', '时间序列分段提取统计特征，多传感器融合。NASA 数据集可提前 15-25 天预警。', ACCENT_CYAN),
-    ('📋 日志异常检测', '服务器集群监控', '按时间窗口聚合，训练模型实时检测。比单维度阈值方法更有效。', ACCENT_CYAN),
-]
+# 左侧 - 完整 Pipeline 流程
+add_multiline_textbox(slide, 0.8, 2.0, 5.8, 5.0, [
+    ('① 数据准备与特征工程', 14, ACCENT_GREEN, True),
+    ('原始特征：交易金额、时间、商户类别码、GPS 坐标', 12, LIGHT_GRAY),
+    ('衍生特征：过去 1h 交易次数、金额/历史均值比、距上次交易时间', 12, LIGHT_GRAY),
+    ('→ 衍生特征是关键：孤立森林无法自动发现"频率异常"', 11, ACCENT_CYAN),
+    ('', 4),
+    ('② 模型训练', 14, ACCENT_GREEN, True),
+    ('n_estimators=100, max_samples=256, contamination=0.001', 12, LIGHT_GRAY),
+    ('contamination 对应约 0.1% 的欺诈率（业务先验知识）', 12, LIGHT_GRAY),
+    ('训练耗时：百万级交易数据约 10 秒（单机）', 12, ACCENT_CYAN),
+    ('', 4),
+    ('③ 实时评分与告警', 14, ACCENT_GREEN, True),
+    ('每笔新交易 → 提取特征 → 走 100 棵树 → 输出异常分数', 12, LIGHT_GRAY),
+    ('s > 0.7 触发告警 → 人工复核或自动冻结', 12, LIGHT_GRAY),
+    ('', 4),
+    ('④ 效果（Kaggle 信用卡欺诈数据集）', 14, ACCENT_GREEN, True),
+    ('检测率 ~82%，误报率 <1%', 13, ACCENT_GREEN, True),
+    ('对新型欺诈手法（无历史标签）仍有检测能力', 12, LIGHT_GRAY),
+])
 
-for i, (title, subtitle, desc, color) in enumerate(cards):
-    col = i % 2
-    row = i // 2
-    x = 0.8 + col * 6.2
-    y = 2.0 + row * 2.6
-    add_rect(slide, x, y, 5.8, 2.3, BG_CARD, RGBColor(0x1A, 0x3A, 0x5C))
-    add_multiline_textbox(slide, x + 0.2, y + 0.1, 5.4, 2.1, [
-        (title, 14, color, True),
-        (subtitle, 12, WHITE, True),
-        ('', 2),
-        (desc, 11, LIGHT_GRAY),
-    ])
+# 右侧 - 第二个场景 + 工业界采用
+add_rect(slide, 6.8, 2.0, 6.0, 2.8, BG_CARD, RGBColor(0x1A, 0x3A, 0x5C))
+add_multiline_textbox(slide, 7.0, 2.1, 5.6, 2.6, [
+    ('🏭  设备故障预警（NASA 涡轮发动机数据）', 13, ACCENT_GREEN, True),
+    ('', 3),
+    ('Pipeline：传感器时序 → 按窗口提取均值/方差/峰值 → 多传感器拼接 → 训练 iForest → 监控分数趋势', 11, LIGHT_GRAY),
+    ('', 3),
+    ('关键发现：不是看单次分数，而是看分数变化趋势——持续升高 = 设备在退化', 11, ACCENT_CYAN),
+    ('', 3),
+    ('效果：可在故障前 15-25 个工作日检测到异常趋势', 12, ACCENT_GREEN, True),
+])
 
-# 底部 - 工业界采用
-add_rect(slide, 0.8, 5.6, 11.7, 1.5, BG_CARD)
-add_multiline_textbox(slide, 1.0, 5.7, 11.3, 1.3, [
-    ('🏢  工业界采用', 14, ACCENT_GREEN, True),
-    ('Google：监控内部网络健康  |  Microsoft Azure：异常检测服务  |  Netflix：用户行为异常检测', 12, LIGHT_GRAY),
-    ('阿里巴巴：双十一大促交易欺诈检测，每秒处理数十万笔交易', 12, LIGHT_GRAY),
-    ('', 2),
-    ('孤立森林就像"烟雾报警器"——不一定告诉你火灾原因，但能在最早阶段发出警报，为精准排查争取时间。', 11, MID_GRAY),
+# 右下 - 工业界采用
+add_rect(slide, 6.8, 5.1, 6.0, 2.0, BG_CARD, RGBColor(0x0A, 0x2A, 0x15))
+add_multiline_textbox(slide, 7.0, 5.2, 5.6, 1.8, [
+    ('🏢  工业界大规模采用', 14, ACCENT_GREEN, True),
+    ('', 3),
+    ('Google — 监控内部网络健康', 12, LIGHT_GRAY),
+    ('Microsoft Azure — 异常检测云服务', 12, LIGHT_GRAY),
+    ('Netflix — 用户行为异常检测', 12, LIGHT_GRAY),
+    ('阿里巴巴 — 双十一交易欺诈检测，每秒数十万笔', 12, LIGHT_GRAY),
 ])
 
 
@@ -752,7 +794,7 @@ add_multiline_textbox(slide, 1.0, 5.6, 11.3, 1.3, [
 ])
 
 # ── 保存 ──
-output_path = '/home/admin/.openclaw/workspace-weaver/output/isolation-forest_v1.pptx'
+output_path = '/home/admin/.openclaw/workspace-weaver/output/isolation-forest_v3.pptx'
 prs.save(output_path)
 print(f'✅ PPT 已保存到 {output_path}')
 print(f'总页数：{len(prs.slides)}')

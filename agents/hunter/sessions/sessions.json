@@ -1,7 +1,7 @@
 {
   "agent:hunter:feishu:hunter:direct:ou_4c8499b94572ae1598169c894bca1f83": {
-    "sessionId": "b7c583e1-33b9-4496-9de1-69b6c68b682a",
-    "updatedAt": 1779892291186,
+    "sessionId": "c65d025b-a0c4-429c-b54d-adb189ccd999",
+    "updatedAt": 1779980266616,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -22,10 +22,10 @@
       "to": "user:ou_4c8499b94572ae1598169c894bca1f83",
       "accountId": "hunter"
     },
-    "sessionFile": "/home/admin/.openclaw/agents/hunter/sessions/b7c583e1-33b9-4496-9de1-69b6c68b682a.jsonl",
+    "sessionFile": "/home/admin/.openclaw/agents/hunter/sessions/c65d025b-a0c4-429c-b54d-adb189ccd999.jsonl",
     "compactionCount": 0,
     "skillsSnapshot": {
-      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>feishu-doc</name>\n    <description>Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-doc/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-drive</name>\n    <description>Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-drive/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-perm</name>\n    <description>Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-perm/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-wiki</name>\n    <description>Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-channel</name>\n    <description>QQ 频道管理技能。查询频道列表、子频道、成员、发帖、公告、日程等操作。使用 qqbot_channel_api 工具代理 QQ 开放平台 HTTP 接口，自动处理 Token 鉴权。当用户需要查看频道、管理子频道、查询成员、发布帖子/公告/日程时使用此技能。</description>\n    <location>~/.openclaw/extensions/openclaw-qqbot/skills/qqbot-channel/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-remind</name>\n    <description>QQBot 定时提醒。支持一次性和周期性提醒的创建、查询、取消。当通过 QQ 通道通信且涉及提醒/定时任务时使用。</description>\n    <location>~/.openclaw/extensions/openclaw-qqbot/skills/qqbot-remind/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-media</name>\n    <description>QQ Bot 媒体发送指南。教 AI 如何发送图片给用户。【重要】当用户要求发送图片时必须使用 &lt;qqimg&gt; 标签。</description>\n    <location>~/.openclaw/extensions/qqbot/skills/qqbot-media/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tavily-search</name>\n    <description>Web search via Tavily API (alternative to Brave). Use when the user asks to search the web / look up sources / find links and Brave web_search is unavailable or undesired. Returns a small set of relevant results (title, url, snippet) and can optionally include short answer summaries.</description>\n    <location>~/.openclaw/workspace-hunter/skills/openclaw-tavily-search/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-cron</name>\n    <description>QQ Bot 智能提醒技能。支持一次性提醒、周期性任务、自动降级确保送达。可设置、查询、取消提醒。</description>\n    <location>~/.openclaw/extensions/qqbot/skills/qqbot-cron/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>clawhub</name>\n    <description>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</description>\n    <location>/opt/openclaw/skills/clawhub/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/opt/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/opt/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tushare</name>\n    <description>tushare是一个财经数据接口包，拥有丰富的数据内容，如股票、基金、期货、数字货币等行情数据，公司财务、基金经理等基本面数据。该模块通过标准化API方式统一了数据资产的对外服务方式，以帮助有需要的技术用户更实时、简洁、轻量的使用相关数据。</description>\n    <location>/opt/openclaw/skills/tushare/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>video-frames</name>\n    <description>Extract frames or short clips from videos using ffmpeg.</description>\n    <location>/opt/openclaw/skills/video-frames/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/opt/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>crawl4ai-skill</name>\n    <description>Web crawling and scraping tool with LLM-optimized output. 网页爬虫爬取工具 | Web crawler, web scraper, spider. DuckDuckGo search, site crawling, dynamic page scraping. 智能搜索爬取 | Free, no API key required.</description>\n    <location>~/.agents/skills/crawl4ai-skill/skills/crawl4ai-skill/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>faster-whisper</name>\n    <description>Local speech-to-text using faster-whisper. 4-6x faster than OpenAI Whisper with identical accuracy; GPU acceleration enables ~20x realtime transcription. SRT/VTT/TTML/CSV subtitles, speaker diarization, URL/YouTube input, batch processing with ETA, transcript search, chapter detection, per-file language map.</description>\n    <location>~/.agents/skills/faster-whisper/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>playwright-web-scraper</name>\n    <description>Extract structured data from multiple web pages using Playwright with built-in ethical\ncrawling practices including rate limiting, robots.txt compliance, and error monitoring.\nUse when asked to &quot;scrape data from&quot;, &quot;extract information from pages&quot;, &quot;collect data\nfrom site&quot;, &quot;crawl multiple pages&quot;, or when gathering structured data from websites.\nSupports pagination, multi-page extraction, data aggregation, and export to CSV/JSON/Markdown.\nWorks with browser_navigate, browser_evaluate, browser_wait_for, and browser_snapshot tools.\n</description>\n    <location>~/.agents/skills/playwright-web-scraper/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>multi-search-engine</name>\n    <description>Multi search engine integration with 17 engines (8 CN + 9 Global). Supports advanced search operators, time filters, site search, privacy engines, and WolframAlpha knowledge queries. No API keys required.</description>\n    <location>~/.openclaw/workspace-hunter/skills/multi-search-engine/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>searxng</name>\n    <description>Privacy-respecting metasearch using your local SearXNG instance. Search the web, images, news, and more without external API dependencies.</description>\n    <location>~/.openclaw/workspace-hunter/skills/searxng/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-vetter</name>\n    <description>Security-first skill vetting for AI agents. Use before installing any skill from ClawdHub, GitHub, or other sources. Checks for red flags, permission scope, and suspicious patterns.</description>\n    <location>~/.openclaw/workspace-hunter/skills/skill-vetter/SKILL.md</location>\n  </skill>\n</available_skills>",
+      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>feishu-doc</name>\n    <description>Feishu document read/write operations. Activate when user mentions Feishu docs, cloud docs, or docx links.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-doc/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-drive</name>\n    <description>Feishu cloud storage file management. Activate when user mentions cloud space, folders, drive.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-drive/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-perm</name>\n    <description>Feishu permission management for documents and files. Activate when user mentions sharing, permissions, collaborators.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-perm/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>feishu-wiki</name>\n    <description>Feishu knowledge base navigation. Activate when user mentions knowledge base, wiki, or wiki links.\n</description>\n    <location>~/.openclaw/extensions/feishu/skills/feishu-wiki/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-channel</name>\n    <description>QQ 频道管理技能。查询频道列表、子频道、成员、发帖、公告、日程等操作。使用 qqbot_channel_api 工具代理 QQ 开放平台 HTTP 接口，自动处理 Token 鉴权。当用户需要查看频道、管理子频道、查询成员、发布帖子/公告/日程时使用此技能。</description>\n    <location>~/.openclaw/extensions/openclaw-qqbot/skills/qqbot-channel/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-remind</name>\n    <description>QQBot 定时提醒。支持一次性和周期性提醒的创建、查询、取消。当通过 QQ 通道通信且涉及提醒/定时任务时使用。</description>\n    <location>~/.openclaw/extensions/openclaw-qqbot/skills/qqbot-remind/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-media</name>\n    <description>QQ Bot 媒体发送指南。教 AI 如何发送图片给用户。【重要】当用户要求发送图片时必须使用 &lt;qqimg&gt; 标签。</description>\n    <location>~/.openclaw/extensions/qqbot/skills/qqbot-media/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tavily-search</name>\n    <description>Web search via Tavily API (alternative to Brave). Use when the user asks to search the web / look up sources / find links and Brave web_search is unavailable or undesired. Returns a small set of relevant results (title, url, snippet) and can optionally include short answer summaries.</description>\n    <location>~/.openclaw/workspace-hunter/skills/openclaw-tavily-search/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>qqbot-cron</name>\n    <description>QQ Bot 智能提醒技能。支持一次性提醒、周期性任务、自动降级确保送达。可设置、查询、取消提醒。</description>\n    <location>~/.openclaw/extensions/qqbot/skills/qqbot-cron/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>clawhub</name>\n    <description>Use the ClawHub CLI to search, install, update, and publish agent skills from clawhub.com. Use when you need to fetch new skills on the fly, sync installed skills to latest or a specific version, or publish new/updated skill folders with the npm-installed clawhub CLI.</description>\n    <location>/opt/openclaw/skills/clawhub/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>/opt/openclaw/skills/healthcheck/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/opt/openclaw/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>tushare</name>\n    <description>tushare是一个财经数据接口包，拥有丰富的数据内容，如股票、基金、期货、数字货币等行情数据，公司财务、基金经理等基本面数据。该模块通过标准化API方式统一了数据资产的对外服务方式，以帮助有需要的技术用户更实时、简洁、轻量的使用相关数据。</description>\n    <location>/opt/openclaw/skills/tushare/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>video-frames</name>\n    <description>Extract frames or short clips from videos using ffmpeg.</description>\n    <location>/opt/openclaw/skills/video-frames/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>/opt/openclaw/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>crawl4ai-skill</name>\n    <description>Web crawling and scraping tool with LLM-optimized output. 网页爬虫爬取工具 | Web crawler, web scraper, spider. DuckDuckGo search, site crawling, dynamic page scraping. 智能搜索爬取 | Free, no API key required.</description>\n    <location>~/.agents/skills/crawl4ai-skill/skills/crawl4ai-skill/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>faster-whisper</name>\n    <description>Local speech-to-text using faster-whisper. 4-6x faster than OpenAI Whisper with identical accuracy; GPU acceleration enables ~20x realtime transcription. SRT/VTT/TTML/CSV subtitles, speaker diarization, URL/YouTube input, batch processing with ETA, transcript search, chapter detection, per-file language map.</description>\n    <location>~/.agents/skills/faster-whisper/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>playwright-web-scraper</name>\n    <description>Extract structured data from multiple web pages using Playwright with built-in ethical\ncrawling practices including rate limiting, robots.txt compliance, and error monitoring.\nUse when asked to &quot;scrape data from&quot;, &quot;extract information from pages&quot;, &quot;collect data\nfrom site&quot;, &quot;crawl multiple pages&quot;, or when gathering structured data from websites.\nSupports pagination, multi-page extraction, data aggregation, and export to CSV/JSON/Markdown.\nWorks with browser_navigate, browser_evaluate, browser_wait_for, and browser_snapshot tools.\n</description>\n    <location>~/.agents/skills/playwright-web-scraper/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>etf-index-fundamentals</name>\n    <description>Calculate and push fundamentals (PE/PB/PEG/YoY/QoQ) for any A-share ETF or index to WeChat. Activate when user asks to calculate/analyze fundamentals or PE for an ETF (e.g. 卫星ETF 159206) or index (e.g. 沪深300). Fetches latest constituents via Tushare, runs OnDemand_Index_PE_Push.py, and pushes charts + detail tables via WeChat webhook.</description>\n    <location>~/.openclaw/workspace-hunter/skills/etf-index-fundamentals/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>multi-search-engine</name>\n    <description>Multi search engine integration with 17 engines (8 CN + 9 Global). Supports advanced search operators, time filters, site search, privacy engines, and WolframAlpha knowledge queries. No API keys required.</description>\n    <location>~/.openclaw/workspace-hunter/skills/multi-search-engine/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>searxng</name>\n    <description>Privacy-respecting metasearch using your local SearXNG instance. Search the web, images, news, and more without external API dependencies.</description>\n    <location>~/.openclaw/workspace-hunter/skills/searxng/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-vetter</name>\n    <description>Security-first skill vetting for AI agents. Use before installing any skill from ClawdHub, GitHub, or other sources. Checks for red flags, permission scope, and suspicious patterns.</description>\n    <location>~/.openclaw/workspace-hunter/skills/skill-vetter/SKILL.md</location>\n  </skill>\n</available_skills>",
       "skills": [
         {
           "name": "feishu-doc"
@@ -86,6 +86,9 @@
         },
         {
           "name": "playwright-web-scraper"
+        },
+        {
+          "name": "etf-index-fundamentals"
         },
         {
           "name": "multi-search-engine"
@@ -243,6 +246,14 @@
           "disableModelInvocation": false
         },
         {
+          "name": "etf-index-fundamentals",
+          "description": "Calculate and push fundamentals (PE/PB/PEG/YoY/QoQ) for any A-share ETF or index to WeChat. Activate when user asks to calculate/analyze fundamentals or PE for an ETF (e.g. 卫星ETF 159206) or index (e.g. 沪深300). Fetches latest constituents via Tushare, runs OnDemand_Index_PE_Push.py, and pushes charts + detail tables via WeChat webhook.",
+          "filePath": "/home/admin/.openclaw/workspace-hunter/skills/etf-index-fundamentals/SKILL.md",
+          "baseDir": "/home/admin/.openclaw/workspace-hunter/skills/etf-index-fundamentals",
+          "source": "openclaw-workspace",
+          "disableModelInvocation": false
+        },
+        {
           "name": "multi-search-engine",
           "description": "Multi search engine integration with 17 engines (8 CN + 9 Global). Supports advanced search operators, time filters, site search, privacy engines, and WolframAlpha knowledge queries. No API keys required.",
           "filePath": "/home/admin/.openclaw/workspace-hunter/skills/multi-search-engine/SKILL.md",
@@ -273,8 +284,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1779892216724,
-      "sessionId": "b7c583e1-33b9-4496-9de1-69b6c68b682a",
+      "generatedAt": 1779980211291,
+      "sessionId": "c65d025b-a0c4-429c-b54d-adb189ccd999",
       "sessionKey": "agent:hunter:feishu:hunter:direct:ou_4c8499b94572ae1598169c894bca1f83",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -293,9 +304,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 32036,
+        "chars": 33047,
         "projectContextChars": 11751,
-        "nonProjectContextChars": 20285
+        "nonProjectContextChars": 21296
       },
       "injectedWorkspaceFiles": [
         {
@@ -364,7 +375,7 @@
         }
       ],
       "skills": {
-        "promptChars": 7491,
+        "promptChars": 8013,
         "entries": [
           {
             "name": "feishu-doc",
@@ -437,6 +448,10 @@
           {
             "name": "playwright-web-scraper",
             "blockChars": 739
+          },
+          {
+            "name": "etf-index-fundamentals",
+            "blockChars": 519
           },
           {
             "name": "multi-search-engine",
@@ -705,13 +720,14 @@
         ]
       }
     },
-    "cacheRead": 27328,
+    "cacheRead": 88192,
     "cacheWrite": 0,
     "totalTokensFresh": true,
     "contextTokens": 200000,
-    "inputTokens": 4486,
-    "outputTokens": 593,
-    "totalTokens": 27661
+    "inputTokens": 70840,
+    "outputTokens": 469,
+    "totalTokens": 88419,
+    "channel": "webchat"
   },
   "agent:hunter:feishu:group:oc_05dc4903b4b1b4c5d7e730356ccef21e": {
     "sessionId": "31cf7c34-316b-44e7-8cd6-9879edf11c59",
@@ -1432,8 +1448,8 @@
     "totalTokens": 34517
   },
   "agent:hunter:cron:6ea2b0fd-e5c1-4592-8f09-992af88d5ccd": {
-    "sessionId": "ca1d39e4-d08f-428c-b308-6b7d5dedf9d3",
-    "updatedAt": 1779886800013,
+    "sessionId": "472ac12d-b907-44fc-a419-ffdcd0292ff4",
+    "updatedAt": 1779973200009,
     "systemSent": true,
     "label": "Cron: Hunter-股票新闻公告监控",
     "skillsSnapshot": {
@@ -1685,8 +1701,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1779886800151,
-      "sessionId": "ca1d39e4-d08f-428c-b308-6b7d5dedf9d3",
+      "generatedAt": 1779973200125,
+      "sessionId": "472ac12d-b907-44fc-a419-ffdcd0292ff4",
       "sessionKey": "agent:hunter:cron:6ea2b0fd-e5c1-4592-8f09-992af88d5ccd",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -2094,16 +2110,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 31758,
-    "outputTokens": 2474,
-    "totalTokens": 36739,
+    "inputTokens": 61313,
+    "outputTokens": 2541,
+    "totalTokens": 43149,
     "totalTokensFresh": true,
-    "cacheRead": 625171,
+    "cacheRead": 438404,
     "cacheWrite": 0
   },
   "agent:hunter:cron:334258df-9672-41eb-95f9-19af35f80bba": {
-    "sessionId": "c308b618-7c44-4e37-97fb-149ba2bb925b",
-    "updatedAt": 1779890100014,
+    "sessionId": "b6bd6e49-0f27-4dc2-9742-7291a407a38e",
+    "updatedAt": 1779977524712,
     "systemSent": true,
     "label": "Cron: Hunter-全球资产低位检索-晚间",
     "skillsSnapshot": {
@@ -2355,8 +2371,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1779890100151,
-      "sessionId": "c308b618-7c44-4e37-97fb-149ba2bb925b",
+      "generatedAt": 1779977526122,
+      "sessionId": "b6bd6e49-0f27-4dc2-9742-7291a407a38e",
       "sessionKey": "agent:hunter:cron:334258df-9672-41eb-95f9-19af35f80bba",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -2764,16 +2780,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 20260,
-    "outputTokens": 729,
-    "totalTokens": 23996,
+    "inputTokens": 21967,
+    "outputTokens": 643,
+    "totalTokens": 23903,
     "totalTokensFresh": true,
-    "cacheRead": 71417,
+    "cacheRead": 47139,
     "cacheWrite": 0
   },
   "agent:hunter:cron:994c28af-4bdd-4352-9e8b-5e2af418ba26": {
-    "sessionId": "769e14f7-af89-49a2-bf1a-091492e06456",
-    "updatedAt": 1779892200011,
+    "sessionId": "040cf84b-7f37-4098-bf15-51128b57601c",
+    "updatedAt": 1779978600008,
     "systemSent": true,
     "label": "Cron: Hunter-每日财报监控",
     "skillsSnapshot": {
@@ -3025,8 +3041,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1779892200116,
-      "sessionId": "769e14f7-af89-49a2-bf1a-091492e06456",
+      "generatedAt": 1779978600106,
+      "sessionId": "040cf84b-7f37-4098-bf15-51128b57601c",
       "sessionKey": "agent:hunter:cron:994c28af-4bdd-4352-9e8b-5e2af418ba26",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -3434,16 +3450,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 19874,
-    "outputTokens": 1009,
-    "totalTokens": 23859,
+    "inputTokens": 19672,
+    "outputTokens": 546,
+    "totalTokens": 23225,
     "totalTokensFresh": true,
-    "cacheRead": 161929,
+    "cacheRead": 25738,
     "cacheWrite": 0
   },
   "agent:hunter:cron:df8f7446-407b-403f-8480-152d99c35586": {
-    "sessionId": "83f10710-a974-47de-afc0-a8133269c828",
-    "updatedAt": 1779857700019,
+    "sessionId": "d5cb4681-1d92-4d39-b371-72694458eddb",
+    "updatedAt": 1779944100023,
     "systemSent": true,
     "label": "Cron: Hunter-每日跌停股票分析",
     "skillsSnapshot": {
@@ -3695,8 +3711,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1779857700164,
-      "sessionId": "83f10710-a974-47de-afc0-a8133269c828",
+      "generatedAt": 1779944100127,
+      "sessionId": "d5cb4681-1d92-4d39-b371-72694458eddb",
       "sessionKey": "agent:hunter:cron:df8f7446-407b-403f-8480-152d99c35586",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -4104,16 +4120,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 31370,
-    "outputTokens": 5353,
-    "totalTokens": 39773,
+    "inputTokens": 41368,
+    "outputTokens": 2407,
+    "totalTokens": 46548,
     "totalTokensFresh": true,
-    "cacheRead": 701062,
+    "cacheRead": 628187,
     "cacheWrite": 0
   },
-  "agent:hunter:cron:df8f7446-407b-403f-8480-152d99c35586:run:83f10710-a974-47de-afc0-a8133269c828": {
-    "sessionId": "83f10710-a974-47de-afc0-a8133269c828",
-    "updatedAt": 1779857700019,
+  "agent:hunter:cron:df8f7446-407b-403f-8480-152d99c35586:run:d5cb4681-1d92-4d39-b371-72694458eddb": {
+    "sessionId": "d5cb4681-1d92-4d39-b371-72694458eddb",
+    "updatedAt": 1779944100023,
     "systemSent": true,
     "label": "Cron: Hunter-每日跌停股票分析",
     "skillsSnapshot": {
@@ -4365,8 +4381,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1779857700164,
-      "sessionId": "83f10710-a974-47de-afc0-a8133269c828",
+      "generatedAt": 1779944100127,
+      "sessionId": "d5cb4681-1d92-4d39-b371-72694458eddb",
       "sessionKey": "agent:hunter:cron:df8f7446-407b-403f-8480-152d99c35586",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -4774,16 +4790,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 31370,
-    "outputTokens": 5353,
-    "totalTokens": 39773,
+    "inputTokens": 41368,
+    "outputTokens": 2407,
+    "totalTokens": 46548,
     "totalTokensFresh": true,
-    "cacheRead": 701062,
+    "cacheRead": 628187,
     "cacheWrite": 0
   },
-  "agent:hunter:cron:6ea2b0fd-e5c1-4592-8f09-992af88d5ccd:run:ca1d39e4-d08f-428c-b308-6b7d5dedf9d3": {
-    "sessionId": "ca1d39e4-d08f-428c-b308-6b7d5dedf9d3",
-    "updatedAt": 1779886800013,
+  "agent:hunter:cron:6ea2b0fd-e5c1-4592-8f09-992af88d5ccd:run:472ac12d-b907-44fc-a419-ffdcd0292ff4": {
+    "sessionId": "472ac12d-b907-44fc-a419-ffdcd0292ff4",
+    "updatedAt": 1779973200009,
     "systemSent": true,
     "label": "Cron: Hunter-股票新闻公告监控",
     "skillsSnapshot": {
@@ -5035,8 +5051,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1779886800151,
-      "sessionId": "ca1d39e4-d08f-428c-b308-6b7d5dedf9d3",
+      "generatedAt": 1779973200125,
+      "sessionId": "472ac12d-b907-44fc-a419-ffdcd0292ff4",
       "sessionKey": "agent:hunter:cron:6ea2b0fd-e5c1-4592-8f09-992af88d5ccd",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -5444,16 +5460,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 31758,
-    "outputTokens": 2474,
-    "totalTokens": 36739,
+    "inputTokens": 61313,
+    "outputTokens": 2541,
+    "totalTokens": 43149,
     "totalTokensFresh": true,
-    "cacheRead": 625171,
+    "cacheRead": 438404,
     "cacheWrite": 0
   },
-  "agent:hunter:cron:334258df-9672-41eb-95f9-19af35f80bba:run:c308b618-7c44-4e37-97fb-149ba2bb925b": {
-    "sessionId": "c308b618-7c44-4e37-97fb-149ba2bb925b",
-    "updatedAt": 1779890100014,
+  "agent:hunter:cron:334258df-9672-41eb-95f9-19af35f80bba:run:b6bd6e49-0f27-4dc2-9742-7291a407a38e": {
+    "sessionId": "b6bd6e49-0f27-4dc2-9742-7291a407a38e",
+    "updatedAt": 1779977524712,
     "systemSent": true,
     "label": "Cron: Hunter-全球资产低位检索-晚间",
     "skillsSnapshot": {
@@ -5705,8 +5721,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1779890100151,
-      "sessionId": "c308b618-7c44-4e37-97fb-149ba2bb925b",
+      "generatedAt": 1779977526122,
+      "sessionId": "b6bd6e49-0f27-4dc2-9742-7291a407a38e",
       "sessionKey": "agent:hunter:cron:334258df-9672-41eb-95f9-19af35f80bba",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -6114,16 +6130,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 20260,
-    "outputTokens": 729,
-    "totalTokens": 23996,
+    "inputTokens": 21967,
+    "outputTokens": 643,
+    "totalTokens": 23903,
     "totalTokensFresh": true,
-    "cacheRead": 71417,
+    "cacheRead": 47139,
     "cacheWrite": 0
   },
-  "agent:hunter:cron:994c28af-4bdd-4352-9e8b-5e2af418ba26:run:769e14f7-af89-49a2-bf1a-091492e06456": {
-    "sessionId": "769e14f7-af89-49a2-bf1a-091492e06456",
-    "updatedAt": 1779892200011,
+  "agent:hunter:cron:994c28af-4bdd-4352-9e8b-5e2af418ba26:run:040cf84b-7f37-4098-bf15-51128b57601c": {
+    "sessionId": "040cf84b-7f37-4098-bf15-51128b57601c",
+    "updatedAt": 1779978600008,
     "systemSent": true,
     "label": "Cron: Hunter-每日财报监控",
     "skillsSnapshot": {
@@ -6375,8 +6391,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1779892200116,
-      "sessionId": "769e14f7-af89-49a2-bf1a-091492e06456",
+      "generatedAt": 1779978600106,
+      "sessionId": "040cf84b-7f37-4098-bf15-51128b57601c",
       "sessionKey": "agent:hunter:cron:994c28af-4bdd-4352-9e8b-5e2af418ba26",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -6784,11 +6800,11 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 19874,
-    "outputTokens": 1009,
-    "totalTokens": 23859,
+    "inputTokens": 19672,
+    "outputTokens": 546,
+    "totalTokens": 23225,
     "totalTokensFresh": true,
-    "cacheRead": 161929,
+    "cacheRead": 25738,
     "cacheWrite": 0
   }
 }

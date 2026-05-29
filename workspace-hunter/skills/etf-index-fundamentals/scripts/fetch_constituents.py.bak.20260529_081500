@@ -59,67 +59,58 @@ def fetch_etf_constituents(etf_code: str) -> dict:
     
     Returns dict of {ts_code: weight_ratio} where weight_ratio sums to ~1.
     
-    Logic:
-      - fund_portfolio披露规则：年报(1231)/中报(0630)披露全部持仓(权重≈100%)，
-        一季报(0331)/三季报(0930)仅披露前10大重仓(权重≈60%)
-      - 因此优先取权重合计>90%的报告期，确保数据完整
-      - 如果所有期都不满足90%，退而取最新一期
+    Notes:
+      - fund_portfolio returns ALL holdings (not just top 10), with stk_mkv_ratio summing to ~100%
+      - Data is from quarterly fund reports, may lag by 1-3 months
+      - ts_code must use exchange suffix (.SZ for 15xxxx, .SH for 51xxxx/56xxxx)
     """
     ts_code = etf_code_to_tscode(etf_code)
     print(f"Fetching ETF holdings for {etf_code} (ts_code={ts_code}) via tushare fund_portfolio...")
 
-    # 拉取所有可用的持仓数据
-    df = pro.fund_portfolio(ts_code=ts_code)
-    if df.empty:
-        raise ValueError(f"No fund_portfolio data found for ETF {etf_code} (ts_code={ts_code})")
+    # Try recent quarters, newest first
+    now = datetime.now()
+    end_dates = []
+    for year_offset in [0, -1]:
+        y = now.year + year_offset
+        for q_end in ['1231', '0930', '0630', '0331']:
+            ed = f"{y}{q_end}"
+            if ed <= now.strftime('%Y%m%d'):
+                end_dates.append(ed)
 
-    # 按报告期从新到旧遍历，优先取权重合计>90%的完整持仓
-    periods = sorted(df['end_date'].unique(), reverse=True)
-    
-    chosen_period = None
-    chosen_df = None
-    
-    for period in periods:
-        sub = df[df['end_date'] == period].copy()
-        valid = sub[sub['stk_mkv_ratio'] > 0]
-        if valid.empty:
+    for end_date in end_dates:
+        df = pro.fund_portfolio(ts_code=ts_code, end_date=end_date)
+        if df.empty:
             continue
-        total_pct = valid['stk_mkv_ratio'].sum()
-        # 权重合计>90%说明是年报/中报的完整持仓
-        if total_pct > 90:
-            chosen_period = period
-            chosen_df = valid
-            break
-    
-    # 如果所有期都不满足90%，退而取最新一期
-    if chosen_period is None:
-        chosen_period = periods[0]
-        chosen_df = df[df['end_date'] == chosen_period].copy()
-        chosen_df = chosen_df[chosen_df['stk_mkv_ratio'] > 0]
-        print(f"  ⚠️  No period with weight sum >90%, falling back to latest: {chosen_period}")
 
-    if chosen_df is None or chosen_df.empty:
-        raise ValueError(f"No valid holdings found for ETF {etf_code}")
+        # Get the latest reporting period
+        latest_end = df['end_date'].max()
+        latest = df[df['end_date'] == latest_end].copy()
 
-    # Sort by weight descending
-    chosen_df = chosen_df.sort_values('stk_mkv_ratio', ascending=False)
+        if latest.empty:
+            continue
 
-    # Build result: symbol is already in ts_code format (e.g. '600118.SH')
-    result = {}
-    for _, row in chosen_df.iterrows():
-        symbol = row['symbol']
-        weight = float(row['stk_mkv_ratio']) / 100.0  # percentage to ratio
-        result[symbol] = weight
+        # Sort by weight descending
+        latest = latest.sort_values('stk_mkv_ratio', ascending=False)
 
-    total_pct = chosen_df['stk_mkv_ratio'].sum()
-    print(f"  Report period: {chosen_period}, Holdings: {len(result)} stocks, weight sum: {total_pct:.2f}%")
-    print(f"  Top 5: {', '.join([f'{k}={v*100:.1f}%' for k, v in list(result.items())[:5]])}")
+        # Build result: symbol is already in ts_code format (e.g. '600118.SH')
+        result = {}
+        for _, row in latest.iterrows():
+            symbol = row['symbol']
+            weight = float(row['stk_mkv_ratio']) / 100.0  # percentage to ratio
+            result[symbol] = weight
 
-    # Warn if weight sum is far from 100% (e.g. new ETF with incomplete data)
-    if total_pct < 80:
-        print(f"  ⚠️  Weight sum is only {total_pct:.1f}%, data may be incomplete!")
+        total_pct = latest['stk_mkv_ratio'].sum()
+        print(f"  Report period: {latest_end}, announced: {latest['ann_date'].iloc[0]}")
+        print(f"  Holdings: {len(result)} stocks, weight sum: {total_pct:.2f}%")
+        print(f"  Top 5: {', '.join([f'{k}={v*100:.1f}%' for k, v in list(result.items())[:5]])}")
 
-    return result
+        # Warn if weight sum is far from 100% (e.g. new ETF with incomplete data)
+        if total_pct < 80:
+            print(f"  ⚠️  Weight sum is only {total_pct:.1f}%, data may be incomplete!")
+
+        return result
+
+    raise ValueError(f"No fund_portfolio data found for ETF {etf_code} (ts_code={ts_code})")
 
 
 def fetch_index_constituents(index_code: str) -> dict:

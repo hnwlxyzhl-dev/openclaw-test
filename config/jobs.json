@@ -6,7 +6,7 @@
       "name": "GitHub配置备份",
       "enabled": true,
       "createdAtMs": 1774683770925,
-      "updatedAtMs": 1780066869739,
+      "updatedAtMs": 1780153269297,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -26,16 +26,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1780153200000,
-        "lastRunAtMs": 1780066800003,
+        "nextRunAtMs": 1780239600000,
+        "lastRunAtMs": 1780153200005,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 69736,
+        "lastDurationMs": 69292,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
         "lastDeliveryError": "cron announce delivery failed",
         "consecutiveErrors": 0,
-        "runningAtMs": 1780153200003
+        "runningAtMs": 1780239600004
       }
     },
     {
@@ -43,7 +43,7 @@
       "name": "本地配置备份",
       "enabled": true,
       "createdAtMs": 1774710240000,
-      "updatedAtMs": 1780066893900,
+      "updatedAtMs": 1780153320653,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -63,16 +63,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1780153200000,
-        "lastRunAtMs": 1780066869739,
+        "nextRunAtMs": 1780239600000,
+        "lastRunAtMs": 1780153269297,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 24161,
+        "lastDurationMs": 51356,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
         "lastDeliveryError": "cron announce delivery failed",
         "consecutiveErrors": 0,
-        "runningAtMs": 1780153200003
+        "runningAtMs": 1780239600004
       }
     },
     {
@@ -80,7 +80,7 @@
       "name": "Hunter-每日跌停股票分析",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1780117006279,
+      "updatedAtMs": 1780203354538,
       "schedule": {
         "kind": "cron",
         "expr": "55 12 * * *",
@@ -100,11 +100,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1780203300000,
-        "lastRunAtMs": 1780116900008,
+        "nextRunAtMs": 1780289700000,
+        "lastRunAtMs": 1780203300007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 106271,
+        "lastDurationMs": 54531,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -152,7 +152,7 @@
       "name": "Hunter-全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1780149377016,
+      "updatedAtMs": 1780235756330,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -173,11 +173,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1780235700000,
-        "lastRunAtMs": 1780149300005,
+        "nextRunAtMs": 1780322100000,
+        "lastRunAtMs": 1780235700005,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 77011,
+        "lastDurationMs": 56325,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -189,7 +189,7 @@
       "name": "Hunter-每日财报监控",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1780065036768,
+      "updatedAtMs": 1780237856558,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -209,11 +209,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1780237800000,
-        "lastRunAtMs": 1780065000005,
+        "nextRunAtMs": 1780324200000,
+        "lastRunAtMs": 1780237800008,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 36763,
+        "lastDurationMs": 56550,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0

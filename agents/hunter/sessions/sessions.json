@@ -1447,8 +1447,8 @@
     "totalTokens": 34517
   },
   "agent:hunter:cron:6ea2b0fd-e5c1-4592-8f09-992af88d5ccd": {
-    "sessionId": "ba66cf5a-379a-48d6-8506-b46520b96c7d",
-    "updatedAt": 1780923600006,
+    "sessionId": "79fe9c4e-5257-45cd-bbea-e29e6f685f44",
+    "updatedAt": 1781010000010,
     "systemSent": true,
     "label": "Cron: Hunter-股票新闻公告监控",
     "skillsSnapshot": {
@@ -1700,8 +1700,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1780923600101,
-      "sessionId": "ba66cf5a-379a-48d6-8506-b46520b96c7d",
+      "generatedAt": 1781010000110,
+      "sessionId": "79fe9c4e-5257-45cd-bbea-e29e6f685f44",
       "sessionKey": "agent:hunter:cron:6ea2b0fd-e5c1-4592-8f09-992af88d5ccd",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -2109,16 +2109,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 55263,
-    "outputTokens": 2801,
-    "totalTokens": 60349,
+    "inputTokens": 82683,
+    "outputTokens": 2220,
+    "totalTokens": 48772,
     "totalTokensFresh": true,
-    "cacheRead": 646803,
+    "cacheRead": 302531,
     "cacheWrite": 0
   },
   "agent:hunter:cron:334258df-9672-41eb-95f9-19af35f80bba": {
-    "sessionId": "24c86cb0-85f1-45c0-9098-db6504319699",
-    "updatedAt": 1780926900075,
+    "sessionId": "a9c7f7be-75f7-4e43-a7ca-e36c8d3a0cfa",
+    "updatedAt": 1781013300008,
     "systemSent": true,
     "label": "Cron: Hunter-全球资产低位检索-晚间",
     "skillsSnapshot": {
@@ -2370,8 +2370,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1780926900325,
-      "sessionId": "24c86cb0-85f1-45c0-9098-db6504319699",
+      "generatedAt": 1781013300120,
+      "sessionId": "a9c7f7be-75f7-4e43-a7ca-e36c8d3a0cfa",
       "sessionKey": "agent:hunter:cron:334258df-9672-41eb-95f9-19af35f80bba",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -2779,16 +2779,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 22314,
-    "outputTokens": 808,
-    "totalTokens": 26099,
+    "inputTokens": 19561,
+    "outputTokens": 615,
+    "totalTokens": 23258,
     "totalTokensFresh": true,
-    "cacheRead": 76158,
+    "cacheRead": 48555,
     "cacheWrite": 0
   },
   "agent:hunter:cron:994c28af-4bdd-4352-9e8b-5e2af418ba26": {
-    "sessionId": "ec231b77-62a9-4d03-8b43-146563d825ea",
-    "updatedAt": 1780929000010,
+    "sessionId": "582b6faa-a1f2-454b-9382-30b835e6cd6d",
+    "updatedAt": 1781015400007,
     "systemSent": true,
     "label": "Cron: Hunter-每日财报监控",
     "skillsSnapshot": {
@@ -3040,8 +3040,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1780929000103,
-      "sessionId": "ec231b77-62a9-4d03-8b43-146563d825ea",
+      "generatedAt": 1781015400098,
+      "sessionId": "582b6faa-a1f2-454b-9382-30b835e6cd6d",
       "sessionKey": "agent:hunter:cron:994c28af-4bdd-4352-9e8b-5e2af418ba26",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -3449,16 +3449,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 13053,
-    "outputTokens": 691,
-    "totalTokens": 23161,
+    "inputTokens": 19690,
+    "outputTokens": 937,
+    "totalTokens": 23464,
     "totalTokensFresh": true,
-    "cacheRead": 99638,
+    "cacheRead": 93325,
     "cacheWrite": 0
   },
   "agent:hunter:cron:df8f7446-407b-403f-8480-152d99c35586": {
-    "sessionId": "3d1282da-bf7a-4a40-a9dd-7b09bd9699f6",
-    "updatedAt": 1780894500008,
+    "sessionId": "093328e2-f8d0-424f-9091-02efff62bbe4",
+    "updatedAt": 1780980900008,
     "systemSent": true,
     "label": "Cron: Hunter-每日跌停股票分析",
     "skillsSnapshot": {
@@ -3710,8 +3710,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1780894500111,
-      "sessionId": "3d1282da-bf7a-4a40-a9dd-7b09bd9699f6",
+      "generatedAt": 1780980900118,
+      "sessionId": "093328e2-f8d0-424f-9091-02efff62bbe4",
       "sessionKey": "agent:hunter:cron:df8f7446-407b-403f-8480-152d99c35586",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -4119,16 +4119,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 56526,
-    "outputTokens": 1379,
-    "totalTokens": 334001,
+    "inputTokens": 60927,
+    "outputTokens": 504,
+    "totalTokens": 238536,
     "totalTokensFresh": true,
-    "cacheRead": 277475,
+    "cacheRead": 177609,
     "cacheWrite": 0
   },
-  "agent:hunter:cron:df8f7446-407b-403f-8480-152d99c35586:run:3d1282da-bf7a-4a40-a9dd-7b09bd9699f6": {
-    "sessionId": "3d1282da-bf7a-4a40-a9dd-7b09bd9699f6",
-    "updatedAt": 1780894500008,
+  "agent:hunter:cron:df8f7446-407b-403f-8480-152d99c35586:run:093328e2-f8d0-424f-9091-02efff62bbe4": {
+    "sessionId": "093328e2-f8d0-424f-9091-02efff62bbe4",
+    "updatedAt": 1780980900008,
     "systemSent": true,
     "label": "Cron: Hunter-每日跌停股票分析",
     "skillsSnapshot": {
@@ -4380,8 +4380,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1780894500111,
-      "sessionId": "3d1282da-bf7a-4a40-a9dd-7b09bd9699f6",
+      "generatedAt": 1780980900118,
+      "sessionId": "093328e2-f8d0-424f-9091-02efff62bbe4",
       "sessionKey": "agent:hunter:cron:df8f7446-407b-403f-8480-152d99c35586",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -4789,16 +4789,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 56526,
-    "outputTokens": 1379,
-    "totalTokens": 334001,
+    "inputTokens": 60927,
+    "outputTokens": 504,
+    "totalTokens": 238536,
     "totalTokensFresh": true,
-    "cacheRead": 277475,
+    "cacheRead": 177609,
     "cacheWrite": 0
   },
-  "agent:hunter:cron:6ea2b0fd-e5c1-4592-8f09-992af88d5ccd:run:ba66cf5a-379a-48d6-8506-b46520b96c7d": {
-    "sessionId": "ba66cf5a-379a-48d6-8506-b46520b96c7d",
-    "updatedAt": 1780923600006,
+  "agent:hunter:cron:6ea2b0fd-e5c1-4592-8f09-992af88d5ccd:run:79fe9c4e-5257-45cd-bbea-e29e6f685f44": {
+    "sessionId": "79fe9c4e-5257-45cd-bbea-e29e6f685f44",
+    "updatedAt": 1781010000010,
     "systemSent": true,
     "label": "Cron: Hunter-股票新闻公告监控",
     "skillsSnapshot": {
@@ -5050,8 +5050,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1780923600101,
-      "sessionId": "ba66cf5a-379a-48d6-8506-b46520b96c7d",
+      "generatedAt": 1781010000110,
+      "sessionId": "79fe9c4e-5257-45cd-bbea-e29e6f685f44",
       "sessionKey": "agent:hunter:cron:6ea2b0fd-e5c1-4592-8f09-992af88d5ccd",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -5459,16 +5459,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 55263,
-    "outputTokens": 2801,
-    "totalTokens": 60349,
+    "inputTokens": 82683,
+    "outputTokens": 2220,
+    "totalTokens": 48772,
     "totalTokensFresh": true,
-    "cacheRead": 646803,
+    "cacheRead": 302531,
     "cacheWrite": 0
   },
-  "agent:hunter:cron:334258df-9672-41eb-95f9-19af35f80bba:run:24c86cb0-85f1-45c0-9098-db6504319699": {
-    "sessionId": "24c86cb0-85f1-45c0-9098-db6504319699",
-    "updatedAt": 1780926900075,
+  "agent:hunter:cron:334258df-9672-41eb-95f9-19af35f80bba:run:a9c7f7be-75f7-4e43-a7ca-e36c8d3a0cfa": {
+    "sessionId": "a9c7f7be-75f7-4e43-a7ca-e36c8d3a0cfa",
+    "updatedAt": 1781013300008,
     "systemSent": true,
     "label": "Cron: Hunter-全球资产低位检索-晚间",
     "skillsSnapshot": {
@@ -5720,8 +5720,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1780926900325,
-      "sessionId": "24c86cb0-85f1-45c0-9098-db6504319699",
+      "generatedAt": 1781013300120,
+      "sessionId": "a9c7f7be-75f7-4e43-a7ca-e36c8d3a0cfa",
       "sessionKey": "agent:hunter:cron:334258df-9672-41eb-95f9-19af35f80bba",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -6129,16 +6129,16 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 22314,
-    "outputTokens": 808,
-    "totalTokens": 26099,
+    "inputTokens": 19561,
+    "outputTokens": 615,
+    "totalTokens": 23258,
     "totalTokensFresh": true,
-    "cacheRead": 76158,
+    "cacheRead": 48555,
     "cacheWrite": 0
   },
-  "agent:hunter:cron:994c28af-4bdd-4352-9e8b-5e2af418ba26:run:ec231b77-62a9-4d03-8b43-146563d825ea": {
-    "sessionId": "ec231b77-62a9-4d03-8b43-146563d825ea",
-    "updatedAt": 1780929000010,
+  "agent:hunter:cron:994c28af-4bdd-4352-9e8b-5e2af418ba26:run:582b6faa-a1f2-454b-9382-30b835e6cd6d": {
+    "sessionId": "582b6faa-a1f2-454b-9382-30b835e6cd6d",
+    "updatedAt": 1781015400007,
     "systemSent": true,
     "label": "Cron: Hunter-每日财报监控",
     "skillsSnapshot": {
@@ -6390,8 +6390,8 @@
     "model": "glm-5-turbo",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1780929000103,
-      "sessionId": "ec231b77-62a9-4d03-8b43-146563d825ea",
+      "generatedAt": 1781015400098,
+      "sessionId": "582b6faa-a1f2-454b-9382-30b835e6cd6d",
       "sessionKey": "agent:hunter:cron:994c28af-4bdd-4352-9e8b-5e2af418ba26",
       "provider": "openai",
       "model": "glm-5-turbo",
@@ -6799,11 +6799,11 @@
       }
     },
     "contextTokens": 200000,
-    "inputTokens": 13053,
-    "outputTokens": 691,
-    "totalTokens": 23161,
+    "inputTokens": 19690,
+    "outputTokens": 937,
+    "totalTokens": 23464,
     "totalTokensFresh": true,
-    "cacheRead": 99638,
+    "cacheRead": 93325,
     "cacheWrite": 0
   }
 }

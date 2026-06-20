@@ -6,7 +6,7 @@
       "name": "GitHub配置备份",
       "enabled": true,
       "createdAtMs": 1774683770925,
-      "updatedAtMs": 1781794822752,
+      "updatedAtMs": 1781881226572,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -26,16 +26,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1781881200000,
-        "lastRunAtMs": 1781794800004,
+        "nextRunAtMs": 1781967600000,
+        "lastRunAtMs": 1781881200002,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 22748,
+        "lastDurationMs": 26570,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
         "lastDeliveryError": "cron announce delivery failed",
         "consecutiveErrors": 0,
-        "runningAtMs": 1781881200001
+        "runningAtMs": 1781967600004
       }
     },
     {
@@ -43,7 +43,7 @@
       "name": "本地配置备份",
       "enabled": true,
       "createdAtMs": 1774710240000,
-      "updatedAtMs": 1781794852035,
+      "updatedAtMs": 1781881271280,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -63,15 +63,15 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1781881200000,
-        "lastRunAtMs": 1781794822752,
+        "nextRunAtMs": 1781967600000,
+        "lastRunAtMs": 1781881226572,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 29283,
+        "lastDurationMs": 44708,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
-        "runningAtMs": 1781881200001
+        "runningAtMs": 1781967600004
       }
     },
     {
@@ -79,7 +79,7 @@
       "name": "Hunter-每日跌停股票分析",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1781845053637,
+      "updatedAtMs": 1781931332420,
       "schedule": {
         "kind": "cron",
         "expr": "55 12 * * *",
@@ -99,13 +99,13 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1781931300000,
-        "lastRunAtMs": 1781844900007,
+        "nextRunAtMs": 1782017700000,
+        "lastRunAtMs": 1781931300006,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 153630,
-        "lastDelivered": true,
-        "lastDeliveryStatus": "delivered",
+        "lastDurationMs": 32414,
+        "lastDelivered": false,
+        "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0
       },
       "agentId": "hunter"
@@ -151,7 +151,7 @@
       "name": "Hunter-全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1781877351046,
+      "updatedAtMs": 1781963769465,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -172,13 +172,13 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1781963700000,
-        "lastRunAtMs": 1781877300009,
+        "nextRunAtMs": 1782050100000,
+        "lastRunAtMs": 1781963700005,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 51037,
-        "lastDelivered": false,
-        "lastDeliveryStatus": "not-delivered",
+        "lastDurationMs": 69460,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
       },
       "agentId": "hunter"
@@ -188,7 +188,7 @@
       "name": "Hunter-每日财报监控",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1781879454491,
+      "updatedAtMs": 1781965866839,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -208,11 +208,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1781965800000,
-        "lastRunAtMs": 1781879400005,
+        "nextRunAtMs": 1782052200000,
+        "lastRunAtMs": 1781965800009,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 54486,
+        "lastDurationMs": 66830,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0

@@ -6,7 +6,7 @@
       "name": "GitHub配置备份",
       "enabled": true,
       "createdAtMs": 1774683770925,
-      "updatedAtMs": 1782831625801,
+      "updatedAtMs": 1782918038504,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -26,16 +26,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1782918000000,
-        "lastRunAtMs": 1782831600004,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 25797,
+        "nextRunAtMs": 1783004400000,
+        "lastRunAtMs": 1782918000004,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 38500,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
-        "lastDeliveryError": "cron announce delivery failed",
-        "consecutiveErrors": 0,
-        "runningAtMs": 1782918000003
+        "lastDeliveryError": "⚠️ API rate limit reached. Please try again later.",
+        "consecutiveErrors": 1,
+        "runningAtMs": 1783004400002
       }
     },
     {
@@ -43,7 +43,7 @@
       "name": "本地配置备份",
       "enabled": true,
       "createdAtMs": 1774710240000,
-      "updatedAtMs": 1782831648559,
+      "updatedAtMs": 1782918058677,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -63,16 +63,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1782918000000,
-        "lastRunAtMs": 1782831625801,
+        "nextRunAtMs": 1783004400000,
+        "lastRunAtMs": 1782918038504,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 22758,
+        "lastDurationMs": 20173,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDeliveryError": "cron announce delivery failed",
-        "runningAtMs": 1782918000003
+        "runningAtMs": 1783004400002
       }
     },
     {
@@ -80,7 +80,7 @@
       "name": "Hunter-每日跌停股票分析",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1782881792423,
+      "updatedAtMs": 1782968315320,
       "schedule": {
         "kind": "cron",
         "expr": "55 12 * * *",
@@ -100,11 +100,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1782968100000,
-        "lastRunAtMs": 1782881700006,
+        "nextRunAtMs": 1783054500000,
+        "lastRunAtMs": 1782968100006,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 92417,
+        "lastDurationMs": 215314,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -116,7 +116,7 @@
       "name": "Hunter-股票新闻公告监控",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1782910861249,
+      "updatedAtMs": 1782997393502,
       "schedule": {
         "kind": "cron",
         "expr": "0 21 * * 1-5",
@@ -136,13 +136,13 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1782997200000,
-        "lastRunAtMs": 1782910800002,
+        "nextRunAtMs": 1783083600000,
+        "lastRunAtMs": 1782997200005,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 61247,
-        "lastDelivered": false,
-        "lastDeliveryStatus": "not-delivered",
+        "lastDurationMs": 193497,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
       },
       "agentId": "hunter"
@@ -152,7 +152,7 @@
       "name": "Hunter-全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1782914195662,
+      "updatedAtMs": 1783000564683,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -173,15 +173,14 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1783000500000,
-        "lastRunAtMs": 1782914100037,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 95625,
+        "nextRunAtMs": 1783086900000,
+        "lastRunAtMs": 1783000500005,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 64678,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 1,
-        "lastError": "⚠️ ✉️ Message failed"
+        "consecutiveErrors": 0
       },
       "agentId": "hunter"
     },
@@ -190,7 +189,7 @@
       "name": "Hunter-每日财报监控",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1782916503450,
+      "updatedAtMs": 1783002658473,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -210,11 +209,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1783002600000,
-        "lastRunAtMs": 1782916200003,
+        "nextRunAtMs": 1783089000000,
+        "lastRunAtMs": 1783002600022,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 303447,
+        "lastDurationMs": 58451,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0

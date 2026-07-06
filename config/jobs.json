@@ -6,7 +6,7 @@
       "name": "GitHub配置备份",
       "enabled": true,
       "createdAtMs": 1774683770925,
-      "updatedAtMs": 1783004453512,
+      "updatedAtMs": 1783263623340,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -26,16 +26,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1783090800000,
-        "lastRunAtMs": 1783004400003,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 53509,
+        "nextRunAtMs": 1783350000000,
+        "lastRunAtMs": 1783263600158,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 23182,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
-        "lastDeliveryError": "cron announce delivery failed",
-        "consecutiveErrors": 0,
-        "runningAtMs": 1783090800008
+        "lastDeliveryError": "⚠️ API rate limit reached. Please try again later.",
+        "consecutiveErrors": 2,
+        "runningAtMs": 1783350000004
       }
     },
     {
@@ -43,7 +43,7 @@
       "name": "本地配置备份",
       "enabled": true,
       "createdAtMs": 1774710240000,
-      "updatedAtMs": 1783004492352,
+      "updatedAtMs": 1783263645960,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -63,96 +63,24 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1783090800000,
-        "lastRunAtMs": 1783004453512,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 38840,
+        "nextRunAtMs": 1783350000000,
+        "lastRunAtMs": 1783263623340,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 22620,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
-        "consecutiveErrors": 0,
-        "lastDeliveryError": "cron announce delivery failed",
-        "runningAtMs": 1783090800008
+        "consecutiveErrors": 2,
+        "lastDeliveryError": "⚠️ API rate limit reached. Please try again later.",
+        "runningAtMs": 1783350000004
       }
-    },
-    {
-      "id": "df8f7446-407b-403f-8480-152d99c35586",
-      "name": "Hunter-每日跌停股票分析",
-      "enabled": true,
-      "createdAtMs": 1777963242525,
-      "updatedAtMs": 1783054673451,
-      "schedule": {
-        "kind": "cron",
-        "expr": "55 12 * * *",
-        "tz": "Asia/Shanghai"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "agentId": "hunter",
-        "message": "你是专业金融分析师。任务：(1) 使用 tushare 或搜索获取今日A股跌停股票列表 (2) 对【每只】跌停股必须搜索相关新闻、公告、研报，不能只看股价数据推断原因 (3) 分析跌停原因并分类：⚠️【A.意外事件】需重点识别！包括：突发事故、法律纠纷、监管处罚、商业欺诈、黑天鹅事件等，这类股票要单独列出并详细说明 (B)基本面变差：业绩下滑、亏损、债务问题 (C)股价回调：前期涨幅过大 (D)其他原因 (4) 输出格式：【今日跌停股】按A/B/C/D分类列出，意外事件类要放在最前面并标注⚠️ (5) 诚实标注信息不确定的部分 (6) 控制在500字内，用emoji"
-      },
-      "delivery": {
-        "mode": "announce",
-        "channel": "feishu",
-        "accountId": "hunter",
-        "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
-      },
-      "state": {
-        "nextRunAtMs": 1783140900000,
-        "lastRunAtMs": 1783054500006,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 173445,
-        "lastDelivered": true,
-        "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0
-      },
-      "agentId": "hunter"
-    },
-    {
-      "id": "6ea2b0fd-e5c1-4592-8f09-992af88d5ccd",
-      "name": "Hunter-股票新闻公告监控",
-      "enabled": true,
-      "createdAtMs": 1777963242525,
-      "updatedAtMs": 1783083774301,
-      "schedule": {
-        "kind": "cron",
-        "expr": "0 21 * * 1-5",
-        "tz": "Asia/Shanghai"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "agentId": "hunter",
-        "message": "你是专业金融分析师。任务：检索股票监控列表的重要新闻和公告。\n\n【步骤1】读取股票列表：\n```bash\ncat /home/admin/.openclaw/workspace-hunter/data/stock_watchlist.json\n```\n\n【步骤2】对每只股票：\n1. 获取公告：python3.11 /home/admin/.openclaw/workspace-hunter/scripts/finance_data.py announcement {代码}\n2. 搜索新闻：使用 searxng 或 web_search 搜索\"{股票名} 最新新闻\"\n\n【步骤3】筛选：只关注今天或昨天的新公告/新闻\n\n【⚠️ 步骤4 - 重要新闻过滤】\n只发送会影响股价的重要新闻，过滤掉以下类型：\n- ❌ 常规经营动态（门店开业、日常活动）\n- ❌ 媒体报道、评论文章\n- ❌ 股价涨跌报道（除非有特殊原因）\n- ❌ 行业普通资讯（除非直接影响公司）\n\n只保留以下类型：\n- ✅ 重大公告（业绩预告、重大合同、并购重组、股权变动）\n- ✅ 监管相关（处罚、询问、调查）\n- ✅ 重大事件（事故、诉讼、破产、高管变动）\n- ✅ 重大政策影响\n- ✅ 行业重大变化（直接影响公司业绩）\n\n【步骤5】输出格式：\n📊 股票新闻监控报告\n\n【新公告】\n- {股票名}({代码}) [{日期}]: {公告标题} - 简要总结（1-2句话）\n\n【重要新闻】（仅影响股价的）\n- {股票名}: {新闻标题} - 简要总结 + 对股价的影响判断\n\n【无重要消息】\n- 如果所有股票都没有重要新闻/公告，回复：\"今日无重要消息\"\n\n注意：(1) 严格过滤新闻，不重要的律不发 (2) 诚实标注数据来源 (3) 控制在500字内"
-      },
-      "delivery": {
-        "mode": "announce",
-        "channel": "feishu",
-        "accountId": "hunter",
-        "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
-      },
-      "state": {
-        "nextRunAtMs": 1783342800000,
-        "lastRunAtMs": 1783083600005,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 174296,
-        "lastDelivered": true,
-        "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0
-      },
-      "agentId": "hunter"
     },
     {
       "id": "334258df-9672-41eb-95f9-19af35f80bba",
       "name": "Hunter-全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1783086931404,
+      "updatedAtMs": 1783346179734,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -173,11 +101,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1783173300000,
-        "lastRunAtMs": 1783086900018,
+        "nextRunAtMs": 1783432500000,
+        "lastRunAtMs": 1783346100005,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 31386,
+        "lastDurationMs": 79729,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -189,7 +117,7 @@
       "name": "Hunter-每日财报监控",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1783089051810,
+      "updatedAtMs": 1783348243668,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -209,11 +137,47 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1783175400000,
-        "lastRunAtMs": 1783089000009,
+        "nextRunAtMs": 1783434600000,
+        "lastRunAtMs": 1783348200007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 51801,
+        "lastDurationMs": 43661,
+        "lastDelivered": false,
+        "lastDeliveryStatus": "not-delivered",
+        "consecutiveErrors": 0
+      },
+      "agentId": "hunter"
+    },
+    {
+      "id": "f0747a5b-e669-4733-abf4-2bb7c8cd9ea8",
+      "name": "Hunter-指数权重股财报监控",
+      "enabled": true,
+      "createdAtMs": 1751724480000,
+      "updatedAtMs": 1783343093359,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 21 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "agentId": "hunter",
+        "message": "你是专业金融分析师。任务：跟踪4个指数前十大权重股的财报发布，整理后通过飞书发给用户。\n\n【步骤1】执行监控脚本获取数据：\n```bash\npython3.11 /home/admin/Hualin/index_weights_monitor.py\n```\n\n脚本自动完成：\n- A股(科创50/创业板指)：Tushare获取最新权重+最近30天预告/快报\n- 纳斯达克100：slickcharts获取权重\n- 恒生科技指数：恒指官网PDF获取权重\n- 权重数据自动缓存，网络失败时回退到缓存\n\n【步骤2】对美股和港股前十大权重股，用 web_search 搜索最近30天内的财报信息（仅搜这几只股票，控制搜索次数）：\n- 纳斯达克100：NVDA, AAPL, MSFT, AMZN, GOOGL, GOOG, AVGO, META, TSLA, MU\n- 恒生科技：中芯国际, 网易, 美团, 比亚迪, 阿里巴巴, 小米, 腾讯, 京东, 联想, 百度\n- 搜索关键词：\"{股票名} earnings 2026\" 或 \"{股票名} 财报 2026\"\n- 只关注最近30天内的财报新闻\n\n【步骤3】整理输出，格式如下：\n\n📊 指数权重股财报监控 (今天日期)\n仅展示最近30天内发布的预告/快报/财报\n\n━━━ 科创50 ━━━\n已发布预告/快报的企业（每只股票独立一行）：\n  • 寒武纪(688256)：业绩预增，预计归母净利润同比增长XX%（预告日期：XXXX-XX-XX）\n未发布的企业（每只股票独立一行）：\n  • 澜起科技(688008)\n  • 中微公司(688012)\n\n━━━ 创业板指 ━━━\n（同上格式）\n\n━━━ 纳斯达克100 ━━━\n（同上格式）\n\n━━━ 恒生科技指数 ━━━\n（同上格式）\n\n📌 重点关注：标出业绩大幅变动（预增>50%或预减>30%）的企业\n\n【重要：术语翻译】\n美股SEC术语必须翻译成中文，不要直接用英文代号：\n  • 10-Q → 季度财报\n  • 10-K → 年度财报\n  • 8-K(Earnings) → 业绩快讯\n  • filing_date → 发布日期\n  • revenue → 营收\n  • net_income → 净利润\n  • gross_profit → 毛利\nXBRL数据中的数字单位是百万美元，输出时换算成亿美元（除以100）\n\n【步骤4】用飞书消息发给用户。使用 message 工具：\n- channel: feishu\n- target: user:ou_4c8499b94572ae1598169c894bca1f83\n\n重要规则：\n1. 必须实际执行脚本获取数据，不能编造\n2. 只展示最近30天内发布的预告/快报/财报，超过30天的旧信息不再展示\n3. 每只股票必须独立一行，不要用顿号合并多只股票\n4. A股财报数据来自脚本（Tushare API）\n5. 美股和港股财报通过搜索补充（控制搜索次数，每只股票最多搜1次）\n6. 如果没有新财报，明确标注\"最近一个月无新预告/快报\"\n7. 控制在1500字内"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "feishu",
+        "accountId": "hunter",
+        "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
+      },
+      "state": {
+        "nextRunAtMs": 1783429200000,
+        "lastRunAtMs": 1783342800011,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 293348,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0

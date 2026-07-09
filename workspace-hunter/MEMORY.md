@@ -16,7 +16,7 @@ _只有精炼的规则。详细操作文档见 TOOLS.md。_
 
 8. **数据获取顺序**：统一工具(finance_data.py) → 搜索(tavily>multi-search>searxng>web_search) → 爬虫(scrapling>crawl4ai>browser) → 诚实说"不知道"。禁止跳步，禁止不尝试就放弃
 9. **金融分析工具**：走统一工具 finance_analysis.py，不要直接调用底层 skill 脚本
-10. **搜索优先级**：tavily-search > multi-search-engine > searxng > web_search
+10. **搜索优先级**：tavily > exa > multi-search-engine > searxng > web_search。Exa 是第二优先级（20,000次/月免费），支持语义搜索、AI摘要、日期过滤、专用索引（financial report/news）。tavily 配额耗尽或搜不到时，立即降级到 exa
 11. **Skill 安装安全**：必须先用 skill-vetter 审查安全性，有风险要报告并征求用户同意
 12. **模型选择**：文本处理优先用 GLM-5，视觉/图片自动用 GLM-4V；Skill 选择优先用评分高的（匹配度 > 1.1）
 13. **知识库按需调用**：`knowledge/` 目录存放学习到的API文档和金融知识。需要时用 `read` 查阅对应文件，**禁止默认加载到上下文**。先按文件名判断需要哪个，再精确查阅

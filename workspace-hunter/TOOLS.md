@@ -151,12 +151,58 @@ python3.11 scripts/scrapling_demo.py https://example.com
 
 ## 🔍 搜索工具
 
-| 优先级 | 工具 | 用法 |
-|--------|------|------|
-| 1 | Tavily | `python3 skills/openclaw-tavily-search/scripts/tavily_search.py --query "..." --max-results 5 --format md` |
-| 2 | Multi Search Engine | `web_fetch({"url": "https://www.google.com/search?q=keyword"})`（支持17个引擎，详见 skill 文档） |
-| 3 | SearXNG | 本地隐私搜索实例 |
-| 4 | web_search | Brave API |
+| 优先级 | 工具 | 用法 | 配额 |
+|--------|------|------|------|
+| 1 | Tavily | `python3 skills/openclaw-tavily-search/scripts/tavily_search.py --query "..." --max-results 5 --format md` | 免费版有每日配额 |
+| 2 | **Exa** | `python3.11 scripts/exa_search.py search "关键词" --num 5 --summary` | 20,000次/月 ✅ |
+| 3 | Multi Search Engine | `web_fetch({"url": "https://www.google.com/search?q=keyword"})`（支持17个引擎） | 无限（易被反爬） |
+| 4 | SearXNG | 本地隐私搜索实例 | 无限（易被反爬） |
+| 5 | web_search | Brave API | 未配置Key ❌ |
+
+### Exa API（第二优先级搜索）
+
+**脚本：** `scripts/exa_search.py`（必须用 `python3.11` 运行）
+
+**能力：** 语义搜索、全文提取、AI摘要、类似页面查找、AI问答
+
+```bash
+# 基础搜索
+python3.11 scripts/exa_search.py search "关键词" --num 5
+
+# 搜索 + AI摘要（推荐）
+python3.11 scripts/exa_search.py search "关键词" --summary
+
+# 搜索 + 全文内容
+python3.11 scripts/exa_search.py search "关键词" --text
+
+# 按日期范围搜索
+python3.11 scripts/exa_search.py search "关键词" --start-date 2025-07-01 --end-date 2025-07-09
+
+# 专用索引（financial report / news / research paper）
+python3.11 scripts/exa_search.py search "Apple earnings" --category "financial report"
+
+# 纯关键词模式
+python3.11 scripts/exa_search.py search "exact words" --type keyword
+
+# 查找类似页面
+python3.11 scripts/exa_search.py similar "https://example.com" --num 5
+
+# AI 问答（带引用）
+python3.11 scripts/exa_search.py answer "贵州茅台2025年营收是多少？"
+
+# JSON输出（给程序用）
+python3.11 scripts/exa_search.py search "关键词" --json
+```
+
+**Python 调用：**
+```python
+import sys
+sys.path.insert(0, 'scripts')
+from exa_search import search, find_similar, answer, format_results_md
+
+results = search("关键词", num_results=5, include_summary=True)
+print(format_results_md(results))
+```
 
 ---
 

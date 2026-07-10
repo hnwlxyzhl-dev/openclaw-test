@@ -6,7 +6,7 @@
       "name": "GitHub配置备份",
       "enabled": true,
       "createdAtMs": 1774683770925,
-      "updatedAtMs": 1783522822098,
+      "updatedAtMs": 1783609223371,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -26,16 +26,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1783609200000,
-        "lastRunAtMs": 1783522800008,
+        "nextRunAtMs": 1783695600000,
+        "lastRunAtMs": 1783609200005,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 22090,
+        "lastDurationMs": 23366,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
         "lastDeliveryError": "cron announce delivery failed",
         "consecutiveErrors": 0,
-        "runningAtMs": 1783609200004
+        "runningAtMs": 1783695600011
       }
     },
     {
@@ -43,7 +43,7 @@
       "name": "本地配置备份",
       "enabled": true,
       "createdAtMs": 1774710240000,
-      "updatedAtMs": 1783522839668,
+      "updatedAtMs": 1783609245876,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -63,16 +63,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1783609200000,
-        "lastRunAtMs": 1783522822098,
+        "nextRunAtMs": 1783695600000,
+        "lastRunAtMs": 1783609223371,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 17570,
+        "lastDurationMs": 22505,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDeliveryError": "cron announce delivery failed",
-        "runningAtMs": 1783609200004
+        "runningAtMs": 1783695600011
       }
     },
     {
@@ -80,7 +80,7 @@
       "name": "Hunter-全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1783605351810,
+      "updatedAtMs": 1783691744764,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -101,11 +101,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1783691700000,
-        "lastRunAtMs": 1783605300006,
+        "nextRunAtMs": 1783778100000,
+        "lastRunAtMs": 1783691700022,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 51804,
+        "lastDurationMs": 44742,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -117,7 +117,7 @@
       "name": "Hunter-每日财报监控",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1783607486625,
+      "updatedAtMs": 1783694028841,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -128,7 +128,7 @@
       "payload": {
         "kind": "agentTurn",
         "agentId": "hunter",
-        "message": "你是一个财报监控助手。请执行以下任务：\n\n【步骤1】执行脚本获取数据：\n```bash\npython3.11 /home/admin/.openclaw/workspace-hunter/scripts/earnings_monitor.py --json\n```\n\n【步骤2】解析JSON结果\n【步骤3】根据结果输出财报监控报告\n\n要求：1. 数据必须来自脚本执行结果，严禁编造 2. 不要回复 HEARTBEAT_OK 3. 直接输出监控结果 4. 有双增公司时，必须全部列出"
+        "message": "你是一个财报监控助手。请执行以下任务：\n\n【步骤1】执行脚本获取数据：\n```bash\npython3.11 /home/admin/.openclaw/workspace-hunter/scripts/earnings_monitor.py --json\n```\n\n【步骤2】解析JSON结果\n【步骤3】根据结果输出财报监控报告\n\n要求：\n1. 数据必须来自脚本执行结果，严禁编造\n2. 不要回复 HEARTBEAT_OK\n3. 直接输出监控结果\n4. 有双增公司时，必须全部列出\n5. 输出中必须包含企业名称（公司简称），不仅只是股票代码。格式示例：\"000070 特发信息\"，不要只写\"000070\"\n6. 脚本返回的JSON中name字段只有代码+交易所后缀（如\"000949.SZ\"），不含公司名称。必须根据股票代码查出公司简称。方法：执行以下命令获取A股代码名称对照表，然后匹配：\n```bash\npython3.11 -c \"import akshare as ak; df = ak.stock_info_a_code_name(); print(df[['code','name']].to_string(index=False))\"\n```"
       },
       "delivery": {
         "mode": "announce",
@@ -137,11 +137,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1783693800000,
-        "lastRunAtMs": 1783607400004,
+        "nextRunAtMs": 1783780200000,
+        "lastRunAtMs": 1783693800009,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 86621,
+        "lastDurationMs": 228832,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -153,7 +153,7 @@
       "name": "Hunter-指数权重股财报监控",
       "enabled": true,
       "createdAtMs": 1751724480000,
-      "updatedAtMs": 1783602334247,
+      "updatedAtMs": 1783688758510,
       "schedule": {
         "kind": "cron",
         "expr": "0 21 * * *",
@@ -164,7 +164,7 @@
       "payload": {
         "kind": "agentTurn",
         "agentId": "hunter",
-        "message": "你是专业金融分析师。任务：跟踪4个指数前十大权重股的财报发布，整理后通过飞书发给用户。\n\n【步骤1】执行监控脚本获取数据：\n```bash\npython3.11 /home/admin/Hualin/index_weights_monitor.py\n```\n\n脚本自动完成：\n- A股(科创50/创业板指)：Tushare获取最新权重+最近30天预告/快报\n- 纳斯达克100：slickcharts获取权重\n- 恒生科技指数：恒指官网PDF获取权重\n- 权重数据自动缓存，网络失败时回退到缓存\n\n【步骤2】对美股和港股前十大权重股，按搜索优先级获取最近30天内的财报信息（仅搜这几只股票，控制搜索次数）：\n  搜索优先级：tavily > exa(python3.11 /home/admin/.openclaw/workspace-hunter/scripts/exa_search.py search \"{股票名} earnings\" --summary) > multi-search-engine > searxng > web_search\n- 纳斯达克100：NVDA, AAPL, MSFT, AMZN, GOOGL, GOOG, AVGO, META, TSLA, MU\n- 恒生科技：中芯国际, 网易, 美团, 比亚迪, 阿里巴巴, 小米, 腾讯, 京东, 联想, 百度\n- 搜索关键词：\"{股票名} earnings 2026\" 或 \"{股票名} 财报 2026\"\n- 只关注最近30天内的财报新闻\n\n【步骤3】整理输出，格式如下：\n\n📊 指数权重股财报监控 (今天日期)\n仅展示最近30天内发布的预告/快报/财报\n\n━━━ 科创50 ━━━\n已发布预告/快报的企业（每只股票独立一行）：\n  • 寒武纪(688256)：业绩预增，预计归母净利润同比增长XX%（预告日期：XXXX-XX-XX）\n未发布的企业（每只股票独立一行）：\n  • 澜起科技(688008)\n  • 中微公司(688012)\n\n━━━ 创业板指 ━━━\n（同上格式）\n\n━━━ 纳斯达克100 ━━━\n（同上格式）\n\n━━━ 恒生科技指数 ━━━\n（同上格式）\n\n📌 重点关注：标出业绩大幅变动（预增>50%或预减>30%）的企业\n\n【重要：术语翻译】\n美股SEC术语必须翻译成中文，不要直接用英文代号：\n  • 10-Q → 季度财报\n  • 10-K → 年度财报\n  • 8-K(Earnings) → 业绩快讯\n  • filing_date → 发布日期\n  • revenue → 营收\n  • net_income → 净利润\n  • gross_profit → 毛利\nXBRL数据中的数字单位是百万美元，输出时换算成亿美元（除以100）\n\n【步骤4】用飞书消息发给用户。使用 message 工具：\n- channel: feishu\n- target: user:ou_4c8499b94572ae1598169c894bca1f83\n\n重要规则：\n1. 必须实际执行脚本获取数据，不能编造\n2. 只展示最近30天内发布的预告/快报/财报，超过30天的旧信息不再展示\n3. 每只股票必须独立一行，不要用顿号合并多只股票\n4. A股财报数据来自脚本（Tushare API）\n5. 美股和港股财报通过搜索补充（控制搜索次数，每只股票最多搜1次）\n6. 如果没有新财报，明确标注\"最近一个月无新预告/快报\"\n7. 控制在1500字内",
+        "message": "你是专业金融分析师。任务：跟踪4个指数前十大权重股的财报发布，整理后通过飞书发给用户。\n\n【步骤1】执行监控脚本获取数据：\n```bash\npython3.11 /home/admin/Hualin/index_weights_monitor.py\n```\n\n脚本自动完成：\n- A股(科创50/创业板指)：Tushare获取最新权重+最近30天预告/快报\n- 纳斯达克100：slickcharts获取权重\n- 恒生科技指数：恒指官网PDF获取权重\n- 权重数据自动缓存，网络失败时回退到缓存\n\n【步骤2】对美股和港股前十大权重股，按搜索优先级获取最近30天内的财报信息（仅搜这几只股票，控制搜索次数）：\n  搜索优先级：tavily > exa(python3.11 /home/admin/.openclaw/workspace-hunter/scripts/exa_search.py search \"{股票名} earnings\" --summary) > multi-search-engine > searxng > web_search\n- 纳斯达克100：NVDA, AAPL, MSFT, AMZN, GOOGL, GOOG, AVGO, META, TSLA, MU\n- 恒生科技：中芯国际, 网易, 美团, 比亚迪, 阿里巴巴, 小米, 腾讯, 京东, 联想, 百度\n- 搜索关键词：\"{股票名} earnings 2026\" 或 \"{股票名} 财报 2026\"\n- 只关注最近30天内的财报新闻\n\n【步骤3】整理输出，格式如下：\n\n📊 指数权重股财报监控 (今天日期)\n仅展示最近30天内发布的预告/快报/财报\n\n━━━ 科创50 ━━━\n已发布预告/快报的企业（每只股票独立一行）：\n  • 寒武纪(688256)：业绩预增，预计归母净利润同比增长XX%（预告日期：XXXX-XX-XX）\n未发布的企业（每只股票独立一行）：\n  • 澜起科技(688008)\n  • 中微公司(688012)\n\n━━━ 创业板指 ━━━\n（同上格式）\n\n━━━ 纳斯达克100 ━━━\n（同上格式）\n\n━━━ 恒生科技指数 ━━━\n（同上格式）\n\n📌 重点关注：标出业绩大幅变动（预增>50%或预减>30%）的企业\n\n【重要：术语翻译】\n美股SEC术语必须翻译成中文，不要直接用英文代号：\n  • 10-Q → 季度财报\n  • 10-K → 年度财报\n  • 8-K(Earnings) → 业绩快讯\n  • filing_date → 发布日期\n  • revenue → 营收\n  • net_income → 净利润\n  • gross_profit → 毛利\nXBRL数据中的数字单位是百万美元，输出时换算成亿美元（除以100）\n\n【步骤4】用飞书消息发给用户。使用 message 工具：\n- channel: feishu\n- target: user:ou_4c8499b94572ae1598169c894bca1f83\n\n重要规则：\n1. 必须实际执行脚本获取数据，不能编造\n2. 只展示最近30天内发布的预告/快报/财报，超过30天的旧信息不再展示\n3. 每只股票必须独立一行，不要用顿号合并多只股票\n4. A股财报数据来自脚本（Tushare API）\n5. 美股和港股财报通过搜索补充（控制搜索次数，每只股票最多搜1次）\n6. 如果没有新财报，明确标注\"最近一个月无新预告/快报\"\n7. 美股和港股的财报信息必须附带来源链接（搜索结果的URL），格式示例：博通AVGO：季度财报，营收$222.2亿(+48%)（来源：https://...）\n8. 控制在1500字内",
         "timeoutSeconds": 1200
       },
       "delivery": {
@@ -174,11 +174,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1783688400000,
-        "lastRunAtMs": 1783602000008,
+        "nextRunAtMs": 1783774800000,
+        "lastRunAtMs": 1783688400007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 334239,
+        "lastDurationMs": 358503,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -190,7 +190,7 @@
       "name": "Hunter-宏观经济补充数据获取",
       "enabled": true,
       "createdAtMs": 1751854200000,
-      "updatedAtMs": 1783584356587,
+      "updatedAtMs": 1783624070554,
       "schedule": {
         "kind": "cron",
         "expr": "0 3 * * *",
@@ -211,14 +211,15 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1783623600000,
-        "lastRunAtMs": 1783584000006,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "consecutiveErrors": 0,
-        "lastDurationMs": 356581,
+        "nextRunAtMs": 1783710000000,
+        "lastRunAtMs": 1783623600005,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "consecutiveErrors": 1,
+        "lastDurationMs": 470549,
         "lastDelivered": true,
-        "lastDeliveryStatus": "delivered"
+        "lastDeliveryStatus": "delivered",
+        "lastError": "⚠️ 📝 Edit: in ~/Hualin/macro_supplement_data.json (120 chars) failed"
       },
       "agentId": "hunter"
     }

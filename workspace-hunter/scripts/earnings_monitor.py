@@ -580,7 +580,7 @@ def format_summary(reports: List[Dict]) -> str:
             profit_sign = "+" if report['profit_change'] > 0 else ""
             line += f" | 净利{profit_sign}{report['profit_change']:.1f}%"
         
-        if report.get('summary'):
+        if report.get('summary') and isinstance(report['summary'], str):
             line += f" | {report['summary'][:50]}"
         
         lines.append(line)

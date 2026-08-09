@@ -29,7 +29,7 @@ All constituent and weight data comes from Tushare Pro API:
 
 ## DEFAULT_ETF_LIST（批量模式默认列表）
 
-共 21 只 ETF（宽基已去除，保留策略类 + 行业类）：
+共 22 只 ETF（宽基已去除，保留策略类 + 行业类）：
 
 | # | 代码 | 名称 | 管理人 | ts_code |
 |---|------|------|--------|---------|
@@ -54,6 +54,7 @@ All constituent and weight data comes from Tushare Pro API:
 | 19 | 515210 | 钢铁ETF | 国泰 | 515210.SH |
 | 20 | 159870 | 化工ETF | 鹏华 | 159870.SZ |
 | 21 | 159206 | 卫星ETF | 永赢 | 159206.SZ |
+| 22 | 159732 | 消费电子ETF | 华夏 | 159732.SZ |
 
 ---
 

@@ -6,7 +6,7 @@
       "name": "GitHub配置备份",
       "enabled": true,
       "createdAtMs": 1774683770925,
-      "updatedAtMs": 1786633220418,
+      "updatedAtMs": 1786719621119,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -26,16 +26,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1786719600000,
-        "lastRunAtMs": 1786633200005,
+        "nextRunAtMs": 1786806000000,
+        "lastRunAtMs": 1786719600010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 20413,
+        "lastDurationMs": 21109,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
         "lastDeliveryError": "cron announce delivery failed",
         "consecutiveErrors": 0,
-        "runningAtMs": 1786719600009
+        "runningAtMs": 1786806000006
       }
     },
     {
@@ -43,7 +43,7 @@
       "name": "本地配置备份",
       "enabled": true,
       "createdAtMs": 1774710240000,
-      "updatedAtMs": 1786633250264,
+      "updatedAtMs": 1786719637841,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -63,16 +63,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1786719600000,
-        "lastRunAtMs": 1786633220418,
+        "nextRunAtMs": 1786806000000,
+        "lastRunAtMs": 1786719621119,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 29846,
+        "lastDurationMs": 16722,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDeliveryError": "cron announce delivery failed",
-        "runningAtMs": 1786719600009
+        "runningAtMs": 1786806000006
       }
     },
     {
@@ -80,7 +80,7 @@
       "name": "Hunter-全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1786715774477,
+      "updatedAtMs": 1786802134715,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -101,15 +101,14 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1786802100000,
-        "lastRunAtMs": 1786715700012,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 74465,
+        "nextRunAtMs": 1786888500000,
+        "lastRunAtMs": 1786802100014,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 34701,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 1,
-        "lastError": "⚠️ ✉️ Message failed"
+        "consecutiveErrors": 0
       },
       "agentId": "hunter"
     },
@@ -118,7 +117,7 @@
       "name": "Hunter-每日财报监控",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1786717869451,
+      "updatedAtMs": 1786804354639,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -129,7 +128,7 @@
       "payload": {
         "kind": "agentTurn",
         "agentId": "hunter",
-        "message": "你是一个财报监控助手。请执行以下任务：\n\n【步骤1】执行脚本获取数据：\n```bash\npython3.11 /home/admin/.openclaw/workspace-hunter/scripts/earnings_monitor.py --json\n```\n\n【步骤2】解析JSON结果\n【步骤3】根据结果输出财报监控报告\n\n要求：\n1. 数据必须来自脚本执行结果，严禁编造\n2. 不要回复 HEARTBEAT_OK\n3. 直接输出监控结果\n4. 有双增公司时，必须全部列出\n5. 输出中必须包含企业名称（公司简称），不仅只是股票代码。格式示例：\"000070 特发信息\"，不要只写\"000070\"\n6. 脚本返回的JSON中name字段只有代码+交易所后缀（如\"000949.SZ\"），不含公司名称。必须根据股票代码查出公司简称。方法：执行以下命令获取A股代码名称对照表，然后匹配：\n```bash\npython3.11 -c \"import akshare as ak; df = ak.stock_info_a_code_name(); print(df[['code','name']].to_string(index=False))\"\n```"
+        "message": "你是一个财报监控助手。请执行以下任务：\n\n【步骤1】执行脚本获取数据：\n```bash\npython3.11 /home/admin/.openclaw/workspace-hunter/scripts/earnings_monitor.py --json\n```\n\n【步骤2】解析JSON结果\n【步骤3】根据结果输出财报监控报告\n\n要求：\n1. 数据必须来自脚本执行结果，严禁编造\n2. 不要回复 HEARTBEAT_OK\n3. 直接输出监控结果\n4. 有双增公司时，必须全部列出\n5. 输出中必须包含企业名称（公司简称），不仅只是股票代码。格式示例：\"000070 特发信息\"，不要只写\"000070\"\n6. 脚本返回的JSON中name字段只有代码+交易所后缀（如\"000949.SZ\"），不含公司名称。必须根据股票代码查出公司简称。方法：执行以下命令获取A股代码名称对照表，然后匹配：\n```bash\npython3.11 -c \"import akshare as ak; df = ak.stock_info_a_code_name(); print(df[['code','name']].to_string(index=False))\"\n```\n\n【新增任务：预告/快报数据池维护】(20260815新增)\n\n执行以下步骤维护数据池 /home/admin/Hualin/data/forecast_express_pool.json:\n\n步骤A: 拉取最近3个自然日的预告和快报(tushare forecast/express, 按ann_date逐日拉, 用于补漏去重):\npython3.11 -c \"import tushare as ts; import pandas as pd; import json; from datetime import datetime, timedelta; pro=ts.pro_api(); rows=[]; [rows.extend(pro.forecast(ann_date=d).to_dict(\"records\") if pro.forecast(ann_date=d) is not None and not pro.forecast(ann_date=d).empty else []) or rows.extend(pro.express(ann_date=d).to_dict(\"records\") if pro.express(ann_date=d) is not None and not pro.express(ann_date=d).empty else []) for d in [(datetime.now()-timedelta(days=i)).strftime(\"%Y%m%d\") for i in range(3)]]; print(json.dumps(rows, ensure_ascii=False))\"\n(分开写循环更稳, 上面仅为字段参考; 输出存/tmp/daily_fc_ex.json)\n\n步骤B: 对新记录逐条计算(AI计算, 不写计算脚本):\n- 预告: 净利润区间(万元)*1e4取中值 → 累计归母估算; 若区间缺失用 last_parent_net*(1+增速中值)\n- 快报: n_income直接用(元); revenue同步处理\n- 单季化: 按 report_end_date 类型差分, 需要的正式财报基数用 tushare income 接口取 n_income_attr_p 字段(⚠️必须用归母字段, 不要用n_income)\n- 上年同单季 = 上年同期累计 - 上年Q1累计(正式财报)\n- 单季YoY = (本期单季-上年单季)/|上年单季|(与现有Index_PE_Push口径一致, 负基数也计算); 仅上年基数缺失(新上市)或=0时为null\n- 字段schema与池中现有记录一致\n\n步骤C: 合并入库:\n- 主键 ts_code+period, 新记录覆盖旧记录(修订), updated字段标true\n- 读取现有池: json.load(open(\"/home/admin/Hualin/data/forecast_express_pool.json\"))\n- 落盘时保留 updated_at 时间戳\n- 若无新数据, 仅刷新updated_at\n\n步骤D: 汇报格式(追加在原财报监控报告后):\n📊 预告/快报数据池: 新增X条(预告x/快报y), 累计Z条, 新增高增长(单季YoY>50%): 列出前5只(代码+名称+YoY)\n\n【数据池格式规范(20260815定稿, schema_version 1.0) — 增量记录必须遵守】\n1. 所有数值字段: float或null, 禁止NaN/Infinity写入(json.dump需allow_nan=False)\n2. 日期字段(ann_date/report_end_date): 统一str 'YYYYMMDD'\n3. 单位: 估算/单季字段=元; raw_profit_min_wan/raw_profit_max_wan=万元(仅预告); raw_profit_yuan/raw_revenue_yuan=元(仅快报); yoy=小数(0.15表示+15%)\n4. 字段清单(21个, 固定顺序): ts_code,name,period('2026Q2'),report_end_date,source(forecast/express),ann_date,type,raw_profit_min_wan,raw_profit_max_wan,raw_profit_yuan,raw_revenue_yuan,last_parent_net_wan,cum_net_profit_est,cum_revenue_est,single_q_net_profit,single_q_net_profit_yoy,single_q_revenue,single_q_revenue_yoy,prev_year_single_q,prev_year_single_q_revenue,est_method,flags,updated\n5. 合并入库后必须json.dump(..., allow_nan=False)落盘并复验NaN残留=0"
       },
       "delivery": {
         "mode": "announce",
@@ -138,11 +137,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1786804200000,
-        "lastRunAtMs": 1786717800009,
+        "nextRunAtMs": 1786890600000,
+        "lastRunAtMs": 1786804200006,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 69442,
+        "lastDurationMs": 154633,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -154,7 +153,7 @@
       "name": "Hunter-指数权重股财报监控",
       "enabled": true,
       "createdAtMs": 1751724480000,
-      "updatedAtMs": 1786712602339,
+      "updatedAtMs": 1786799048316,
       "schedule": {
         "kind": "cron",
         "expr": "0 21 * * *",
@@ -175,11 +174,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1786798800000,
-        "lastRunAtMs": 1786712400007,
+        "nextRunAtMs": 1786885200000,
+        "lastRunAtMs": 1786798800010,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 202332,
+        "lastDurationMs": 248306,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -191,7 +190,7 @@
       "name": "Hunter-宏观经济补充数据获取",
       "enabled": true,
       "createdAtMs": 1751854200000,
-      "updatedAtMs": 1786647829742,
+      "updatedAtMs": 1786734308249,
       "schedule": {
         "kind": "cron",
         "expr": "0 3 * * *",
@@ -212,12 +211,12 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1786734000000,
-        "lastRunAtMs": 1786647600005,
+        "nextRunAtMs": 1786820400000,
+        "lastRunAtMs": 1786734000009,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
         "consecutiveErrors": 0,
-        "lastDurationMs": 229737,
+        "lastDurationMs": 308240,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
       },

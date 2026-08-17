@@ -6,7 +6,7 @@
       "name": "GitHub配置备份",
       "enabled": true,
       "createdAtMs": 1774683770925,
-      "updatedAtMs": 1786806025364,
+      "updatedAtMs": 1786892443511,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -26,16 +26,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1786892400000,
-        "lastRunAtMs": 1786806000007,
+        "nextRunAtMs": 1786978800000,
+        "lastRunAtMs": 1786892400006,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 25357,
+        "lastDurationMs": 43505,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
         "lastDeliveryError": "cron announce delivery failed",
         "consecutiveErrors": 0,
-        "runningAtMs": 1786892400004
+        "runningAtMs": 1786978800006
       }
     },
     {
@@ -43,7 +43,7 @@
       "name": "本地配置备份",
       "enabled": true,
       "createdAtMs": 1774710240000,
-      "updatedAtMs": 1786806048020,
+      "updatedAtMs": 1786892475479,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -63,16 +63,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1786892400000,
-        "lastRunAtMs": 1786806025364,
+        "nextRunAtMs": 1786978800000,
+        "lastRunAtMs": 1786892443511,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 22656,
+        "lastDurationMs": 31968,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDeliveryError": "cron announce delivery failed",
-        "runningAtMs": 1786892400004
+        "runningAtMs": 1786978800006
       }
     },
     {
@@ -80,7 +80,7 @@
       "name": "Hunter-全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1786888545718,
+      "updatedAtMs": 1786974954735,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -101,14 +101,14 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1786974900000,
-        "lastRunAtMs": 1786888500022,
+        "nextRunAtMs": 1787061300000,
+        "lastRunAtMs": 1786974900011,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 45696,
+        "lastDurationMs": 54724,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 1,
+        "consecutiveErrors": 2,
         "lastError": "⚠️ ✉️ Message failed"
       },
       "agentId": "hunter"
@@ -118,7 +118,7 @@
       "name": "Hunter-每日财报监控",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1786890683301,
+      "updatedAtMs": 1786977094746,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -138,11 +138,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1786977000000,
-        "lastRunAtMs": 1786890600005,
+        "nextRunAtMs": 1787063400000,
+        "lastRunAtMs": 1786977000006,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 83296,
+        "lastDurationMs": 94740,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -154,7 +154,7 @@
       "name": "Hunter-指数权重股财报监控",
       "enabled": true,
       "createdAtMs": 1751724480000,
-      "updatedAtMs": 1786885613961,
+      "updatedAtMs": 1786971832042,
       "schedule": {
         "kind": "cron",
         "expr": "0 21 * * *",
@@ -175,11 +175,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1786971600000,
-        "lastRunAtMs": 1786885200009,
+        "nextRunAtMs": 1787058000000,
+        "lastRunAtMs": 1786971600007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 413952,
+        "lastDurationMs": 232035,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -191,7 +191,7 @@
       "name": "Hunter-宏观经济补充数据获取",
       "enabled": true,
       "createdAtMs": 1751854200000,
-      "updatedAtMs": 1786820477476,
+      "updatedAtMs": 1786906855498,
       "schedule": {
         "kind": "cron",
         "expr": "0 3 * * *",
@@ -202,7 +202,7 @@
       "payload": {
         "kind": "agentTurn",
         "agentId": "hunter",
-        "message": "你是专业金融数据分析师。任务：获取宏观经济补充数据，更新到 JSON 文件，作为 MacroEconomics_push.py 的额外数据源。\n\n【数据文件】\n/home/admin/Hualin/macro_supplement_data.json\n\n【执行步骤】\n\n1. 读取现有 JSON 文件，了解已有数据\n2. 判断今天哪些指标应该有新数据（根据发布日历）\n3. 对每个需要更新的指标，按搜索优先级获取数据\n4. 校验数据合理性\n5. 写入 JSON 文件\n\n【搜索优先级】（注意配额控制）\n1. tavily_search — 优先使用，有每日配额限制\n2. exa_search — tavily 配额耗尽或搜不到时使用（python3.11 /home/admin/.openclaw/workspace-hunter/scripts/exa_search.py search \"关键词\" --summary）\n3. multi-search-engine / searxng — 本地备源\n4. web_fetch — 抓取搜索到的页面内容\n\n【指标发布日历与获取指南】\n\n▼ 每月1-2日（上月数据）：\n  ■ PMI分行业（高技术/装备/消费品/原材料制造业 + 建筑业/服务业）\n    - 搜索词：\"YYYY年M月 PMI 高技术制造业 装备制造业 消费品制造业 指数\"\n    - 参考源：国家统计局首席统计师解读文章\n    - JSON key: pmi_categories\n    - 字段：6个类别，数值通常在45-60之间\n    - 注意：统计局解读文章通常在PMI发布后1-2天发布\n\n▼ 每月7-13日：\n  ■ 进出口商品构成（HS分类）\n    - 搜索词：\"YYYY年M月 进出口商品构成 主要商品 出口 进口 同比\"\n    - 参考源：海关总署月度数据\n    - JSON key: trade_composition\n    - 字段：农产品/机电产品/高新技术产品等大类，export_yoy和import_yoy\n\n▼ 每月9-10日：\n  ■ CPI八大分项\n    - 搜索词：\"YYYY年M月份 居民消费价格 八大类 同比 涨幅 食品 烟酒 衣着 居住\"\n    - 参考源：国家统计局CPI新闻稿\n    - JSON key: cpi_categories\n    - 字段8个：食品烟酒/衣着/居住/生活用品及服务/交通通信/教育文化娱乐/医疗保健/其他用品和服务\n    - 数值范围：同比通常在-5%~+30%之间\n  \n  ■ PPI分行业\n    - 搜索词：\"YYYY年M月 工业生产者出厂价格 分行业 同比 涨幅\"\n    - 参考源：国家统计局PPI新闻稿（含30个工业行业表格）\n    - JSON key: ppi_industries\n    - 字段：30个工业行业（如煤炭开采洗选业、石油天然气开采业等）\n    - 数值范围：同比通常在-30%~+50%之间\n\n▼ 每月10-15日：\n  ■ 存款余额（居民+非银）\n    - 搜索词：\"YYYY年M月 金融机构 人民币 信贷收支表 住户存款 非银行业金融机构存款\"\n    - 参考源：央行金融机构人民币信贷收支表\n    - JSON key: deposit_balance\n    - 字段：household_balance（居民存款余额，亿元）、non_bank_balance（非银存款余额，亿元）\n    - 数值范围：居民存款通常在100万亿以上，非银存款在2-5万亿\n\n▼ 每月15-17日：\n  ■ 工业增加值分行业\n    - 搜索词：\"YYYY年M月 规模以上工业增加值 分行业 同比 增长\"\n    - 参考源：国家统计局工业增加值新闻稿（含17个行业大类表格）\n    - JSON key: iva_industries\n    - 字段：17个行业（采矿业/制造业/电力热力等），同比增速\n    - 数值范围：通常在-10%~+30%之间\n  \n  ■ 社零分行业\n    - 搜索词：\"YYYY年M月 社会消费品零售总额 分品类 同比 增长\"\n    - 参考源：国家统计局社零新闻稿（含16个商品品类表格）\n    - JSON key: retail_industries\n    - 字段：16个品类（粮油食品/饮料/服装鞋帽/化妆品/金银珠宝/日用品等），同比增速\n    - 数值范围：通常在-20%~+50%之间\n  \n  ■ 固投分行业\n    - 搜索词：\"YYYY年M月 固定资产投资 分行业 累计同比\"\n    - 参考源：国家统计局固定资产投资新闻稿（含25个行业大类）\n    - JSON key: fai_industries\n    - 字段：25个行业，累计同比增速\n    - 数值范围：通常在-30%~+50%之间\n    - 注意：统计局发布的是1-X月累计同比\n\n\n\n▼ 每季度末后15天内（3月/6月/9月/12月数据）：\n  ■ ETF持有人结构（7只宽基ETF）\n    - ETF列表：510300(沪深300ETF)、510500(中证500ETF)、512100(中证1000ETF)、159915(创业板ETF)、588080(科创50ETF)、159941(纳指100ETF)、512890(红利低波ETF)\n    - 搜索词：\"510300 ETF持有人结构 2025年报\" 或 \"沪深300ETF 机构持有比例\"\n    - 参考源：东方财富fundf10.eastmoney.com、基金年报/半年报\n    - JSON key: etf_holders\n    - 字段：每只ETF一个子对象，包含report_date、institutional(机构持有%)、retail(个人持有%)、top_holders(前十大持有人列表)\n    - 注意：ETF持有人结构每半年更新一次（年报/半年报）\n\n▼ 每月13-14日（美国上月数据）：\n  ■ 美国宏观指标（CPI/核心CPI/PPI/PCE/核心PCE同比、非农就业、失业率）\n    - 搜索词：\"US CPI June 2026 year over year\" / \"美国 2026年6月 CPI 同比\"\n    - 参考源：BLS(劳工统计局)、BEA(经济分析局)、FRED\n    - JSON key: us_macro\n    - 字段：cpi_yoy(整体CPI同比)、core_cpi_yoy(核心CPI同比)、ppi_yoy(PPI同比)、pce_yoy(PCE同比)、pce_core_yoy(核心PCE同比)\n    - 数值范围：通常在0%~10%之间\n    - 注意：美国CPI约每月13-14日发布上月数据，PCE约次月最后一周发布\n    \n▼ 每月27日前后：\n  ■ 工业企业利润\n    - 搜索词：\"YYYY年1-M月 规模以上工业企业利润 同比 增长\"\n    - 参考源：国家统计局工业企业利润新闻稿\n    - JSON key: industrial_profit\n    - 字段：total_yoy（累计同比）、single_month_yoy（当月同比，需推算）、industries（行业细项dict）\n    - 数值范围：累计同比通常在-30%~+30%之间\n\n【校验规则】\n1. 数值范围检查：超出上述范围的值标记 warning，不写入\n2. 环比变动检查：与上一期对比，变动超过15个百分点的标记 warning\n3. 交叉验证：如果JSON中已有该月数据，新数据需要与旧数据对比，差异大于20%的不覆盖\n4. 校验结果写入 validation 字段\n\n【写入格式】\n{\n  \"data\": {\n    \"cpi_categories\": {\n      \"202606\": {\"食品烟酒\": 0.5, \"衣着\": 0.8, ...}\n    }\n  },\n  \"validation\": {\n    \"cpi_categories\": {\n      \"202606\": {\"status\": \"verified\", \"source\": \"web_search\", \"fetched_at\": \"2026-07-09T16:00:00\"}\n    }\n  }\n}\n\n【容错机制】\n- 搜索不到数据：记录到 metadata.update_log，明天继续尝试\n- 解析失败：尝试多个搜索结果，换不同关键词重试\n- 连续3天获取失败：通知用户（通过飞书消息）\n\n【重要】\n1. 数据月份计算：如果今天是7月9日，\"上月数据\"就是6月数据(202606)\n2. 不要编造数据！搜到什么写什么，搜不到就标记失败\n3. 每次执行后更新 metadata.last_updated\n4. 写入前先读取完整JSON，修改后写回（避免覆盖其他指标数据）\n5. PMI分行业数据在每月1-2号才出，不要在月中去搜\n",
+        "message": "你是专业金融数据分析师。任务：获取宏观经济补充数据，更新到 JSON 文件，作为 MacroEconomics_push.py 的额外数据源。\n\n【数据文件】\n/home/admin/Hualin/macro_supplement_data.json\n\n【执行步骤】\n\n1. 读取现有 JSON 文件，了解已有数据\n2. 判断今天哪些指标应该有新数据（根据发布日历）\n3. 对每个需要更新的指标，按搜索优先级获取数据\n4. 校验数据合理性\n5. 写入 JSON 文件\n\n【搜索优先级】（注意配额控制）\n1. tavily_search — 优先使用，有每日配额限制\n2. exa_search — tavily 配额耗尽或搜不到时使用（python3.11 /home/admin/.openclaw/workspace-hunter/scripts/exa_search.py search \"关键词\" --summary）\n3. multi-search-engine / searxng — 本地备源\n4. web_fetch — 抓取搜索到的页面内容\n\n【指标发布日历与获取指南】\n\n▼ 每月1-2日（上月数据）：\n  ■ PMI分行业（高技术/装备/消费品/原材料制造业 + 建筑业/服务业）\n    - 搜索词：\"YYYY年M月 PMI 高技术制造业 装备制造业 消费品制造业 指数\"\n    - 参考源：国家统计局首席统计师解读文章\n    - JSON key: pmi_categories\n    - 字段：6个类别，数值通常在45-60之间\n    - 注意：统计局解读文章通常在PMI发布后1-2天发布\n\n▼ 每月7-13日：\n  ■ 进出口商品构成（HS分类）\n    - 搜索词：\"YYYY年M月 进出口商品构成 主要商品 出口 进口 同比\"\n    - 参考源：海关总署月度数据\n    - JSON key: trade_composition\n    - 字段：农产品/机电产品/高新技术产品等大类，export_yoy和import_yoy\n\n▼ 每月9-10日：\n  ■ CPI八大分项\n    - 搜索词：\"YYYY年M月份 居民消费价格 八大类 同比 涨幅 食品 烟酒 衣着 居住\"\n    - 参考源：国家统计局CPI新闻稿\n    - JSON key: cpi_categories\n    - 字段8个：食品烟酒/衣着/居住/生活用品及服务/交通通信/教育文化娱乐/医疗保健/其他用品和服务\n    - 数值范围：同比通常在-5%~+30%之间\n  \n  ■ PPI分行业\n    - 搜索词：\"YYYY年M月 工业生产者出厂价格 分行业 同比 涨幅\"\n    - 参考源：国家统计局PPI新闻稿（含30个工业行业表格）\n    - JSON key: ppi_industries\n    - 字段：30个工业行业（如煤炭开采洗选业、石油天然气开采业等）\n    - 数值范围：同比通常在-30%~+50%之间\n\n▼ 每月10-15日：\n  ■ 存款余额（居民+非银）\n    - 搜索词：\"YYYY年M月 金融机构 人民币 信贷收支表 住户存款 非银行业金融机构存款\"\n    - 参考源：央行金融机构人民币信贷收支表\n    - JSON key: deposit_balance\n    - 字段：household_balance（居民存款余额，亿元）、non_bank_balance（非银存款余额，亿元）\n    - 数值范围：居民存款通常在100万亿以上，非银存款在2-5万亿\n\n▼ 每月15-17日：\n  ■ 工业增加值分行业\n    - 搜索词：\"YYYY年M月 规模以上工业增加值 分行业 同比 增长\"\n    - 参考源：国家统计局工业增加值新闻稿（含17个行业大类表格）\n    - JSON key: iva_industries\n    - 字段：17个行业（采矿业/制造业/电力热力等），同比增速\n    - 数值范围：通常在-10%~+30%之间\n  \n  ■ 社零分行业\n    - 搜索词：\"YYYY年M月 社会消费品零售总额 分品类 同比 增长\"\n    - 参考源：国家统计局社零新闻稿（含16个商品品类表格）\n    - JSON key: retail_industries\n    - 字段：16个品类（粮油食品/饮料/服装鞋帽/化妆品/金银珠宝/日用品等），同比增速\n    - 数值范围：通常在-20%~+50%之间\n  \n  ■ 固投分行业\n    - 搜索词：\"YYYY年M月 固定资产投资 分行业 累计同比\"\n    - 参考源：国家统计局固定资产投资新闻稿（含25个行业大类）\n    - JSON key: fai_industries\n    - 字段：25个行业，累计同比增速\n    - 数值范围：通常在-30%~+50%之间\n    - 注意：统计局发布的是1-X月累计同比\n\n\n\n▼ 每季度末后15天内（3月/6月/9月/12月数据）：\n  ■ ETF持有人结构（7只宽基ETF）\n    - ETF列表：510300(沪深300ETF)、510500(中证500ETF)、512100(中证1000ETF)、159915(创业板ETF)、588080(科创50ETF)、159941(纳指100ETF)、512890(红利低波ETF)\n    - 搜索词：\"510300 ETF持有人结构 2025年报\" 或 \"沪深300ETF 机构持有比例\"\n    - 参考源：东方财富fundf10.eastmoney.com、基金年报/半年报\n    - JSON key: etf_holders\n    - 字段：每只ETF一个子对象，包含report_date、institutional(机构持有%)、retail(个人持有%)、top_holders(前十大持有人列表)\n    - 注意：ETF持有人结构每半年更新一次（年报/半年报）\n\n▼ 每月13-14日（美国上月数据）：\n  ■ 美国宏观指标（CPI/核心CPI/PPI/PCE/核心PCE同比、非农就业、失业率）\n    - 搜索词：\"US CPI June 2026 year over year\" / \"美国 2026年6月 CPI 同比\"\n    - 参考源：BLS(劳工统计局)、BEA(经济分析局)、FRED\n    - JSON key: us_macro\n    - 字段：cpi_yoy(整体CPI同比)、core_cpi_yoy(核心CPI同比)、ppi_yoy(PPI同比)、pce_yoy(PCE同比)、pce_core_yoy(核心PCE同比)\n    - 数值范围：通常在0%~10%之间\n    - 注意：美国CPI约每月13-14日发布上月数据，PCE约次月最后一周发布\n    \n▼ 每月27日前后：\n  ■ 工业企业利润\n    - 搜索词：\"YYYY年1-M月 规模以上工业企业利润 同比 增长\"\n    - 参考源：国家统计局工业企业利润新闻稿\n    - JSON key: industrial_profit\n    - 字段：total_yoy（累计同比）、single_month_yoy（当月同比，需推算）、industries（行业细项dict）\n    - 数值范围：累计同比通常在-30%~+30%之间\n\n【校验规则】\n1. 数值范围检查：超出上述范围的值标记 warning，不写入\n2. 环比变动检查：与上一期对比，变动超过15个百分点的标记 warning\n3. 交叉验证：如果JSON中已有该月数据，新数据需要与旧数据对比，差异大于20%的不覆盖\n4. 校验结果写入 validation 字段\n\n【写入格式】\n{\n  \"data\": {\n    \"cpi_categories\": {\n      \"202606\": {\"食品烟酒\": 0.5, \"衣着\": 0.8, ...}\n    }\n  },\n  \"validation\": {\n    \"cpi_categories\": {\n      \"202606\": {\"status\": \"verified\", \"source\": \"web_search\", \"fetched_at\": \"2026-07-09T16:00:00\"}\n    }\n  }\n}\n\n【容错机制】\n- 搜索不到数据：记录到 metadata.update_log，明天继续尝试\n- 解析失败：尝试多个搜索结果，换不同关键词重试\n- 连续3天获取失败：通知用户（通过飞书消息）\n\n【重要】\n1. 数据月份计算：如果今天是7月9日，\"上月数据\"就是6月数据(202606)\n2. 不要编造数据！搜到什么写什么，搜不到就标记失败\n3. 每次执行后更新 metadata.last_updated\n4. 写入前先读取完整JSON，修改后写回（避免覆盖其他指标数据）\n5. PMI分行业数据在每月1-2号才出，不要在月中去搜\n\n\n▼ 每月10-25日（上月数据，与存款余额同源）：\n  ■ 信贷四分类月度增量（住户/企(事)业单位/非银金融机构/境外贷款）\n    - 背景：MacroEconomics_push.py 已能自动从央行《金融机构人民币信贷收支表》Excel解析（余额差分→增量，缓存于 /home/admin/Hualin/data/pbc_loan_balance.json），并优先使用。本条目是备份源：仅当该缓存最新月份 < 上月，且央行Excel解析失败时才需要搜索补充增量数据\n    - 搜索词：\"YYYY年M月 金融统计数据报告 住户贷款增加 企(事)业单位贷款增加\" 或 \"YYYY年M月末 金融机构人民币贷款 住户贷款 企(事)业单位贷款 余额\"\n    - 参考源：央行《金融统计数据报告》(文字稿，通常给住户/企事业单位贷款增量和余额)、《金融机构人民币信贷收支表》\n    - JSON key: loan_structure\n    - 字段：household(住户贷款)、enterprise(企(事)业单位贷款)、nonbank(非银行业金融机构贷款)、overseas(境外贷款)\n    - 格式优先：若搜到的是【月度增量】(亿元)直接填；若只有【余额】(亿元)，填 balance 子字段并注明，如 {\"household_balance\": 824443.3}，程序不使用但留作参考\n    - 数值范围：住户/非银/境外单月增量通常在 -8000~+8000 亿；企(事)业单位单月增量通常在 -5000~+50000 亿\n    - 校验：四项增量之和 ≈ 当月新增人民币贷款总量，偏差>2000亿标记 warning\n    - 注意：文字稿通常只披露住户和企(事)业单位两项，非银和境外缺失时不要编造，留空即可\n\n\n▼ 每月10-25日（上月数据，与社融分项同源）：\n  ■ 债券月度增量（企业债券/政府债券，社融分项）\n    - 背景：MacroEconomics_push.py 已能自动从央行《社会融资规模增量统计表》Excel解析（直接是月度增量，缓存于 /home/admin/Hualin/data/pbc_bond_increment.json），并优先使用。本条目是备份源：仅当该缓存最新月份 < 上月，且央行Excel解析失败时才需要搜索补充\n    - 搜索词：\"YYYY年M月 社会融资规模增量 企业债券 政府债券 亿元\"\n    - 参考源：央行《社会融资规模增量报告》、社融数据新闻稿\n    - JSON key: bond_structure\n    - 字段：corp_bond(企业债券增量,含城投债)、gov_bond(政府债券增量,国债+地方债)\n    - 数值范围：企业债券单月通常在 -10000~+15000 亿；政府债券单月通常在 -5000~+30000 亿\n    - 校验：两者之和不应超过当月社融增量总量(1-2月除外)，超过标记 warning\n\n\n▼ 每月8-20日（上月数据）：\n  ■ 城投债/产业债月度拆分（城投净融资）\n    - 用途: MacroEconomics_push.py 货币社融图的企业债券线标注\"城投xx亿\"拆分\n    - 搜索词: \"M月城投债净融资 亿元\" 或 \"M月城投债 发行规模 净融资 财联社\"（财联社\"聚焦城投债\"栏目每月固定发布）\n    - 参考源: 财联社(企业预警通/Wind数据)、新华财经城投债专题、大公国际月度债券报告\n    - JSON key: bond_split\n    - 字段: chengtou_net(城投债当月净融资,亿元,可负)、chengtou_issue(当月发行规模,亿元,可选)、source(必填,如\"财联社/Wind\")\n    - ⚠️ 月份对齐铁律: 必须确认是【上月单月】数据! 累计数(如\"1-6月\"\"上半年\"\"前三季度\")绝对不能拆算成单月写入! 文章标题和正文必须同时出现月份和\"净融资\"。区分\"发行量\"和\"净融资\"(净融资=发行-偿还,常为负)\n    - ⚠️ 口径提示: 各机构城投名单不同(Wind/企业预警通/联合资信), 差异可达千亿级, source字段必须如实记录机构名, 不跨源混拼同一月份\n    - 数值范围: 城投单月净融资 -3000~+1500 亿; 发行 1000~8000 亿\n    - 校验: 搜到后交叉验证(两篇独立文章数值应接近); 若与已有相邻月份数据矛盾(如连续性异常), 标记 warning 不写入\n",
         "timeoutSeconds": 600
       },
       "delivery": {
@@ -212,12 +212,12 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1786906800000,
-        "lastRunAtMs": 1786820400005,
+        "nextRunAtMs": 1786993200000,
+        "lastRunAtMs": 1786906800006,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
         "consecutiveErrors": 0,
-        "lastDurationMs": 77471,
+        "lastDurationMs": 55492,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
       },

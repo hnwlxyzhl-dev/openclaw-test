@@ -35,6 +35,8 @@ _只有精炼的规则。详细操作文档见 TOOLS.md。_
 
 ## 运维经验
 
+18. **git push 超时先查 22 端口**：github.com 22 端口可能被封（超时）。已在 `~/.ssh/config` 永久配置走 ssh.github.com:443，若再遇超时先确认该配置还在。
+
 15. **Agent 不响应的排查路径**：`sessions_list` → `sessions_history` 查最后消息 → 确认是否卡在轮询死循环（后台进程挂掉但一直在 poll 等待）。
 16. **重置会话文件的完整流程**：备份会话文件（mv 加 `.reset.` 后缀）→ `openclaw sessions cleanup --agent <id> --fix-missing --enforce` → 用 `sessions_send` 发新消息触发 Gateway 重建会话（磁盘重置后 Gateway 内存仍有旧缓存，`gateway restart` 可能超时，sessions_send 更轻量可靠）。
 17. **更换飞书 app 凭据后 open_id 全部失效**：open_id 与签发 app 绑定，换 app 后 cron announce / 投递目标里存的旧 `ou_xxx` 会报 400（code 99992361 open_id cross app），消息进 delivery-queue 无限重试。排查：`~/.openclaw/delivery-queue/` 积压 + 日志 grep `delivery failed`（注意：错误行不一定带 "cross app" 字样）。修复：让老板给 Eden 发条飞书消息，从入站事件拿当前 app 的正确 open_id 重建目标；不需要通知则直接关 announce。修复后清理队列僵尸消息。
@@ -45,3 +47,4 @@ _只有精炼的规则。详细操作文档见 TOOLS.md。_
 - 重构: 2026-05-05（移除金融相关规则，新增协调者规则，金融职责已迁移至 Hunter）
 - 维护: 2026-08-23（提炼 2026-06-20 Hunter 会话卡死修复经验为规则 15/16）
 - 维护: 2026-09-06（提炼 cross-app open_id 投递失败根因为规则 17）
+- 维护: 2026-09-08（提炼 git 443 端口 SSH 配置经验为规则 18）

@@ -1,7 +1,7 @@
 {
   "agent:eden:main": {
     "sessionId": "cb7db8b4-7dd5-4373-9a0d-9e436edc8953",
-    "updatedAt": 1790434789170,
+    "updatedAt": 1790521189481,
     "systemSent": true,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -425,7 +425,7 @@
     "model": "glm-5.2",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1790432990377,
+      "generatedAt": 1790519390563,
       "sessionId": "cb7db8b4-7dd5-4373-9a0d-9e436edc8953",
       "sessionKey": "agent:eden:main",
       "provider": "openai",
@@ -913,13 +913,13 @@
         ]
       }
     },
-    "cacheRead": 44608,
+    "cacheRead": 85184,
     "cacheWrite": 0,
     "lastTo": "heartbeat",
     "contextTokens": 1000000,
-    "inputTokens": 2308,
-    "outputTokens": 2792,
-    "totalTokens": 45288
+    "inputTokens": 1424,
+    "outputTokens": 1426,
+    "totalTokens": 86039
   },
   "agent:eden:qqbot:default:direct:c54621f2f354f9c150382e3be9618c6e": {
     "sessionId": "dc057eb2-6f59-407f-87a8-2578f71db00c",
@@ -2790,12 +2790,12 @@
     "lastTo": "user:ou_4c8499b94572ae1598169c894bca1f83",
     "lastAccountId": "hunter",
     "origin": {
-      "label": "ou_4c8499b94572ae1598169c894bca1f83",
+      "label": "feishu:ou_4c8499b94572ae1598169c894bca1f83",
       "provider": "feishu",
       "surface": "feishu",
       "chatType": "direct",
       "from": "feishu:ou_4c8499b94572ae1598169c894bca1f83",
-      "to": "user:ou_4c8499b94572ae1598169c894bca1f83",
+      "to": "ou_4c8499b94572ae1598169c894bca1f83",
       "accountId": "hunter"
     },
     "sessionFile": "/home/admin/.openclaw/agents/eden/sessions/ebb535b9-675b-42ad-9c9d-95250a34d6ce.jsonl",
@@ -7172,8 +7172,8 @@
     "cacheWrite": 0
   },
   "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721": {
-    "sessionId": "8c0aa584-cbbf-4f46-b87e-0e5505584b01",
-    "updatedAt": 1790434800135,
+    "sessionId": "08d18468-8a38-4714-83dd-30dcc87cb9fd",
+    "updatedAt": 1790521200078,
     "systemSent": true,
     "label": "Cron: GitHub配置备份",
     "skillsSnapshot": {
@@ -7559,8 +7559,8 @@
     "model": "glm-5.2",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1790348400281,
-      "sessionId": "68090f9d-d922-4eaf-9ccc-d737986c0737",
+      "generatedAt": 1790434800439,
+      "sessionId": "8c0aa584-cbbf-4f46-b87e-0e5505584b01",
       "sessionKey": "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721",
       "provider": "openai",
       "model": "glm-5.2",
@@ -8016,11 +8016,11 @@
       }
     },
     "contextTokens": 1000000,
-    "inputTokens": 6755,
-    "outputTokens": 484,
-    "totalTokens": 21704,
+    "inputTokens": 6638,
+    "outputTokens": 449,
+    "totalTokens": 21626,
     "totalTokensFresh": true,
-    "cacheRead": 57920,
+    "cacheRead": 36416,
     "cacheWrite": 0,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -8033,8 +8033,8 @@
     "sessionFile": "/home/admin/.openclaw/agents/eden/sessions/a3fef5ff-02d3-4f9c-973d-49c6c5c76b2b.jsonl"
   },
   "agent:eden:cron:f8e2c4a1-7890-4bcd-ef12-3456789abcde": {
-    "sessionId": "3dbe4e67-4448-4e77-a2a4-e1f02ad79367",
-    "updatedAt": 1790348421584,
+    "sessionId": "8b6f8489-39ce-4d3b-a5e7-339cafb69d8c",
+    "updatedAt": 1790434815936,
     "systemSent": true,
     "label": "Cron: 本地配置备份",
     "skillsSnapshot": {
@@ -8420,8 +8420,8 @@
     "model": "glm-5.2",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1790348421717,
-      "sessionId": "3dbe4e67-4448-4e77-a2a4-e1f02ad79367",
+      "generatedAt": 1790434816108,
+      "sessionId": "8b6f8489-39ce-4d3b-a5e7-339cafb69d8c",
       "sessionKey": "agent:eden:cron:f8e2c4a1-7890-4bcd-ef12-3456789abcde",
       "provider": "openai",
       "model": "glm-5.2",
@@ -8877,11 +8877,11 @@
       }
     },
     "contextTokens": 1000000,
-    "inputTokens": 2437,
-    "outputTokens": 1948,
-    "totalTokens": 23454,
+    "inputTokens": 961,
+    "outputTokens": 536,
+    "totalTokens": 22149,
     "totalTokensFresh": true,
-    "cacheRead": 132544,
+    "cacheRead": 64384,
     "cacheWrite": 0
   },
   "agent:eden:cron:45566dd9-d934-4b4d-a0e8-3e00fcedfc46": {
@@ -11569,9 +11569,9 @@
     "lastChannel": "qqbot",
     "sessionFile": "/home/admin/.openclaw/agents/eden/sessions/5f7dd370-f4cc-4275-881d-44df1c7c8770.jsonl"
   },
-  "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721:run:68090f9d-d922-4eaf-9ccc-d737986c0737": {
-    "sessionId": "68090f9d-d922-4eaf-9ccc-d737986c0737",
-    "updatedAt": 1790348400013,
+  "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721:run:8c0aa584-cbbf-4f46-b87e-0e5505584b01": {
+    "sessionId": "8c0aa584-cbbf-4f46-b87e-0e5505584b01",
+    "updatedAt": 1790434800135,
     "systemSent": true,
     "label": "Cron: GitHub配置备份",
     "skillsSnapshot": {
@@ -11957,8 +11957,8 @@
     "model": "glm-5.2",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1790348400281,
-      "sessionId": "68090f9d-d922-4eaf-9ccc-d737986c0737",
+      "generatedAt": 1790434800439,
+      "sessionId": "8c0aa584-cbbf-4f46-b87e-0e5505584b01",
       "sessionKey": "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721",
       "provider": "openai",
       "model": "glm-5.2",
@@ -12414,11 +12414,11 @@
       }
     },
     "contextTokens": 1000000,
-    "inputTokens": 6755,
-    "outputTokens": 484,
-    "totalTokens": 21704,
+    "inputTokens": 6638,
+    "outputTokens": 449,
+    "totalTokens": 21626,
     "totalTokensFresh": true,
-    "cacheRead": 57920,
+    "cacheRead": 36416,
     "cacheWrite": 0,
     "abortedLastRun": false,
     "chatType": "direct",
@@ -12430,9 +12430,9 @@
     },
     "sessionFile": "/home/admin/.openclaw/agents/eden/sessions/a3fef5ff-02d3-4f9c-973d-49c6c5c76b2b.jsonl"
   },
-  "agent:eden:cron:f8e2c4a1-7890-4bcd-ef12-3456789abcde:run:3dbe4e67-4448-4e77-a2a4-e1f02ad79367": {
-    "sessionId": "3dbe4e67-4448-4e77-a2a4-e1f02ad79367",
-    "updatedAt": 1790348421584,
+  "agent:eden:cron:f8e2c4a1-7890-4bcd-ef12-3456789abcde:run:8b6f8489-39ce-4d3b-a5e7-339cafb69d8c": {
+    "sessionId": "8b6f8489-39ce-4d3b-a5e7-339cafb69d8c",
+    "updatedAt": 1790434815936,
     "systemSent": true,
     "label": "Cron: 本地配置备份",
     "skillsSnapshot": {
@@ -12818,8 +12818,8 @@
     "model": "glm-5.2",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1790348421717,
-      "sessionId": "3dbe4e67-4448-4e77-a2a4-e1f02ad79367",
+      "generatedAt": 1790434816108,
+      "sessionId": "8b6f8489-39ce-4d3b-a5e7-339cafb69d8c",
       "sessionKey": "agent:eden:cron:f8e2c4a1-7890-4bcd-ef12-3456789abcde",
       "provider": "openai",
       "model": "glm-5.2",
@@ -13275,16 +13275,16 @@
       }
     },
     "contextTokens": 1000000,
-    "inputTokens": 2437,
-    "outputTokens": 1948,
-    "totalTokens": 23454,
+    "inputTokens": 961,
+    "outputTokens": 536,
+    "totalTokens": 22149,
     "totalTokensFresh": true,
-    "cacheRead": 132544,
+    "cacheRead": 64384,
     "cacheWrite": 0
   },
-  "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721:run:8c0aa584-cbbf-4f46-b87e-0e5505584b01": {
-    "sessionId": "8c0aa584-cbbf-4f46-b87e-0e5505584b01",
-    "updatedAt": 1790434800135,
+  "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721:run:08d18468-8a38-4714-83dd-30dcc87cb9fd": {
+    "sessionId": "08d18468-8a38-4714-83dd-30dcc87cb9fd",
+    "updatedAt": 1790521200078,
     "systemSent": true,
     "label": "Cron: GitHub配置备份",
     "skillsSnapshot": {
@@ -13670,8 +13670,8 @@
     "model": "glm-5.2",
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1790348400281,
-      "sessionId": "68090f9d-d922-4eaf-9ccc-d737986c0737",
+      "generatedAt": 1790434800439,
+      "sessionId": "8c0aa584-cbbf-4f46-b87e-0e5505584b01",
       "sessionKey": "agent:eden:cron:042d871e-2314-49c6-b627-004e6bf5c721",
       "provider": "openai",
       "model": "glm-5.2",
@@ -14127,11 +14127,11 @@
       }
     },
     "contextTokens": 1000000,
-    "inputTokens": 6755,
-    "outputTokens": 484,
-    "totalTokens": 21704,
+    "inputTokens": 6638,
+    "outputTokens": 449,
+    "totalTokens": 21626,
     "totalTokensFresh": true,
-    "cacheRead": 57920,
+    "cacheRead": 36416,
     "cacheWrite": 0,
     "abortedLastRun": false,
     "chatType": "direct",

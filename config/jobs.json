@@ -6,7 +6,7 @@
       "name": "GitHub配置备份",
       "enabled": true,
       "createdAtMs": 1774683770925,
-      "updatedAtMs": 1790434815920,
+      "updatedAtMs": 1790521242277,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -26,16 +26,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1790521200000,
-        "lastRunAtMs": 1790434800090,
+        "nextRunAtMs": 1790607600000,
+        "lastRunAtMs": 1790521200049,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 15830,
+        "lastDurationMs": 42228,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
         "lastDeliveryError": "cron announce delivery failed",
         "consecutiveErrors": 0,
-        "runningAtMs": 1790521200036
+        "runningAtMs": 1790607600016
       }
     },
     {
@@ -43,7 +43,7 @@
       "name": "本地配置备份",
       "enabled": true,
       "createdAtMs": 1774710240000,
-      "updatedAtMs": 1790434834854,
+      "updatedAtMs": 1790521283220,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -63,16 +63,16 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1790521200000,
-        "lastRunAtMs": 1790434815920,
+        "nextRunAtMs": 1790607600000,
+        "lastRunAtMs": 1790521242277,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 18934,
+        "lastDurationMs": 40943,
         "lastDelivered": false,
         "lastDeliveryStatus": "not-delivered",
         "consecutiveErrors": 0,
         "lastDeliveryError": "cron announce delivery failed",
-        "runningAtMs": 1790521200036
+        "runningAtMs": 1790607600016
       }
     },
     {
@@ -80,7 +80,7 @@
       "name": "Hunter-全球资产低位检索-晚间",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1790517344628,
+      "updatedAtMs": 1790603749344,
       "schedule": {
         "kind": "cron",
         "expr": "55 21 * * *",
@@ -101,15 +101,14 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1790603700000,
-        "lastRunAtMs": 1790517300010,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 44618,
+        "nextRunAtMs": 1790690100000,
+        "lastRunAtMs": 1790603700010,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 49334,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 3,
-        "lastError": "⚠️ ✉️ Message failed"
+        "consecutiveErrors": 0
       },
       "agentId": "hunter"
     },
@@ -118,7 +117,7 @@
       "name": "Hunter-每日财报监控",
       "enabled": true,
       "createdAtMs": 1777963242525,
-      "updatedAtMs": 1790519455900,
+      "updatedAtMs": 1790605863201,
       "schedule": {
         "kind": "cron",
         "expr": "30 22 * * *",
@@ -138,11 +137,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1790605800000,
-        "lastRunAtMs": 1790519400006,
+        "nextRunAtMs": 1790692200000,
+        "lastRunAtMs": 1790605800007,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 55894,
+        "lastDurationMs": 63194,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0
@@ -154,7 +153,7 @@
       "name": "Hunter-指数权重股财报监控",
       "enabled": true,
       "createdAtMs": 1751724480000,
-      "updatedAtMs": 1790514255453,
+      "updatedAtMs": 1790600963608,
       "schedule": {
         "kind": "cron",
         "expr": "0 21 * * *",
@@ -175,11 +174,11 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1790600400000,
-        "lastRunAtMs": 1790514000205,
+        "nextRunAtMs": 1790686800000,
+        "lastRunAtMs": 1790600400009,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 255248,
+        "lastDurationMs": 563599,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
@@ -191,7 +190,7 @@
       "name": "Hunter-宏观经济补充数据获取",
       "enabled": true,
       "createdAtMs": 1751854200000,
-      "updatedAtMs": 1790449292311,
+      "updatedAtMs": 1790535703144,
       "schedule": {
         "kind": "cron",
         "expr": "0 3 * * *",
@@ -212,12 +211,12 @@
         "to": "user:ou_4c8499b94572ae1598169c894bca1f83"
       },
       "state": {
-        "nextRunAtMs": 1790535600000,
-        "lastRunAtMs": 1790449200016,
+        "nextRunAtMs": 1790622000000,
+        "lastRunAtMs": 1790535600016,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
         "consecutiveErrors": 0,
-        "lastDurationMs": 92295,
+        "lastDurationMs": 103128,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
       },

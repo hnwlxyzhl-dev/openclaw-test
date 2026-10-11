@@ -1,0 +1,496 @@
+#!/usr/bin/env python3.11
+# -*- coding: utf-8 -*-
+"""
+方案⑤买卖提醒程序 (2026-10-11)
+
+规则(与回测方案⑤一致):
+  空仓: 偏移率<=neg80 → 第1层买1份
+  持1层: <=1.5×neg80 → 第2层补2份
+  持2层: <=2×neg80 → 第3层补3份
+  持3层: <=3×neg80 → 第4层补4份
+  持仓任意层: >=0% → 一次性全部清仓
+  偏移率=(收盘-MA60)/MA60, 收盘判断收盘成交(次日提醒)
+
+用法:
+  --init        首次运行: 用本地缓存回放2010至今, 初始化状态并推送
+  --dry-run     只打印不推送
+  (无参数)      日常增量模式: 拉最新数据推进状态, 推送提醒
+状态文件: data/bias_alert_s5_state.json
+"""
+import os
+import sys
+import json
+import time
+import argparse
+import datetime
+import base64
+import hashlib
+import requests
+import pandas as pd
+import numpy as np
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+from matplotlib.collections import LineCollection
+from matplotlib.colors import ListedColormap, BoundaryNorm
+
+plt.rcParams['font.sans-serif'] = ['WenQuanYi Micro Hei', 'SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
+WORKDIR = os.path.dirname(os.path.abspath(__file__)) + '/..'
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+CACHE = os.path.join(WORKDIR, 'data', 'backtest_cache')
+STATE_FILE = os.path.join(WORKDIR, 'data', 'bias_alert_s5_state.json')
+OUT_DIR = os.path.join(WORKDIR, 'data', 'bias_alert_out')
+WEBHOOK = 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=a8d15114-508f-4e7a-89f8-ff4345040e5c'
+
+INDICES = [
+    dict(key='SH000001', name='上证指数',   src='cn', ts='000001.SH', neg80=-3.85),
+    dict(key='SH000300', name='沪深300',   src='cn', ts='000300.SH', neg80=-4.53),
+    dict(key='SH000905', name='中证500',   src='cn', ts='000905.SH', neg80=-5.93),
+    dict(key='SH000852', name='中证1000',  src='cn', ts='000852.SH', neg80=-6.75),
+    dict(key='SH000015', name='红利指数',   src='cn', ts='000015.SH', neg80=-4.29),
+    dict(key='SZ399006', name='创业板指',   src='cn', ts='399006.SZ', neg80=-7.88),
+    dict(key='SH000680', name='科创综指',   src='cn', ts='000680.SH', neg80=-8.21),
+    dict(key='IXIC',    name='纳斯达克指数', src='intl', ts='IXIC',  neg80=-5.75),
+    dict(key='DJI',     name='道琼斯指数',  src='intl', ts='DJI',   neg80=-3.78),
+    dict(key='HSI',     name='恒生指数',    src='intl', ts='HSI',   neg80=-5.23),
+    dict(key='HSTECH',  name='恒生科技指数', src='intl', ts='HKTECH', neg80=-8.01),
+    dict(key='N225',    name='日经225指数', src='intl', ts='N225',  neg80=-3.99),
+]
+LAYERS = [(1.0, 1), (1.5, 2), (2.0, 3), (3.0, 4)]  # (阈值系数, 金额单位)
+
+NOTICE = (
+    '【注意事项】该操作是基于偏移率震荡的操作。需要进一步配合各个指数的长期运行方向做进一步调整：\n'
+    '1.如果是在熊市底部大幅买入的仓位，那么长期持有直到到牛市顶部。判断熊市底部和牛市顶部的方法，见其他资料。这种大仓位不受此处偏移率影响。\n'
+    '2.如果判断是在熊市下跌的阶段，那么买入时的偏移率可以取值偏低，而卖出时的偏移率可以取值也偏低。\n'
+    '3.如果判断是在牛市上涨阶段，那么买入时的偏移率可以取值偏高，卖出时的偏移率也可以取值偏高。\n'
+    '4.如果是发生了严重的黑天鹅事件，那么买入时的偏移率应该取值偏低，卖出时的偏移率也应该取值偏低。\n'
+    '5.买卖可以进一步参考成交量以及历史支撑位和压力位，以及整数支撑位和压力位；以及年线支撑位和压力位。\n'
+    '6.如果是在急跌阶段，并且偏移率很大了，那么可以等一等止跌再买入。'
+)
+
+
+# ---------------- 数据 ----------------
+def ts_api():
+    import tushare as ts
+    ts.set_token('dde651506e87c13c30474693d2c4091345f987a2b8bfffad4989530c')
+    return ts.pro_api()
+
+
+def fetch_recent(idx, start_str, pro):
+    """拉 start(YYYYMMDD, 含)之后的日线, 返回 DataFrame(date, close)升序"""
+    for attempt in range(4):
+        try:
+            if idx['src'] == 'cn':
+                df = pro.index_daily(ts_code=idx['ts'], start_date=start_str,
+                                     end_date='', fields=['trade_date', 'close'])
+            else:
+                df = pro.index_global(ts_code=idx['ts'], start_date=start_str,
+                                      end_date='', fields=['trade_date', 'close'])
+            if df is None or not len(df):
+                return pd.DataFrame(columns=['date', 'close'])
+            df = df[['trade_date', 'close']].copy()
+            df.columns = ['date', 'close']
+            df['date'] = pd.to_datetime(df['date'])
+            df['close'] = pd.to_numeric(df['close'], errors='coerce')
+            return df.sort_values('date').reset_index(drop=True)
+        except Exception as e:
+            msg = str(e)
+            if '每天' in msg or '100次' in msg or '500次' in msg:
+                raise  # 每日配额耗尽, 当天无法恢复, 快速失败(由主循环跳过)
+            if '频率' in msg and attempt < 3:
+                time.sleep(65)  # 每分钟级限频, 等待后重试
+            else:
+                raise
+    return pd.DataFrame(columns=['date', 'close'])
+
+
+def load_with_ma60(idx, start_dt, pro):
+    """取 start 前后足够算MA60的窗口, 返回含dev的完整序列"""
+    lookback = (start_dt - datetime.timedelta(days=200)).strftime('%Y%m%d')
+    df = fetch_recent(idx, lookback, pro)
+    if not len(df):
+        return df
+    df['ma60'] = df['close'].rolling(60).mean()
+    df['dev'] = (df['close'] - df['ma60']) / df['ma60'] * 100.0
+    return df
+
+
+# ---------------- 状态推进(方案⑤规则) ----------------
+def step(idx, st, row, events):
+    """对单日行情推进某指数状态; st: {level, layers:[{date,price,units}], rounds}
+    events: 收集当日触发的事件dict"""
+    dev = row['dev']
+    if pd.isna(dev):
+        return
+    t1 = idx['neg80']
+    ths = [t1 * f for f, _ in LAYERS]
+    if st['level'] > 0 and dev >= 0.0:  # 清仓
+        units = sum(l['units'] for l in st['layers'])
+        pnl = sum(l['units'] * (row['close'] / l['price'] - 1) * 100 for l in st['layers'])
+        events.append(dict(kind='SELL', idx=idx, date=row['date'], dev=dev, units=units, pnl=round(pnl, 2),
+                           layers=[(l['date'], l['price'], l['units']) for l in st['layers']]))
+        st['rounds'] += 1
+        st['level'] = 0
+        st['layers'] = []
+        return
+    if st['level'] == 0:
+        if dev <= ths[0]:
+            k = 0
+            while k < len(ths) and dev <= ths[k]:  # 同日深破多层连买
+                st['layers'].append(dict(date=str(row['date'].date()), price=float(row['close']), units=LAYERS[k][1]))
+                events.append(dict(kind='BUY', layer=k + 1, idx=idx, date=row['date'], dev=dev,
+                                   units=LAYERS[k][1], th=ths[k]))
+                k += 1
+            st['level'] = k
+    else:
+        k = st['level']
+        if k < len(ths) and dev <= ths[k]:
+            st['layers'].append(dict(date=str(row['date'].date()), price=float(row['close']), units=LAYERS[k][1]))
+            events.append(dict(kind='BUY', layer=k + 1, idx=idx, date=row['date'], dev=dev,
+                               units=LAYERS[k][1], th=ths[k]))
+            st['level'] = k + 1
+
+
+def init_state():
+    """首次运行: 用本地缓存回放2010至今"""
+    state = dict(created=str(datetime.date.today()), indices={})
+    for idx in INDICES:
+        cache = os.path.join(CACHE, f'{idx["key"]}.csv') if idx['key'] != 'SZ399006' else os.path.join(CACHE, 'CYB.csv')
+        if not os.path.exists(cache):
+            raise RuntimeError(f'缺少缓存 {cache}, 请先运行 ma60_backtest_multi.py')
+        df = pd.read_csv(cache, parse_dates=['date']).sort_values('date')
+        df['ma60'] = df['close'].rolling(60).mean()
+        df['dev'] = (df['close'] - df['ma60']) / df['ma60'] * 100.0
+        st = dict(level=0, layers=[], rounds=0, last_date=str(df['date'].iloc[-1].date()))
+        dummy = []
+        for _, row in df.iterrows():
+            step(idx, st, row, dummy)
+        state['indices'][idx['key']] = st
+    return state
+
+
+
+# ---------------- 绘图(参考 Bias warning 程序风格) ----------------
+def _dur_filter(states, min_dur):
+    if len(states) == 0:
+        return states
+    segs, cs, cv = [], 0, states[0]
+    for i in range(1, len(states)):
+        if states[i] != cv:
+            segs.append((cv, cs, i)); cv, cs = states[i], i
+    segs.append((cv, cs, len(states)))
+    out = states.copy()
+    for v, a, b in segs:
+        if b - a < min_dur:
+            out[a:b] = out[max(0, a - 1)] if a > 0 else out[min(b, len(out) - 1)]
+    return out
+
+
+def _trend_colors(dev, span=20, min_dur=15):
+    y = pd.Series(dev).ewm(span=span, adjust=False).mean().values
+    d = np.zeros_like(y); d[1:] = y[1:] - y[:-1]
+    raw = np.where(d > 0, 1, 0)
+    # 零轴穿越修正
+    segs, cs, cv = [], 0, raw[0]
+    for i in range(1, len(raw)):
+        if raw[i] != cv:
+            segs.append((cv, cs, i)); cv, cs = raw[i], i
+    segs.append((cv, cs, len(raw)))
+    fixed = raw.copy()
+    dev_arr = np.array(dev)
+    for v, a, b in segs:
+        if v == 1 and (b - a) <= len(dev_arr[a:b]) and np.max(dev_arr[a:b]) <= 0:
+            fixed[a:b] = 0
+        elif v == 0 and np.min(dev_arr[a:b]) >= 0:
+            fixed[a:b] = 1
+    return _dur_filter(fixed, min_dur)
+
+
+def plot_holding(idx, df, rounds, st, png):
+    """近3年窗口: 价格(左轴) + 偏移率多色趋势线(右轴, 绿升红降) + 方案⑤信号点"""
+    t1 = idx['neg80']
+    ths = [t1 * f for f, _ in LAYERS]
+    w = df[df['date'] >= pd.Timestamp('2023-01-01')].reset_index(drop=True)
+    fig, ax1 = plt.subplots(figsize=(14, 8), dpi=120)
+    ax2 = ax1.twinx()
+    # 价格
+    ax1.plot(w['date'], w['close'], color='#333333', lw=1.0, label='指数收盘价', zorder=2)
+    ax1.set_ylabel('指数点位', fontsize=11)
+    # 偏移率多色线
+    colors = _trend_colors(w['dev'].values)
+    xn = mdates.date2num(w['date'])
+    pts = np.array([xn, w['dev'].values]).T.reshape(-1, 1, 2)
+    segs = np.concatenate([pts[:-1], pts[1:]], axis=1)
+    cmap = ListedColormap(['tab:green', 'tab:red'])
+    lc = LineCollection(segs, cmap=cmap, norm=BoundaryNorm([0, 0.5, 1], cmap.N))
+    lc.set_array(colors[:-1]); lc.set_linewidth(1.6)
+    ax2.add_collection(lc)
+    ax2.set_ylim(w['dev'].min() * 1.15, w['dev'].max() * 1.25)
+    ax2.set_ylabel('MA60偏移率 (%)', fontsize=11)
+    # 阈值线
+    ax2.axhline(0, color='#4a90d9', ls=':', lw=1.0, alpha=0.8)
+    line_style = [('-', 'orange', f'首买线 {t1}%', ths[0]),
+                  ('--', 'purple', f'补仓线1(1.5x) {ths[1]:.2f}%', ths[1]),
+                  ('--', 'darkviolet', f'补仓线2(2x) {ths[2]:.2f}%', ths[2]),
+                  ('--', 'indigo', f'补仓线3(3x) {ths[3]:.2f}%', ths[3])]
+    for ls, c, lab, v in line_style:
+        ax2.axhline(v, color=c, ls=ls, lw=1.2, alpha=0.85, label=lab)
+    # 方案⑤信号点(窗口内)
+    n_b = n_s = 0
+    for r in rounds:
+        if r['sell_date'] < w['date'].iloc[0]:
+            continue
+        if r['sell_date'] >= w['date'].iloc[0]:
+            ax2.scatter([r['sell_date']], [r['sell_dev']], marker='v', color='red', s=70, zorder=6,
+                        edgecolors='white', linewidths=0.6)
+            n_s += 1
+        if r['buy_date'] >= w['date'].iloc[0]:
+            ax2.scatter([r['buy_date']], [r['buy_dev']], marker='^', color='green', s=80, zorder=6,
+                        edgecolors='white', linewidths=0.6)
+            n_b += 1
+        for ad, ap, au, adev in r.get('adds_full', []):
+            if ad >= w['date'].iloc[0]:
+                ax2.scatter([ad], [adev], marker='*', color='purple', s=110 + 40 * au, zorder=6,
+                            edgecolors='white', linewidths=0.6)
+                n_b += 1
+    # 当前持仓轮注释框
+    if st['level'] > 0:
+        for j, l in enumerate(st['layers']):
+            d0 = pd.to_datetime(l['date'])
+            if d0 >= w['date'].iloc[0]:
+                row_dev = w[w['date'] <= d0]
+                dv = row_dev['dev'].iloc[-1] if len(row_dev) else None
+                mk = '^' if j == 0 else '*'
+                c = 'green' if j == 0 else 'purple'
+                ax2.annotate(f"{l['date']} {'首买' if j == 0 else f'第{j}次补仓'} {l['units']}份\nP:{l['price']:.0f}",
+                             xy=(d0, dv), xytext=(10, -40 - 25 * j), textcoords='offset points',
+                             fontsize=8, fontweight='bold', color=c,
+                             bbox=dict(boxstyle='round,pad=0.3', fc='honeydew' if j == 0 else 'lavender', ec=c, alpha=0.9),
+                             arrowprops=dict(arrowstyle='->', color=c, lw=1.2))
+    # 最新点
+    ax2.annotate(f"最新 {w['date'].iloc[-1].date()}\n偏移率 {w['dev'].iloc[-1]:+.2f}%",
+                 xy=(w['date'].iloc[-1], w['dev'].iloc[-1]), xytext=(-90, 20 if w['dev'].iloc[-1] < 0 else -40),
+                 textcoords='offset points', fontsize=9, fontweight='bold', color='#333333',
+                 bbox=dict(boxstyle='round,pad=0.3', fc='lightyellow', ec='#333333', alpha=0.9),
+                 arrowprops=dict(arrowstyle='->', color='#333333', lw=1.2))
+    pos = '空仓' if st['level'] == 0 else f"持仓第{st['level']}层(累计{sum(l['units'] for l in st['layers'])}份)"
+    ax1.set_title(f'{idx["name"]} · MA60偏移率 · 方案⑤监控（近3年）  当前: {pos}', fontsize=13, fontweight='bold')
+    ax1.grid(alpha=0.25, ls='--')
+    h1, l1 = ax1.get_legend_handles_labels()
+    h2, l2 = ax2.get_legend_handles_labels()
+    from matplotlib.lines import Line2D
+    h2 += [Line2D([0], [0], color='tab:green', lw=1.6), Line2D([0], [0], color='tab:red', lw=1.6),
+           Line2D([0], [0], marker='^', color='w', markerfacecolor='green', markersize=9),
+           Line2D([0], [0], marker='v', color='w', markerfacecolor='red', markersize=9),
+           Line2D([0], [0], marker='*', color='w', markerfacecolor='purple', markersize=11)]
+    l2 += ['偏移率·上升段', '偏移率·下降段', '首买点', '卖出点', '补仓点']
+    ax1.legend(h1 + h2, l1 + l2, loc='upper left', fontsize=8.5, framealpha=0.85)
+    fig.autofmt_xdate()
+    fig.tight_layout()
+    fig.savefig(png, bbox_inches='tight')
+    plt.close(fig)
+
+
+# ---------------- 推送 ----------------
+def push(content, dry=False):
+    print('----- 推送内容 -----')
+    print(content)
+    print('-------------------')
+    if dry:
+        print('(dry-run, 未推送)')
+        return True
+    for i in range(3):
+        try:
+            r = requests.post(WEBHOOK, json={'msgtype': 'text', 'text': {'content': content}}, timeout=15)
+            resp = r.json()
+            if resp.get('errcode') == 0:
+                print('[push] ✓ 成功')
+                return True
+            print(f'[push] errcode={resp.get("errcode")} {resp.get("errmsg")}')
+        except Exception as e:
+            print(f'[push] 异常: {e}')
+        time.sleep(3)
+    return False
+
+
+def fmt_event(ev):
+    idx = ev['idx']
+    t1 = idx['neg80']
+    d = ev['date'].strftime('%Y-%m-%d')
+    if ev['kind'] == 'BUY':
+        mult = {1: '1倍(首买)', 2: '1.5倍(第2层)', 3: '2倍(第3层)', 4: '3倍(第4层)'}[ev['layer']]
+        return (f'▶ 【买入提醒】{idx["name"]}\n'
+                f'  {d} 收盘偏移率 {ev["dev"]:.2f}%\n'
+                f'  已到达第{ev["layer"]}层买入点（{mult}阈值 {ev["th"]:.2f}%）\n'
+                f'  建议买入仓位：{ev["units"]}份（每份=单位本金）')
+    else:
+        return (f'▶ 【卖出提醒】{idx["name"]}\n'
+                f'  {d} 收盘偏移率 {ev["dev"]:.2f}%（已回到≥0%）\n'
+                f'  建议卖出仓位：全部清仓（共{ev["units"]}份，本轮浮动盈亏 {ev["pnl"]:+.2f}%·单位加权）')
+
+
+def build_message(events, state, latest_rows, today_str, initialized):
+    L = [f'📊 MA60偏移率·方案⑤ 买卖监控日报（{today_str}）', '']
+    if initialized:
+        L.append('（首次运行：已按历史数据回放初始化持仓状态，今日起每日监控）')
+        L.append('')
+    if events:
+        L.append(f'⚠️ 今日触发 {len(events)} 个信号：')
+        L.append('')
+        for ev in events:
+            L.append(fmt_event(ev))
+            L.append('')
+    else:
+        L.append('✅ 今天没有目标指数到达买入点或卖出点。')
+        L.append('')
+    # 仓位状态提醒(即使错过历史信号, 也能从本条获知当前应持有的仓位)
+    holdings = [(idx, state['indices'][idx['key']]) for idx in INDICES if state['indices'][idx['key']]['level'] > 0]
+    if holdings:
+        L.append(f'📌 仓位状态提醒（若已按信号操作，以下指数当前应已持有仓位，共{len(holdings)}个）：')
+        POS_TXT = {
+            1: '应该已经买入仓位（首买1份，累计应持有1份）',
+            2: '应该已经完成第1次补仓（首买1份+补仓2份，累计应持有3份）',
+            3: '应该已经完成第2次补仓（首买1份+补2份+补3份，累计应持有6份）',
+            4: '应该已经完成第3次补仓（首买1份+补2份+补3份+补4份，累计应持有10份）',
+        }
+        for idx, st in holdings:
+            units = sum(l['units'] for l in st['layers'])
+            first = st['layers'][0]['date']
+            lr = latest_rows.get(idx['key'])
+            pos_line = POS_TXT[st['level']]
+            if lr is not None:
+                pnl = sum(l['units'] * (lr['close'] / l['price'] - 1) * 100 for l in st['layers'])
+                L.append(f'  · {idx["name"]}：{pos_line}，{first if isinstance(first, str) else first.strftime("%Y-%m-%d")}首买，最新浮动 {pnl:+.1f}%（单位加权）')
+            else:
+                L.append(f'  · {idx["name"]}：{pos_line}，{first if isinstance(first, str) else first.strftime("%Y-%m-%d")}首买')
+        L.append('  （未列出的指数当前应处于空仓状态）')
+        L.append('')
+    # 全景: 最新偏移率与距离
+    L.append('🌐 12指数偏移率全景（最新收盘）：')
+    for idx in INDICES:
+        lr = latest_rows.get(idx['key'])
+        st = state['indices'][idx['key']]
+        if lr is None:
+            L.append(f'  {idx["name"]}：数据缺失（今日拉取失败，持仓状态仍为最新已确认值）')
+            continue
+        dev = lr['dev']
+        t1 = idx['neg80']
+        nxt = st['level'] + 1 if st['level'] < 4 else None
+        if st['level'] > 0 and nxt:
+            th_next = t1 * LAYERS[nxt - 1][0] if nxt <= 4 else None
+        elif st['level'] == 0:
+            th_next = t1
+        else:
+            th_next = None
+        gap = f'（距下一买点还需再跌 {dev - th_next:.1f}pp）' if th_next is not None and dev > th_next else ''
+        sell_gap = f'（距卖出线还需涨 {0 - dev:.1f}pp）' if st['level'] > 0 else ''
+        pos = f'持{st["level"]}层' if st['level'] > 0 else '空仓'
+        L.append(f'  {idx["name"]}：{dev:+.2f}%（{pos}，neg80={t1}%）{gap}{sell_gap}')
+    L.append('')
+    L.append(NOTICE)
+    L.append('')
+    L.append('⚠️ 数据为最近收盘价口径，仅供参考，不构成投资建议。')
+    text = '\n'.join(L)
+    # 企业微信上限2048字节, 超长分条
+    return text
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--init', action='store_true', help='首次运行: 回放历史初始化状态')
+    ap.add_argument('--dry-run', action='store_true')
+    args = ap.parse_args()
+
+    today_str = str(datetime.date.today())
+    events = []
+    if args.init or not os.path.exists(STATE_FILE):
+        print('[init] 回放历史数据初始化状态...')
+        state = init_state()
+        initialized = True
+    else:
+        state = json.load(open(STATE_FILE))
+        initialized = False
+
+    pro = ts_api()
+    latest_rows = {}
+    for idx in INDICES:
+        st = state['indices'][idx['key']]
+        last = pd.to_datetime(st['last_date'])
+        try:
+            df = load_with_ma60(idx, last, pro)
+        except Exception as e:
+            print(f'[warn] {idx["name"]} 数据拉取失败: {str(e)[:80]} (跳过, 不影响其他指数)')
+            time.sleep(2)
+            continue
+        time.sleep(1.0)
+        if not len(df):
+            print(f'[skip] {idx["name"]}: 无新数据')
+            continue
+        new = df[df['date'] > last]
+        if len(new):
+            for _, row in new.iterrows():
+                step(idx, st, row, events)
+            st['last_date'] = str(new['date'].iloc[-1].date())
+            print(f'[ok] {idx["name"]}: 处理{len(new)}个新交易日, 现level={st["level"]}')
+        latest_rows[idx['key']] = df.iloc[-1]
+        state['indices'][idx['key']] = st
+
+    json.dump(state, open(STATE_FILE, 'w'), ensure_ascii=False, indent=1)
+    print(f'[state] 已保存 -> {STATE_FILE}')
+
+    msg = build_message(events, state, latest_rows, today_str, initialized)
+    push(msg, dry=args.dry_run)
+
+    # 对持仓指数补推折线图(参考Bias warning程序风格)
+    from ma60_backtest_multi import backtest_layers
+    os.makedirs(OUT_DIR, exist_ok=True)
+    hold_keys = [idx for idx in INDICES if state['indices'][idx['key']]['level'] > 0]
+    for idx in hold_keys:
+        try:
+            try:
+                df3 = fetch_recent(idx, '20220801', pro)  # 预热MA60
+            except Exception as ex:
+                cache = os.path.join(CACHE, 'CYB.csv' if idx['key'] == 'SZ399006' else f'{idx["key"]}.csv')
+                print(f'[img] {idx["name"]} 在线拉取失败({str(ex)[:40]}), 回退本地缓存')
+                df3 = pd.read_csv(cache, parse_dates=['date']).sort_values('date')
+                df3 = df3[df3['date'] >= pd.Timestamp('2022-08-01')].reset_index(drop=True)
+            if len(df3) < 70:
+                continue
+            df3['ma60'] = df3['close'].rolling(60).mean()
+            df3['dev'] = (df3['close'] - df3['ma60']) / df3['ma60'] * 100.0
+            d3, rounds3, open3 = backtest_layers(df3, idx['neg80'], LAYERS)
+            rounds3 = [dict(r, sell_dev=d3[d3['date'] == r['sell_date']]['dev'].iloc[0],
+                            buy_dev=d3[d3['date'] == r['buy_date']]['dev'].iloc[0],
+                            adds_full=[(a[0], a[1], a[2],
+                                        d3[d3['date'] == a[0]]['dev'].iloc[0]) for a in r['adds']])
+                       for r in rounds3]
+            png = os.path.join(OUT_DIR, f'{idx["key"]}_hold.png')
+            plot_holding(idx, d3, rounds3, state['indices'][idx['key']], png)
+            print(f'[img] {idx["name"]} 持仓图 ...', end=' ')
+            if not args.dry_run:
+                with open(png, 'rb') as f:
+                    b = f.read()
+                ok = False
+                for _ in range(3):
+                    try:
+                        rr = requests.post(WEBHOOK, json={'msgtype': 'image', 'image': {
+                            'base64': base64.b64encode(b).decode(), 'md5': hashlib.md5(b).hexdigest()}}, timeout=15)
+                        if rr.json().get('errcode') == 0:
+                            ok = True
+                            break
+                    except Exception:
+                        pass
+                    time.sleep(3)
+                print('✓' if ok else '✗')
+                time.sleep(4)
+            else:
+                print('(dry-run)')
+        except Exception as e:
+            print(f'[img] {idx["name"]} 失败: {e}')
+
+
+if __name__ == '__main__':
+    main()

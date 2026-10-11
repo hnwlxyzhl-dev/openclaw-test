@@ -1,0 +1,143 @@
+{
+ "created": "2026-10-11",
+ "indices": {
+  "SH000001": {
+   "level": 0,
+   "layers": [],
+   "rounds": 33,
+   "last_date": "2026-10-09"
+  },
+  "SH000300": {
+   "level": 1,
+   "layers": [
+    {
+     "date": "2026-07-17",
+     "price": 4529.0953,
+     "units": 1
+    }
+   ],
+   "rounds": 29,
+   "last_date": "2026-10-09"
+  },
+  "SH000905": {
+   "level": 3,
+   "layers": [
+    {
+     "date": "2026-07-16",
+     "price": 7955.6635,
+     "units": 1
+    },
+    {
+     "date": "2026-07-17",
+     "price": 7513.7627,
+     "units": 2
+    },
+    {
+     "date": "2026-07-20",
+     "price": 7411.3134,
+     "units": 3
+    }
+   ],
+   "rounds": 27,
+   "last_date": "2026-10-09"
+  },
+  "SH000852": {
+   "level": 0,
+   "layers": [],
+   "rounds": 30,
+   "last_date": "2026-10-09"
+  },
+  "SH000015": {
+   "level": 0,
+   "layers": [],
+   "rounds": 29,
+   "last_date": "2026-10-09"
+  },
+  "SZ399006": {
+   "level": 3,
+   "layers": [
+    {
+     "date": "2026-07-17",
+     "price": 3428.63,
+     "units": 1
+    },
+    {
+     "date": "2026-07-17",
+     "price": 3428.63,
+     "units": 2
+    },
+    {
+     "date": "2026-07-30",
+     "price": 3244.62,
+     "units": 3
+    }
+   ],
+   "rounds": 24,
+   "last_date": "2026-10-09"
+  },
+  "SH000680": {
+   "level": 3,
+   "layers": [
+    {
+     "date": "2026-07-17",
+     "price": 1938.7662,
+     "units": 1
+    },
+    {
+     "date": "2026-07-28",
+     "price": 1871.397,
+     "units": 2
+    },
+    {
+     "date": "2026-07-30",
+     "price": 1755.2189,
+     "units": 3
+    }
+   ],
+   "rounds": 12,
+   "last_date": "2026-10-09"
+  },
+  "IXIC": {
+   "level": 0,
+   "layers": [],
+   "rounds": 19,
+   "last_date": "2026-10-09"
+  },
+  "DJI": {
+   "level": 0,
+   "layers": [],
+   "rounds": 25,
+   "last_date": "2026-10-09"
+  },
+  "HSI": {
+   "level": 1,
+   "layers": [
+    {
+     "date": "2026-10-08",
+     "price": 23785.79,
+     "units": 1
+    }
+   ],
+   "rounds": 35,
+   "last_date": "2026-10-09"
+  },
+  "HSTECH": {
+   "level": 1,
+   "layers": [
+    {
+     "date": "2026-09-29",
+     "price": 4249.62,
+     "units": 1
+    }
+   ],
+   "rounds": 21,
+   "last_date": "2026-10-09"
+  },
+  "N225": {
+   "level": 0,
+   "layers": [],
+   "rounds": 37,
+   "last_date": "2026-10-09"
+  }
+ }
+}

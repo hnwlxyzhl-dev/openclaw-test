@@ -46,18 +46,18 @@ OUT_DIR = os.path.join(WORKDIR, 'data', 'bias_alert_out')
 WEBHOOK = 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=a8d15114-508f-4e7a-89f8-ff4345040e5c'
 
 INDICES = [
-    dict(key='SH000001', name='上证指数',   src='cn', ts='000001.SH', neg80=-3.85),
-    dict(key='SH000300', name='沪深300',   src='cn', ts='000300.SH', neg80=-4.53),
-    dict(key='SH000905', name='中证500',   src='cn', ts='000905.SH', neg80=-5.93),
-    dict(key='SH000852', name='中证1000',  src='cn', ts='000852.SH', neg80=-6.75),
-    dict(key='SH000015', name='红利指数',   src='cn', ts='000015.SH', neg80=-4.29),
-    dict(key='SZ399006', name='创业板指',   src='cn', ts='399006.SZ', neg80=-7.88),
-    dict(key='SH000680', name='科创综指',   src='cn', ts='000680.SH', neg80=-8.21),
-    dict(key='IXIC',    name='纳斯达克指数', src='intl', ts='IXIC',  neg80=-5.75),
-    dict(key='DJI',     name='道琼斯指数',  src='intl', ts='DJI',   neg80=-3.78),
-    dict(key='HSI',     name='恒生指数',    src='intl', ts='HSI',   neg80=-5.23),
-    dict(key='HSTECH',  name='恒生科技指数', src='intl', ts='HKTECH', neg80=-8.01),
-    dict(key='N225',    name='日经225指数', src='intl', ts='N225',  neg80=-3.99),
+    dict(key='SH000001', name='上证指数',   src='cn', ts='000001.SH', neg80=-3.85, pos80=4.70),
+    dict(key='SH000300', name='沪深300',   src='cn', ts='000300.SH', neg80=-4.53, pos80=5.91),
+    dict(key='SH000905', name='中证500',   src='cn', ts='000905.SH', neg80=-5.93, pos80=9.52),
+    dict(key='SH000852', name='中证1000',  src='cn', ts='000852.SH', neg80=-6.75, pos80=8.40),
+    dict(key='SH000015', name='红利指数',   src='cn', ts='000015.SH', neg80=-4.29, pos80=4.31),
+    dict(key='SZ399006', name='创业板指',   src='cn', ts='399006.SZ', neg80=-7.88, pos80=14.19),
+    dict(key='SH000680', name='科创综指',   src='cn', ts='000680.SH', neg80=-8.21, pos80=13.01),
+    dict(key='IXIC',    name='纳斯达克指数', src='intl', ts='IXIC',  neg80=-5.75, pos80=7.47),
+    dict(key='DJI',     name='道琼斯指数',  src='intl', ts='DJI',   neg80=-3.78, pos80=4.15),
+    dict(key='HSI',     name='恒生指数',    src='intl', ts='HSI',   neg80=-5.23, pos80=8.30),
+    dict(key='HSTECH',  name='恒生科技指数', src='intl', ts='HKTECH', neg80=-8.01, pos80=12.60),
+    dict(key='N225',    name='日经225指数', src='intl', ts='N225',  neg80=-3.99, pos80=8.21),
 ]
 LAYERS = [(1.0, 1), (1.5, 2), (2.0, 3), (3.0, 4)]  # (阈值系数, 金额单位)
 
@@ -71,7 +71,10 @@ NOTICE = (
     '6.如果是在急跌阶段，并且偏移率很大了，那么可以等一等止跌再买入。\n'
     '7.下行阶段（指数自高点回撤≥20%的熊市波段）中，大盘指数（沪深300、上证指数、红利指数等）本策略历史收益率差：'
     '2010-2026回测显示下行段内上证-125.4%、沪深300-46.8%、红利-42.9%，其余9个指数均盈利。'
-    '原因是阴跌市中MA60持续下移，"回到均线清仓"往往卖在更低的点位。此类指数在下行阶段的买入信号宜降低层数或谨慎参与。'
+    '原因是阴跌市中MA60持续下移，"回到均线清仓"往往卖在更低的点位。此类指数在下行阶段的买入信号宜降低层数或谨慎参与。\n'
+    '8.根据偏移率进行买卖决策时，使用最近的偏移率进行参考（以最新收盘数据为准，不要用过时的偏移率水平做判断）。\n'
+    '9.每天准备买卖前，先参考韩股和日股的走势（两者开盘早于A股，可作当日先行指标），'
+    '据此预判当日各指数可能下跌或上涨的幅度，再决定具体的买卖点位和是否调整买卖阈值。'
 )
 
 
@@ -241,6 +244,10 @@ def plot_holding(idx, df, rounds, st, png):
                   ('--', 'indigo', f'补仓线3(3x) {ths[3]:.2f}%', ths[3])]
     for ls, c, lab, v in line_style:
         ax2.axhline(v, color=c, ls=ls, lw=1.2, alpha=0.85, label=lab)
+    # 正80%分位线(卖出警示, 口径同源: 正偏移日80%分位)
+    if 'pos80' in idx:
+        ax2.axhline(idx['pos80'], color='darkorange', ls='-.', lw=1.2, alpha=0.85,
+                    label=f"正80%线 {idx['pos80']}%")
     # 方案⑤信号点(窗口内)
     n_b = n_s = 0
     for r in rounds:

@@ -43,7 +43,7 @@ _只有精炼的规则。详细操作文档见 TOOLS.md。_
 
 15. **Agent 不响应的排查路径**：`sessions_list` → `sessions_history` 查最后消息 → 确认是否卡在轮询死循环（后台进程挂掉但一直在 poll 等待）。
 16. **重置会话文件的完整流程**：备份会话文件（mv 加 `.reset.` 后缀）→ `openclaw sessions cleanup --agent <id> --fix-missing --enforce` → 用 `sessions_send` 发新消息触发 Gateway 重建会话（磁盘重置后 Gateway 内存仍有旧缓存，`gateway restart` 可能超时，sessions_send 更轻量可靠）。
-17. **更换飞书 app 凭据后 open_id 全部失效**：open_id 与签发 app 绑定，换 app 后 cron announce / 投递目标里存的旧 `ou_xxx` 会报 400（code 99992361 open_id cross app），消息进 delivery-queue 无限重试。排查：`~/.openclaw/delivery-queue/` 积压 + 日志 grep `delivery failed`（注意：错误行不一定带 "cross app" 字样）。修复：让老板给 Eden 发条飞书消息，从入站事件拿当前 app 的正确 open_id 重建目标；不需要通知则直接关 announce。修复后清理队列僵尸消息。
+17. **飞书投递目标以 ou_ 规范线为准**：10-14 实测 om_x100b 系 open_id 报 400（直发 + 队列均失败），而 `ou_5984d8f20adcac5cc0ee74bf3dae2c54` 直达成功——现行有效投递目标为该 ou_ 规范线；om_ 系按消息上下文签发、易变，**不作长期投递目标**。历史教训（2026-09-06）：更换飞书 app 凭据后旧 open_id 全部失效，报 400（code 99992361 open_id cross app），消息进 delivery-queue 无限重试。排查：`~/.openclaw/delivery-queue/` 积压 + 日志 grep `delivery failed`。修复：换用当前有效 open_id 重建目标；修复后清理队列僵尸（mv 到 .removed/ 留档）。
 
 ## Notes
 
@@ -59,3 +59,4 @@ _只有精炼的规则。详细操作文档见 TOOLS.md。_
 - 维护: 2026-09-26（规则19 增补：Chrome 缓冲归零 → 21:17 晚间二波直杀网关（~690MB），边界带 ~630-700，零缓冲期从严；已告警老板 A/B 待批，见 memory/2026-09-26）
 - 维护: 2026-09-29（规则19 补注 09-28 双杀链实证：波峰中重启必死 / B 兜底中断预期 15-25min / 新发现 01:00 档批任务，见 memory/2026-09-28）
 - 维护: 2026-09-28（规则19 增补 09-28 双杀日五条实测：波峰中重启必死/波大小定生死/三拉成功条件/击杀清队重置基线/借道通道不受网关死亡影响；详见 memory/2026-09-28）
+- 维护: 2026-10-14（规则 17 修正：om_ 系 open_id 失效实证、ou_5984d8f20adcac5cc0ee74bf3dae2c54 规范线为现行有效投递目标，见 memory/2026-10-14）

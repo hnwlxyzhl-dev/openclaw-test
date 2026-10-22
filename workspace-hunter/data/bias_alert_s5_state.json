@@ -11,10 +11,10 @@
     }
    ],
    "rounds": 33,
-   "last_date": "2026-10-21"
+   "last_date": "2026-10-22"
   },
   "SH000300": {
-   "level": 2,
+   "level": 3,
    "layers": [
     {
      "date": "2026-07-17",
@@ -25,10 +25,15 @@
      "date": "2026-10-14",
      "price": 4217.6801,
      "units": 2
+    },
+    {
+     "date": "2026-10-22",
+     "price": 4036.2966,
+     "units": 3
     }
    ],
    "rounds": 29,
-   "last_date": "2026-10-21"
+   "last_date": "2026-10-22"
   },
   "SH000905": {
    "level": 3,
@@ -50,7 +55,7 @@
     }
    ],
    "rounds": 27,
-   "last_date": "2026-10-21"
+   "last_date": "2026-10-22"
   },
   "SH000852": {
    "level": 2,
@@ -67,13 +72,13 @@
     }
    ],
    "rounds": 30,
-   "last_date": "2026-10-21"
+   "last_date": "2026-10-22"
   },
   "SH000015": {
    "level": 0,
    "layers": [],
    "rounds": 29,
-   "last_date": "2026-10-21"
+   "last_date": "2026-10-22"
   },
   "SZ399006": {
    "level": 3,
@@ -95,7 +100,7 @@
     }
    ],
    "rounds": 24,
-   "last_date": "2026-10-21"
+   "last_date": "2026-10-22"
   },
   "SH000680": {
    "level": 3,
@@ -117,49 +122,65 @@
     }
    ],
    "rounds": 12,
-   "last_date": "2026-10-21"
+   "last_date": "2026-10-22"
   },
   "IXIC": {
    "level": 0,
    "layers": [],
    "rounds": 19,
-   "last_date": "2026-10-20"
+   "last_date": "2026-10-21"
   },
   "DJI": {
    "level": 0,
    "layers": [],
    "rounds": 25,
-   "last_date": "2026-10-20"
+   "last_date": "2026-10-21"
   },
   "HSI": {
-   "level": 1,
+   "level": 2,
    "layers": [
     {
      "date": "2026-10-08",
      "price": 23785.79,
      "units": 1
+    },
+    {
+     "date": "2026-10-22",
+     "price": 22934.68,
+     "units": 2
     }
    ],
    "rounds": 35,
-   "last_date": "2026-10-21"
+   "last_date": "2026-10-22"
   },
   "HSTECH": {
-   "level": 1,
+   "level": 2,
    "layers": [
     {
      "date": "2026-09-29",
      "price": 4249.62,
      "units": 1
+    },
+    {
+     "date": "2026-10-22",
+     "price": 3793.93,
+     "units": 2
     }
    ],
    "rounds": 21,
-   "last_date": "2026-10-21"
+   "last_date": "2026-10-22"
   },
   "N225": {
-   "level": 0,
-   "layers": [],
+   "level": 1,
+   "layers": [
+    {
+     "date": "2026-10-22",
+     "price": 62907.84,
+     "units": 1
+    }
+   ],
    "rounds": 37,
-   "last_date": "2026-10-21"
+   "last_date": "2026-10-22"
   }
  }
 }

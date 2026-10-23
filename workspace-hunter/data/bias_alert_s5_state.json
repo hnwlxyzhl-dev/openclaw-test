@@ -11,7 +11,7 @@
     }
    ],
    "rounds": 33,
-   "last_date": "2026-10-22"
+   "last_date": "2026-10-23"
   },
   "SH000300": {
    "level": 3,
@@ -33,7 +33,7 @@
     }
    ],
    "rounds": 29,
-   "last_date": "2026-10-22"
+   "last_date": "2026-10-23"
   },
   "SH000905": {
    "level": 3,
@@ -55,7 +55,7 @@
     }
    ],
    "rounds": 27,
-   "last_date": "2026-10-22"
+   "last_date": "2026-10-23"
   },
   "SH000852": {
    "level": 2,
@@ -72,13 +72,13 @@
     }
    ],
    "rounds": 30,
-   "last_date": "2026-10-22"
+   "last_date": "2026-10-23"
   },
   "SH000015": {
    "level": 0,
    "layers": [],
    "rounds": 29,
-   "last_date": "2026-10-22"
+   "last_date": "2026-10-23"
   },
   "SZ399006": {
    "level": 3,
@@ -100,7 +100,7 @@
     }
    ],
    "rounds": 24,
-   "last_date": "2026-10-22"
+   "last_date": "2026-10-23"
   },
   "SH000680": {
    "level": 3,
@@ -122,19 +122,19 @@
     }
    ],
    "rounds": 12,
-   "last_date": "2026-10-22"
+   "last_date": "2026-10-23"
   },
   "IXIC": {
    "level": 0,
    "layers": [],
    "rounds": 19,
-   "last_date": "2026-10-21"
+   "last_date": "2026-10-22"
   },
   "DJI": {
    "level": 0,
    "layers": [],
    "rounds": 25,
-   "last_date": "2026-10-21"
+   "last_date": "2026-10-22"
   },
   "HSI": {
    "level": 2,
@@ -151,7 +151,7 @@
     }
    ],
    "rounds": 35,
-   "last_date": "2026-10-22"
+   "last_date": "2026-10-23"
   },
   "HSTECH": {
    "level": 2,
@@ -168,7 +168,7 @@
     }
    ],
    "rounds": 21,
-   "last_date": "2026-10-22"
+   "last_date": "2026-10-23"
   },
   "N225": {
    "level": 1,
@@ -180,7 +180,7 @@
     }
    ],
    "rounds": 37,
-   "last_date": "2026-10-22"
+   "last_date": "2026-10-23"
   }
  }
 }
